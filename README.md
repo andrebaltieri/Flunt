@@ -19,3 +19,6 @@ Install-Package Flunt
 Just check our Wiki
 
 https://github.com/andrebaltieri/Flunt/wiki
+
+# About the Art
+All logo, icons, colors and fonts were provided with love by Gregory Buso
