@@ -1,4 +1,4 @@
-![Flunt](https://github.com/andrebaltieri/flunt/blob/master/media/flunt-horizontal.png?raw=true =250)
+![Flunt](https://raw.githubusercontent.com/andrebaltieri/flunt/master/media/flunt-horizontal.png =100x20)
 
 # Flunt
 Flunt is a fluent way to use Notification Pattern with your entities
