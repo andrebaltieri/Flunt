@@ -1,8 +1,8 @@
 namespace Flunt.Validations
 {
-    public partial class ValidationContract
+    public partial class Contract
     {
-        public ValidationContract IsTrue(bool val, string property, string message)
+        public Contract IsTrue(bool val, string property, string message)
         {
             if (!val)
                 AddNotification(property, message);
@@ -10,7 +10,7 @@ namespace Flunt.Validations
             return this;
         }
 
-        public ValidationContract IsFalse(bool val, string property, string message)
+        public Contract IsFalse(bool val, string property, string message)
         {
             if (val)
                 AddNotification(property, message);

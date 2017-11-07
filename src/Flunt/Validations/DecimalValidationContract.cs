@@ -1,9 +1,9 @@
 ﻿namespace Flunt.Validations
 {
-    public partial class ValidationContract
+    public partial class Contract
     {
         #region IsGreaterThan
-        public ValidationContract IsGreaterThan(decimal val, decimal comparer, string property, string message)
+        public Contract IsGreaterThan(decimal val, decimal comparer, string property, string message)
         {
             if (val <= comparer)
                 AddNotification(property, message);
@@ -11,7 +11,7 @@
             return this;
         }
 
-        public ValidationContract IsGreaterThan(double val, decimal comparer, string property, string message)
+        public Contract IsGreaterThan(double val, decimal comparer, string property, string message)
         {
             if (val <= (double)comparer)
                 AddNotification(property, message);
@@ -19,7 +19,7 @@
             return this;
         }
 
-        public ValidationContract IsGreaterThan(float val, decimal comparer, string property, string message)
+        public Contract IsGreaterThan(float val, decimal comparer, string property, string message)
         {
             if (val <= (float)comparer)
                 AddNotification(property, message);
@@ -27,7 +27,7 @@
             return this;
         }
 
-        public ValidationContract IsGreaterThan(int val, decimal comparer, string property, string message)
+        public Contract IsGreaterThan(int val, decimal comparer, string property, string message)
         {
             if (val <= comparer)
                 AddNotification(property, message);
@@ -37,7 +37,7 @@
         #endregion
 
         #region IsGreaterOrEqualsThan
-        public ValidationContract IsGreaterOrEqualsThan(decimal val, decimal comparer, string property, string message)
+        public Contract IsGreaterOrEqualsThan(decimal val, decimal comparer, string property, string message)
         {
             if (val < comparer)
                 AddNotification(property, message);
@@ -45,7 +45,7 @@
             return this;
         }
 
-        public ValidationContract IsGreaterOrEqualsThan(double val, decimal comparer, string property, string message)
+        public Contract IsGreaterOrEqualsThan(double val, decimal comparer, string property, string message)
         {
             if (val < (double)comparer)
                 AddNotification(property, message);
@@ -53,7 +53,7 @@
             return this;
         }
 
-        public ValidationContract IsGreaterOrEqualsThan(float val, decimal comparer, string property, string message)
+        public Contract IsGreaterOrEqualsThan(float val, decimal comparer, string property, string message)
         {
             if (val < (float)comparer)
                 AddNotification(property, message);
@@ -61,7 +61,7 @@
             return this;
         }
 
-        public ValidationContract IsGreaterOrEqualsThan(int val, decimal comparer, string property, string message)
+        public Contract IsGreaterOrEqualsThan(int val, decimal comparer, string property, string message)
         {
             if (val < comparer)
                 AddNotification(property, message);
@@ -71,7 +71,7 @@
         #endregion
 
         #region IsLowerThan
-        public ValidationContract IsLowerThan(decimal val, decimal comparer, string property, string message)
+        public Contract IsLowerThan(decimal val, decimal comparer, string property, string message)
         {
             if (val >= comparer)
                 AddNotification(property, message);
@@ -79,7 +79,7 @@
             return this;
         }
 
-        public ValidationContract IsLowerThan(double val, decimal comparer, string property, string message)
+        public Contract IsLowerThan(double val, decimal comparer, string property, string message)
         {
             if (val >= (double)comparer)
                 AddNotification(property, message);
@@ -87,7 +87,7 @@
             return this;
         }
 
-        public ValidationContract IsLowerThan(float val, decimal comparer, string property, string message)
+        public Contract IsLowerThan(float val, decimal comparer, string property, string message)
         {
             if (val >= (float)comparer)
                 AddNotification(property, message);
@@ -95,7 +95,7 @@
             return this;
         }
 
-        public ValidationContract IsLowerThan(int val, decimal comparer, string property, string message)
+        public Contract IsLowerThan(int val, decimal comparer, string property, string message)
         {
             if (val >= comparer)
                 AddNotification(property, message);
@@ -105,7 +105,7 @@
         #endregion
 
         #region IsLowerOrEqualsThan
-        public ValidationContract IsLowerOrEqualsThan(decimal val, decimal comparer, string property, string message)
+        public Contract IsLowerOrEqualsThan(decimal val, decimal comparer, string property, string message)
         {
             if (val > comparer)
                 AddNotification(property, message);
@@ -113,7 +113,7 @@
             return this;
         }
 
-        public ValidationContract IsLowerOrEqualsThan(double val, decimal comparer, string property, string message)
+        public Contract IsLowerOrEqualsThan(double val, decimal comparer, string property, string message)
         {
             if (val > (double)comparer)
                 AddNotification(property, message);
@@ -121,7 +121,7 @@
             return this;
         }
 
-        public ValidationContract IsLowerOrEqualsThan(float val, decimal comparer, string property, string message)
+        public Contract IsLowerOrEqualsThan(float val, decimal comparer, string property, string message)
         {
             if (val > (float)comparer)
                 AddNotification(property, message);
@@ -129,7 +129,7 @@
             return this;
         }
 
-        public ValidationContract IsLowerOrEqualsThan(int val, decimal comparer, string property, string message)
+        public Contract IsLowerOrEqualsThan(int val, decimal comparer, string property, string message)
         {
             if (val > comparer)
                 AddNotification(property, message);
@@ -139,7 +139,7 @@
         #endregion
 
         #region AreEquals
-        public ValidationContract AreEquals(decimal val, decimal comparer, string property, string message)
+        public Contract AreEquals(decimal val, decimal comparer, string property, string message)
         {
             if (val != comparer)
                 AddNotification(property, message);
@@ -147,7 +147,7 @@
             return this;
         }
 
-        public ValidationContract AreEquals(double val, decimal comparer, string property, string message)
+        public Contract AreEquals(double val, decimal comparer, string property, string message)
         {
             if (val != (double)comparer)
                 AddNotification(property, message);
@@ -155,7 +155,7 @@
             return this;
         }
 
-        public ValidationContract AreEquals(float val, decimal comparer, string property, string message)
+        public Contract AreEquals(float val, decimal comparer, string property, string message)
         {
             if (val != (float)comparer)
                 AddNotification(property, message);
@@ -163,7 +163,7 @@
             return this;
         }
 
-        public ValidationContract AreEquals(int val, decimal comparer, string property, string message)
+        public Contract AreEquals(int val, decimal comparer, string property, string message)
         {
             if (val != comparer)
                 AddNotification(property, message);
@@ -173,7 +173,7 @@
         #endregion
 
         #region AreNotEquals
-        public ValidationContract AreNotEquals(decimal val, decimal comparer, string property, string message)
+        public Contract AreNotEquals(decimal val, decimal comparer, string property, string message)
         {
             if (val == comparer)
                 AddNotification(property, message);
@@ -181,7 +181,7 @@
             return this;
         }
 
-        public ValidationContract AreNotEquals(double val, decimal comparer, string property, string message)
+        public Contract AreNotEquals(double val, decimal comparer, string property, string message)
         {
             if (val == (double)comparer)
                 AddNotification(property, message);
@@ -189,7 +189,7 @@
             return this;
         }
 
-        public ValidationContract AreNotEquals(float val, decimal comparer, string property, string message)
+        public Contract AreNotEquals(float val, decimal comparer, string property, string message)
         {
             if (val == (float)comparer)
                 AddNotification(property, message);
@@ -197,7 +197,7 @@
             return this;
         }
 
-        public ValidationContract AreNotEquals(int val, decimal comparer, string property, string message)
+        public Contract AreNotEquals(int val, decimal comparer, string property, string message)
         {
             if (val == comparer)
                 AddNotification(property, message);
@@ -207,7 +207,7 @@
         #endregion
 
         #region Between
-        public ValidationContract IsBetween(decimal val, decimal from, decimal to, string property, string message)
+        public Contract IsBetween(decimal val, decimal from, decimal to, string property, string message)
         {
             if (!(val > from && val < to))
                 AddNotification(property, message);

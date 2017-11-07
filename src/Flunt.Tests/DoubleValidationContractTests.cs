@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Flunt.Tests
 {
     [TestClass]
-    public class DoubleValidationContractTests
+    public class DoubleContractTests
     {              
         [TestMethod]
         [TestCategory("DoubleValidation")]
@@ -14,7 +14,7 @@ namespace Flunt.Tests
             double from = 50.000;
             double to = 59.999;
 
-            var wrong = new ValidationContract()
+            var wrong = new Contract()
                 .Requires()
                 .IsBetween(value, from, to, "double", "The value 49.999 must be between 50.000 and 59.999");
 
@@ -25,7 +25,7 @@ namespace Flunt.Tests
             from = 1250.00;
             to = 1299.99;
 
-            var right = new ValidationContract()
+            var right = new Contract()
                 .Requires()
                 .IsBetween(value, from, to, "double", "The value 1250.01 is between 1000.01 and 1299.99");
 

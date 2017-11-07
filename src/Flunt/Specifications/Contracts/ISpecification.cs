@@ -4,6 +4,6 @@ namespace Flunt.Specifications
 {
     public interface ISpecification
     {
-        ValidationContract Contract { get; }
+        Contract Contract { get; }
     }
 }

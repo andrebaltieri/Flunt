@@ -2,9 +2,9 @@
 
 namespace Flunt.Validations
 {
-    public partial class ValidationContract
+    public partial class Contract
     {
-        public ValidationContract IsGreaterThan(DateTime val, DateTime comparer, string property, string message)
+        public Contract IsGreaterThan(DateTime val, DateTime comparer, string property, string message)
         {
             if (val <= comparer)
                 AddNotification(property, message);
@@ -12,7 +12,7 @@ namespace Flunt.Validations
             return this;
         }
 
-        public ValidationContract IsGreaterOrEqualsThan(DateTime val, DateTime comparer, string property, string message)
+        public Contract IsGreaterOrEqualsThan(DateTime val, DateTime comparer, string property, string message)
         {
             if (val < comparer)
                 AddNotification(property, message);
@@ -20,7 +20,7 @@ namespace Flunt.Validations
             return this;
         }
 
-        public ValidationContract IsLowerThan(DateTime val, DateTime comparer, string property, string message)
+        public Contract IsLowerThan(DateTime val, DateTime comparer, string property, string message)
         {
             if (val >= comparer)
                 AddNotification(property, message);
@@ -28,7 +28,7 @@ namespace Flunt.Validations
             return this;
         }
 
-        public ValidationContract IsLowerOrEqualsThan(DateTime val, DateTime comparer, string property, string message)
+        public Contract IsLowerOrEqualsThan(DateTime val, DateTime comparer, string property, string message)
         {
             if (val > comparer)
                 AddNotification(property, message);
@@ -36,7 +36,7 @@ namespace Flunt.Validations
             return this;
         }
 
-        public ValidationContract IsBetween(DateTime val, DateTime from, DateTime to, string property, string message)
+        public Contract IsBetween(DateTime val, DateTime from, DateTime to, string property, string message)
         {
             if (!(val > from && val < to))
                 AddNotification(property, message);

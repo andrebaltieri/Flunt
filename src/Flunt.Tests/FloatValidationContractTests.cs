@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Flunt.Tests
 {
     [TestClass]
-    public class FloatValidationContractTests
+    public class FloatContractTests
     {               
         [TestMethod]
         [TestCategory("FloatValidation")]
@@ -14,7 +14,7 @@ namespace Flunt.Tests
             float from = -1.000F;
             float to = 1.999F;
 
-            var wrong = new ValidationContract()
+            var wrong = new Contract()
                 .Requires()
                 .IsBetween(value, from, to, "float", "The value -15 must be between -1.000 and 1.999");
 
@@ -25,7 +25,7 @@ namespace Flunt.Tests
             from = float.MinValue;
             to = float.MaxValue;
 
-            var right = new ValidationContract()
+            var right = new Contract()
                 .Requires()
                 .IsBetween(value, from, to, "float", $"The value 0 is between {from} and {to}");
 

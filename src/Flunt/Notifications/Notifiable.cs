@@ -7,10 +7,9 @@ namespace Flunt.Notifications
     {
         private readonly List<Notification> _notifications;
 
-        protected Notifiable() { _notifications = new List<Notification>(); }
+        protected Notifiable() => _notifications = new List<Notification>();
 
-        public IReadOnlyCollection<Notification> Notifications =>
-            new List<Notification>(_notifications).Concat(GetNotificationsFromValidations()).ToList();
+        public IReadOnlyCollection<Notification> Notifications { get { return _notifications; } }
 
         public void AddNotification(string property, string message)
         {
@@ -48,14 +47,7 @@ namespace Flunt.Notifications
                 AddNotifications(item);
         }
 
-        protected virtual IEnumerable<Notification> Validations() => null;
-
-        private IEnumerable<Notification> GetNotificationsFromValidations()
-        {
-            return Validations() ?? new List<Notification>();
-        }
-
-        public bool Invalid => _notifications.Any() || GetNotificationsFromValidations().Any();
+        public bool Invalid => _notifications.Any();
         public bool Valid => !Invalid;
     }
 }

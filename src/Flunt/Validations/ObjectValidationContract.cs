@@ -1,8 +1,8 @@
 ﻿namespace Flunt.Validations
 {
-    public partial class ValidationContract
+    public partial class Contract
     {
-        public ValidationContract IsNull(object obj, string property, string message)
+        public Contract IsNull(object obj, string property, string message)
         {
             if (obj != null)
                 AddNotification(property, message);
@@ -10,7 +10,7 @@
             return this;
         }
 
-        public ValidationContract IsNotNull(object obj, string property, string message)
+        public Contract IsNotNull(object obj, string property, string message)
         {
             if (obj == null)
                 AddNotification(property, message);
@@ -18,7 +18,7 @@
             return this;
         }
 
-        public ValidationContract AreEquals(object obj, object comparer, string property, string message)
+        public Contract AreEquals(object obj, object comparer, string property, string message)
         {
             if (obj != comparer)
                 AddNotification(property, message);
@@ -26,7 +26,7 @@
             return this;
         }
 
-        public ValidationContract AreNotEquals(object obj, object comparer, string property, string message)
+        public Contract AreNotEquals(object obj, object comparer, string property, string message)
         {
             if (obj == comparer)
                 AddNotification(property, message);

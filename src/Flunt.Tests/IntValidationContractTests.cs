@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Flunt.Tests
 {
     [TestClass]
-    public class IntValidationContractTests
+    public class IntContractTests
     {  
         [TestMethod]
         [TestCategory("IntValidation")]
@@ -14,7 +14,7 @@ namespace Flunt.Tests
             int from = 1;
             int to = 10;
 
-            var wrong = new ValidationContract()
+            var wrong = new Contract()
                 .Requires()
                 .IsBetween(value, from, to, "int", "The value 11 must be between 1 and 10");
 
@@ -25,7 +25,7 @@ namespace Flunt.Tests
             from = 1;
             to = 10;
 
-            var right = new ValidationContract()
+            var right = new Contract()
                 .Requires()
                 .IsBetween(5, 1, 10, "int", "The value 5 is between 1 and 10");
 
