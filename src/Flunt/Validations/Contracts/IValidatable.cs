@@ -2,6 +2,6 @@ namespace Flunt.Validations
 {
     public interface IValidatable
     {
-        bool Valid { get; }
+        void Validate();
     }
 }
