@@ -13,5 +13,6 @@ namespace Fluent.Tests.Entities
         public object objectProp { get; set; }
         public string stringProp { get; set; }
         public DateTime dateTimeProp {get;set;}
+        public Guid guidProp {get;set;}
     }
 }
