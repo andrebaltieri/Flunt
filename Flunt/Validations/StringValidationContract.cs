@@ -30,7 +30,7 @@ namespace Flunt.Validations
 
         public Contract HasMaxLen(string val, int max, string property, string message)
         {
-            if (string.IsNullOrEmpty(val) || val.Length > max)
+            if (string.IsNullOrEmpty(val) || val.Length > max) 
                 AddNotification(property, message);
 
             return this;
