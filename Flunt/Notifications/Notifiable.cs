@@ -5,7 +5,7 @@ namespace Flunt.Notifications
 {
     public abstract class Notifiable
     {
-        private readonly List<Notification> _notifications;
+        private List<Notification> _notifications;
 
         protected Notifiable() => _notifications = new List<Notification>();
 
@@ -18,26 +18,41 @@ namespace Flunt.Notifications
 
         public void AddNotification(Notification notification)
         {
+            if (_notifications == null)
+                _notifications = new List<Notification>();
+
             _notifications.Add(notification);
         }
 
         public void AddNotifications(IReadOnlyCollection<Notification> notifications)
         {
+            if (_notifications == null)
+                _notifications = new List<Notification>();
+
             _notifications.AddRange(notifications);
         }
 
         public void AddNotifications(IList<Notification> notifications)
         {
+            if (_notifications == null)
+                _notifications = new List<Notification>();
+
             _notifications.AddRange(notifications);
         }
 
         public void AddNotifications(ICollection<Notification> notifications)
         {
+            if (_notifications == null)
+                _notifications = new List<Notification>();
+
             _notifications.AddRange(notifications);
         }
 
         public void AddNotifications(Notifiable item)
         {
+            if (_notifications == null)
+                _notifications = new List<Notification>();
+
             AddNotifications(item.Notifications);
         }
 
