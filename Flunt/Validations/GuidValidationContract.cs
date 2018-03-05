@@ -21,5 +21,21 @@ namespace Flunt.Validations
 
             return this;
         }
+
+        public Contract IsEmpty(Guid val, string property, string message)
+        {
+            if (val != Guid.Empty)
+                AddNotification(property, message);
+
+            return this;
+        }
+
+        public Contract IsNotEmpty(Guid val, string property, string message)
+        {
+            if (val == Guid.Empty)
+                AddNotification(property, message);
+
+            return this;
+        }
     }
 }
