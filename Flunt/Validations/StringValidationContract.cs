@@ -22,7 +22,7 @@ namespace Flunt.Validations
 
         public Contract HasMinLen(string val, int min, string property, string message)
         {
-            if (val.Length < min)
+            if (string.IsNullOrEmpty(val) || val.Length < min)
                 AddNotification(property, message);
 
             return this;
@@ -30,7 +30,7 @@ namespace Flunt.Validations
 
         public Contract HasMaxLen(string val, int max, string property, string message)
         {
-            if (val.Length > max)
+            if (string.IsNullOrEmpty(val) || val.Length > max) 
                 AddNotification(property, message);
 
             return this;
@@ -38,7 +38,7 @@ namespace Flunt.Validations
 
         public Contract HasLen(string val, int len, string property, string message)
         {
-            if (val.Length != len)
+            if (string.IsNullOrEmpty(val) || val.Length != len)
                 AddNotification(property, message);
 
             return this;
