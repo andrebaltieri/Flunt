@@ -106,5 +106,13 @@ namespace Flunt.Validations
 
             return this;
         }
+
+        public Contract IsDigit(string text, string property, string message)
+        {
+            const string pattern = @"^\d+$";
+            return Matchs(text, pattern, property, message);
+        }
+
+
     }
 }

@@ -191,5 +191,25 @@ namespace Flunt.Tests
 
             Assert.AreEqual(true, right.Valid);
         }
+
+        [TestMethod]
+        [TestCategory("StringValidation")]
+        public void IsDigit()
+        {
+            var wrong = new Contract()
+                .Requires()
+                .IsDigit("asdfa989798", "string", "String must have digits only");
+
+            Assert.AreEqual(false, wrong.Valid);
+            Assert.AreEqual(1, wrong.Notifications.Count);
+
+            var right = new Contract()
+                .Requires()
+                .IsDigit("1234567890", "string", "String must have digits only");
+
+            Assert.AreEqual(true, right.Valid);
+        }
+
+
     }
 }

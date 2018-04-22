@@ -44,5 +44,13 @@ namespace Flunt.Validations
             return this;
         }
 
+        public Contract IsNullOrNullable(DateTime? val, string property, string message)
+        {
+            if (val== null || !val.HasValue)
+                AddNotification(property, message);
+
+            return this;
+        }
+
     }
 }

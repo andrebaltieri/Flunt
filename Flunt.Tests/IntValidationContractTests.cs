@@ -1,4 +1,5 @@
-﻿using Flunt.Validations;
+﻿using System;
+using Flunt.Validations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Flunt.Tests
@@ -28,6 +29,36 @@ namespace Flunt.Tests
             var right = new Contract()
                 .Requires()
                 .IsBetween(5, 1, 10, "int", "The value 5 is between 1 and 10");
+
+            Assert.AreEqual(true, right.Valid);
+        }
+
+        [TestMethod]
+        [TestCategory("IntValidation")]
+        public void IsNullOrNullable()
+        {
+            var value = new Nullable<int>();
+
+            var wrong = new Contract()
+                .Requires()
+                .IsNullOrNullable(value, "int", "The int is required");
+
+            Assert.AreEqual(false, wrong.Valid);
+            Assert.AreEqual(1, wrong.Notifications.Count);
+
+            Nullable<int> valueNull = null;
+
+            var wrongNull = new Contract()
+                .Requires()
+                .IsNullOrNullable(valueNull, "int", "The int is required");
+
+            Assert.AreEqual(false, wrongNull.Valid);
+            Assert.AreEqual(1, wrongNull.Notifications.Count);
+
+
+            var right = new Contract()
+                .Requires()
+                .IsNullOrNullable(3.5F, "int", "The int is required");
 
             Assert.AreEqual(true, right.Valid);
         }

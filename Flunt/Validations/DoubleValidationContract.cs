@@ -215,5 +215,13 @@
             return this;
         }        
         #endregion
+
+        public Contract IsNullOrNullable(double? val, string property, string message)
+        {
+            if (val== null || !val.HasValue)
+                AddNotification(property, message);
+
+            return this;
+        }
     }
 }
