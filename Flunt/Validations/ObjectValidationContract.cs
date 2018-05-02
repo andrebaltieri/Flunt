@@ -20,7 +20,7 @@
 
         public Contract AreEquals(object obj, object comparer, string property, string message)
         {
-            if (obj != comparer)
+            if (!obj.Equals(comparer))
                 AddNotification(property, message);
 
             return this;
@@ -28,7 +28,7 @@
 
         public Contract AreNotEquals(object obj, object comparer, string property, string message)
         {
-            if (obj == comparer)
+            if (obj.Equals(comparer))
                 AddNotification(property, message);
 
             return this;
