@@ -26,6 +26,24 @@ namespace Flunt.Tests
 
         [TestMethod]
         [TestCategory("StringValidation")]
+        public void IsNotNullOrWhiteSpace()
+        {                                
+            var wrong = new Contract()
+                .Requires()
+                .IsNotNullOrWhiteSpace(null, "string", "String is Null")
+                .IsNotNullOrWhiteSpace("     ", "string", "String is Empty");
+
+            Assert.AreEqual(false, wrong.Valid);
+            Assert.AreEqual(2, wrong.Notifications.Count);
+
+            var right = new Contract()
+                .Requires()
+                .IsNotNullOrWhiteSpace("Some valid string", "string", "String is Null");
+            Assert.AreEqual(true, right.Valid);
+        }
+
+        [TestMethod]
+        [TestCategory("StringValidation")]
         public void IsNullOrEmpty()
         {
             var right = new Contract()
