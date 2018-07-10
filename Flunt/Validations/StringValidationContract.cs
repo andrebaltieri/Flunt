@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Flunt.Validations
@@ -46,8 +48,22 @@ namespace Flunt.Validations
 
         public Contract Contains(string val, string text, string property, string message)
         {
-            // TODO: StringComparison.OrdinalIgnoreCase not suported yet
             if (!val.Contains(text))
+                AddNotification(property, message);
+
+            return this;
+        }
+
+        public Contract Contains(string val, string text, string property, string message, StringComparison stringComparison)
+        {
+            var contains = val.ToLower().Contains(text.ToLower());
+            val.Split(' ').ToList().ForEach(x =>
+            {
+                if (string.Equals(x, text, stringComparison))
+                    contains = true;
+            });
+
+            if (!contains)
                 AddNotification(property, message);
 
             return this;
@@ -55,8 +71,15 @@ namespace Flunt.Validations
 
         public Contract AreEquals(string val, string text, string property, string message)
         {
-            // TODO: StringComparison.OrdinalIgnoreCase not suported yet
             if (val != text)
+                AddNotification(property, message);
+
+            return this;
+        }
+
+        public Contract AreEquals(string val, string text, string property, string message, StringComparison stringComparison)
+        {
+            if (string.Equals(val != text, stringComparison))
                 AddNotification(property, message);
 
             return this;
@@ -64,8 +87,15 @@ namespace Flunt.Validations
 
         public Contract AreNotEquals(string val, string text, string property, string message)
         {
-            // TODO: StringComparison.OrdinalIgnoreCase not suported yet
             if (val == text)
+                AddNotification(property, message);
+
+            return this;
+        }
+
+        public Contract AreNotEquals(string val, string text, string property, string message, StringComparison stringComparison)
+        {
+            if (string.Equals(val != text, stringComparison))
                 AddNotification(property, message);
 
             return this;
