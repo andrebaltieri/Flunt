@@ -27,6 +27,14 @@
             return this;
         }
 
+        public Contract IsGreaterThan(long val, float comparer, string property, string message)
+        {
+            if (val <= comparer)
+                AddNotification(property, message);
+
+            return this;
+        }
+
         public Contract IsGreaterThan(int val, float comparer, string property, string message)
         {
             if (val <= comparer)
@@ -54,6 +62,14 @@
         }
 
         public Contract IsGreaterOrEqualsThan(float val, float comparer, string property, string message)
+        {
+            if (val < comparer)
+                AddNotification(property, message);
+
+            return this;
+        }
+
+        public Contract IsGreaterOrEqualsThan(long val, float comparer, string property, string message)
         {
             if (val < comparer)
                 AddNotification(property, message);
@@ -95,6 +111,14 @@
             return this;
         }
 
+        public Contract IsLowerThan(long val, float comparer, string property, string message)
+        {
+            if (val >= comparer)
+                AddNotification(property, message);
+
+            return this;
+        }
+
         public Contract IsLowerThan(int val, float comparer, string property, string message)
         {
             if (val >= comparer)
@@ -122,6 +146,14 @@
         }
 
         public Contract IsLowerOrEqualsThan(float val, float comparer, string property, string message)
+        {
+            if (val > comparer)
+                AddNotification(property, message);
+
+            return this;
+        }
+
+        public Contract IsLowerOrEqualsThan(long val, float comparer, string property, string message)
         {
             if (val > comparer)
                 AddNotification(property, message);
@@ -163,6 +195,14 @@
             return this;
         }
 
+        public Contract AreEquals(long val, float comparer, string property, string message)
+        {
+            if (val != comparer)
+                AddNotification(property, message);
+
+            return this;
+        }
+
         public Contract AreEquals(int val, float comparer, string property, string message)
         {
             if (val != comparer)
@@ -190,6 +230,14 @@
         }
 
         public Contract AreNotEquals(float val, float comparer, string property, string message)
+        {
+            if (val == comparer)
+                AddNotification(property, message);
+
+            return this;
+        }
+
+        public Contract AreNotEquals(long val, float comparer, string property, string message)
         {
             if (val == comparer)
                 AddNotification(property, message);
