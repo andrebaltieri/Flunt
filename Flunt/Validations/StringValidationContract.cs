@@ -1,4 +1,6 @@
-using System.Text.RegularExpressions;
+using System;
+using System.Linq;
+using System.Text.RegularExpressions;	
 
 namespace Flunt.Validations
 {
@@ -14,7 +16,7 @@ namespace Flunt.Validations
 
         public Contract IsNotNullOrWhiteSpace(string val, string property, string message)
         {
-            if (string.IsNullOrWhiteSpace(val))            
+            if (string.IsNullOrWhiteSpace(val))
                 AddNotification(property, message);
 
             return this;
@@ -39,7 +41,7 @@ namespace Flunt.Validations
 
         public Contract HasMaxLen(string val, int max, string property, string message)
         {
-            if (string.IsNullOrEmpty(val) || val.Length > max) 
+            if (string.IsNullOrEmpty(val) || val.Length > max)
                 AddNotification(property, message);
 
             return this;
@@ -62,19 +64,17 @@ namespace Flunt.Validations
             return this;
         }
 
-        public Contract AreEquals(string val, string text, string property, string message)
+        public Contract AreEquals(string val, string text, string property, string message, StringComparison comparisonType = StringComparison.OrdinalIgnoreCase)
         {
-            // TODO: StringComparison.OrdinalIgnoreCase not suported yet
-            if (val != text)
+            if (string.Equals(val != text, comparisonType))
                 AddNotification(property, message);
 
             return this;
         }
 
-        public Contract AreNotEquals(string val, string text, string property, string message)
+        public Contract AreNotEquals(string val, string text, string property, string message, StringComparison comparisonType = StringComparison.OrdinalIgnoreCase)
         {
-            // TODO: StringComparison.OrdinalIgnoreCase not suported yet
-            if (val == text)
+            if (string.Equals(val == text, comparisonType))
                 AddNotification(property, message);
 
             return this;
