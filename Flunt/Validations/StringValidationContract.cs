@@ -12,6 +12,15 @@ namespace Flunt.Validations
             return this;
         }
 
+        public Contract IsNotNullOrWhiteSpace(string val, string property, string message)
+        {
+            if (string.IsNullOrWhiteSpace(val))            
+                AddNotification(property, message);
+
+            return this;
+        }
+
+
         public Contract IsNullOrEmpty(string val, string property, string message)
         {
             if (!string.IsNullOrEmpty(val))
