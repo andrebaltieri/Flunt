@@ -120,14 +120,56 @@ namespace Flunt.Tests
         {
             var x = new Contract()
                 .Requires()
-                .Contains("some text here", "banana", "string", "String does not contains banana");
+                .Contains("some text here", "banana", "string", "String does not contains banana")
+                .Contains("some text here", "HERE", "string", "String does not contains banana");
+
+            Assert.AreEqual(false, x.Valid);
+            Assert.AreEqual(2, x.Notifications.Count);
+
+            var right = new Contract()
+                .Requires()
+                .Contains("some banana here", "banana", "string", "String does not contains banana")
+                .Contains("some banana here", "BAnaNA", "string", "String does not contains banana", System.StringComparison.InvariantCultureIgnoreCase)
+                .Contains("some banana here", "some banana here", "string", "String does not contains banana")
+                .Contains("some banana here", "SOME BANANA HERE", "string", "String does not contains banana", System.StringComparison.InvariantCultureIgnoreCase);
+
+            Assert.AreEqual(true, right.Valid);
+        }
+
+        [TestMethod]
+        [TestCategory("StringValidation")]
+        public void AreEquals()
+        {
+            var x = new Contract()
+                .Requires()
+                .AreEquals("some banana here", "SOME BANANA HERE", "string", "String does not equals");
+                
 
             Assert.AreEqual(false, x.Valid);
             Assert.AreEqual(1, x.Notifications.Count);
 
             var right = new Contract()
                 .Requires()
-                .Contains("some banana here", "banana", "string", "String does not contains banana");
+                .AreEquals("some banana here", "sOmE bAnAnA heRe", "string", "String does not equals", System.StringComparison.InvariantCultureIgnoreCase);
+
+            Assert.AreEqual(true, right.Valid);
+        }
+
+        [TestMethod]
+        [TestCategory("StringValidation")]
+        public void AreNotEquals()
+        {
+            var x = new Contract()
+                .Requires()
+                .AreNotEquals("some banana here", "some banana here", "string", "String is equals");
+
+
+            Assert.AreEqual(false, x.Valid);
+            Assert.AreEqual(1, x.Notifications.Count);
+
+            var right = new Contract()
+                .Requires()
+                .AreNotEquals("some banana", "sOmE bAnAnA heRe", "string", "String is equals", System.StringComparison.InvariantCultureIgnoreCase);
 
             Assert.AreEqual(true, right.Valid);
         }
