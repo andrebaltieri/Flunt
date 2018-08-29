@@ -1,4 +1,5 @@
-﻿using Flunt.Validations;
+﻿using System;
+using Flunt.Validations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Flunt.Tests
@@ -115,6 +116,37 @@ namespace Flunt.Tests
                 .IsBetween(value, from, to, "decimal", "The value 1.015 is between 1.01 and 1.02");
 
             Assert.AreEqual(true, right.Valid);
-        }        
+        }  
+
+        [TestMethod]
+        [TestCategory("DecimalValidation")]
+        public void IsNullOrNullable()
+        {            
+            var value = new Nullable<decimal>();
+            
+            var wrong = new Contract()
+                .Requires()
+                .IsNullOrNullable(value, "decimal", "The decimal is required");
+
+            Assert.AreEqual(false, wrong.Valid);
+            Assert.AreEqual(1, wrong.Notifications.Count);
+
+            Nullable<DateTime> valueNull = null;
+            
+            var wrongNull = new Contract()
+                .Requires()
+                .IsNullOrNullable(valueNull, "decimal", "The decimal is required");
+
+            Assert.AreEqual(false, wrongNull.Valid);
+            Assert.AreEqual(1, wrongNull.Notifications.Count);
+
+
+            var right = new Contract()
+                .Requires()
+                .IsNullOrNullable(10m, "decimal", "The decimal is required");
+
+            Assert.AreEqual(true, right.Valid);
+        }
+
     }
 }

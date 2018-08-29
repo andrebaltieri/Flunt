@@ -132,5 +132,39 @@ namespace Flunt.Tests
 
             Assert.AreEqual(true, right.Valid);
         }
+        
+
+        [TestMethod]
+        [TestCategory("DateTimeValidation")]
+        public void IsNullOrNullable()
+        {            
+            var date = new Nullable<DateTime>();
+            
+            var wrong = new Contract()
+                .Requires()
+                .IsNullOrNullable(date, "datetime", "The date is required");
+
+            Assert.AreEqual(false, wrong.Valid);
+            Assert.AreEqual(1, wrong.Notifications.Count);
+
+            Nullable<DateTime> dateNull = null;
+            
+            var wrongNull = new Contract()
+                .Requires()
+                .IsNullOrNullable(dateNull, "datetime", "The date is required");
+
+            Assert.AreEqual(false, wrongNull.Valid);
+            Assert.AreEqual(1, wrongNull.Notifications.Count);
+
+
+            var right = new Contract()
+                .Requires()
+                .IsNullOrNullable(new DateTime(2017, 10, 30), "datetime", "The date is required");
+
+            Assert.AreEqual(true, right.Valid);
+        }
+
+
+
     }
 }
