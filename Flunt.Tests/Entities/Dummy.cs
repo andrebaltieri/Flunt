@@ -15,5 +15,6 @@ namespace Fluent.Tests.Entities
         public DateTime dateTimeProp {get;set;}
         public Guid guidProp {get;set;}
         public TimeSpan timeSpanProp { get; set; }
+        public int? nullableIntProp { get; set; }
     }
 }
