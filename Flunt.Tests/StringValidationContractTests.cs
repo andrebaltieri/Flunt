@@ -27,7 +27,7 @@ namespace Flunt.Tests
         [TestMethod]
         [TestCategory("StringValidation")]
         public void IsNotNullOrWhiteSpace()
-        {                                
+        {
             var wrong = new Contract()
                 .Requires()
                 .IsNotNullOrWhiteSpace(null, "string", "String is Null")
@@ -228,6 +228,72 @@ namespace Flunt.Tests
             Assert.AreEqual(true, right.Valid);
         }
 
+        [TestMethod]
+        [TestCategory("StringValidation")]
+        public void HasMinLengthIfNotNullOrEmpty()
+        {
+            var errorMessage = "String not null or empty and length is less than permitted";
+            var wrong = new Contract()
+                .Requires()
+                .HasMinLengthIfNotNullOrEmpty("123456789", 10, "string", errorMessage)
+                .HasMinLengthIfNotNullOrEmpty("         ", 10, "string", errorMessage);
 
+            Assert.AreEqual(false, wrong.Valid);
+            Assert.AreEqual(2, wrong.Notifications.Count);
+
+            var right = new Contract()
+                .Requires()
+                .HasMinLengthIfNotNullOrEmpty(null, 10, "string", errorMessage)
+                .HasMinLengthIfNotNullOrEmpty("", 10, "string", errorMessage)
+                .HasMinLengthIfNotNullOrEmpty("1234567890", 10, "string", errorMessage)
+                .HasMinLengthIfNotNullOrEmpty("123456789012345", 10, "string", errorMessage);
+
+            Assert.AreEqual(true, right.Valid);
+        }
+
+        [TestMethod]
+        [TestCategory("StringValidation")]
+        public void HasMaxLengthIfNotNullOrEmpty()
+        {
+            var errorMessage = "String not null or empty and length is more than permitted";
+            var wrong = new Contract()
+                .Requires()
+                .HasMaxLengthIfNotNullOrEmpty("123456789012345", 10, "string", errorMessage)
+                .HasMaxLengthIfNotNullOrEmpty("               ", 10, "string", errorMessage);
+
+            Assert.AreEqual(false, wrong.Valid);
+            Assert.AreEqual(2, wrong.Notifications.Count);
+
+            var right = new Contract()
+                .Requires()
+                .HasMaxLengthIfNotNullOrEmpty(null, 10, "string", errorMessage)
+                .HasMaxLengthIfNotNullOrEmpty("", 10, "string", errorMessage)
+                .HasMaxLengthIfNotNullOrEmpty("12345", 10, "string", errorMessage)
+                .HasMaxLengthIfNotNullOrEmpty("1234567890", 10, "string", errorMessage);
+
+            Assert.AreEqual(true, right.Valid);
+        }
+
+        [TestMethod]
+        [TestCategory("StringValidation")]
+        public void HasExactLengthIfNotNullOrEmpty()
+        {
+            var errorMessage = "String not null or empty and length is different than permitted";
+            var wrong = new Contract()
+                .Requires()
+                .HasExactLengthIfNotNullOrEmpty("123456789", 10, "string", errorMessage)
+                .HasExactLengthIfNotNullOrEmpty("12345678901", 10, "string", errorMessage);
+
+            Assert.AreEqual(false, wrong.Valid);
+            Assert.AreEqual(2, wrong.Notifications.Count);
+
+            var right = new Contract()
+                .Requires()
+                .HasExactLengthIfNotNullOrEmpty(null, 10, "string", errorMessage)
+                .HasExactLengthIfNotNullOrEmpty("", 10, "string", errorMessage)
+                .HasExactLengthIfNotNullOrEmpty("1234567890", 10, "string", errorMessage);
+
+            Assert.AreEqual(true, right.Valid);
+        }
     }
 }
