@@ -1,4 +1,6 @@
-﻿using Flunt.Notifications;
+﻿using System;
+using System.Linq.Expressions;
+using Flunt.Notifications;
 
 namespace Flunt.Validations
 {
@@ -20,6 +22,16 @@ namespace Flunt.Validations
                 }
             }
 
+            return this;
+        }
+        
+        public Contract IfNotNull(object parameterType, Expression<Func<Contract, Contract>> contractExpression)
+        {
+            if (parameterType != null)
+            {
+                contractExpression.Compile().Invoke(this);
+            }
+            
             return this;
         }
     }
