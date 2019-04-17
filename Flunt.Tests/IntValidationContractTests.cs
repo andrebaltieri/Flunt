@@ -1,12 +1,13 @@
-﻿using System;
-using Flunt.Validations;
+﻿using Flunt.Validations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+
 
 namespace Flunt.Tests
 {
     [TestClass]
     public class IntContractTests
-    {  
+    {
         [TestMethod]
         [TestCategory("IntValidation")]
         public void IsBetweenInt()
@@ -28,7 +29,7 @@ namespace Flunt.Tests
 
             var right = new Contract()
                 .Requires()
-                .IsBetween(5, 1, 10, "int", "The value 5 is between 1 and 10");
+                .IsBetween(value, from, to, "int", "The value 5 is between 1 and 10");
 
             Assert.AreEqual(true, right.Valid);
         }

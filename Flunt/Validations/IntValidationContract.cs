@@ -257,7 +257,7 @@
         #region Between      
         public Contract IsBetween(int val, int from, int to, string property, string message)
         {
-            if (!(val > from && val < to))
+            if (!(val >= from && val <= to))
                 AddNotification(property, message);
 
             return this;
@@ -266,7 +266,7 @@
 
         public Contract IsNullOrNullable(int? val, string property, string message)
         {
-            if (val== null || !val.HasValue)
+            if (val == null || !val.HasValue)
                 AddNotification(property, message);
 
             return this;
