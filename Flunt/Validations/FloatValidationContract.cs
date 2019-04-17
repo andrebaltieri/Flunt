@@ -257,7 +257,7 @@
         #region Between      
         public Contract IsBetween(float val, float from, float to, string property, string message)
         {
-            if (!(val > from && val < to))
+            if (!(val >= from && val <= to))
                 AddNotification(property, message);
 
             return this;
