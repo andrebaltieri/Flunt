@@ -38,7 +38,7 @@ namespace Flunt.Validations
 
         public Contract IsBetween(DateTime val, DateTime from, DateTime to, string property, string message)
         {
-            if (!(val > from && val < to))
+            if (!(val >= from && val <= to))
                 AddNotification(property, message);
 
             return this;
