@@ -1,5 +1,8 @@
 ![Flunt](https://raw.githubusercontent.com/andrebaltieri/flunt/master/media/flunt-horizontal.png)
 
+# Flunt for Java
+You can find a port of this library to Java here: https://github.com/carlosbritojun/jflunt
+
 # Flunt
 Flunt is a fluent way to use Notification Pattern with your entities
 
