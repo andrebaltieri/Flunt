@@ -8,7 +8,7 @@ namespace Flunt.Validations
     {
         public Contract IsNotNullOrEmpty(string val, string property, string message)
         {
-            if (string.IsNullOrEmpty(val))
+            if (!string.IsNullOrEmpty(val))
                 AddNotification(property, message);
 
             return this;
@@ -16,7 +16,7 @@ namespace Flunt.Validations
 
         public Contract IsNotNullOrWhiteSpace(string val, string property, string message)
         {
-            if (string.IsNullOrWhiteSpace(val))
+            if (!string.IsNullOrWhiteSpace(val))
                 AddNotification(property, message);
 
             return this;
@@ -25,7 +25,7 @@ namespace Flunt.Validations
 
         public Contract IsNullOrEmpty(string val, string property, string message)
         {
-            if (!string.IsNullOrEmpty(val))
+            if (string.IsNullOrEmpty(val))
                 AddNotification(property, message);
 
             return this;
