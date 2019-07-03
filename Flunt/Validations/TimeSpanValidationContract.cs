@@ -2,9 +2,9 @@
 
 namespace Flunt.Validations
 {
-	public partial class Contract
+    public partial class Contract
     {
-		public Contract IsGreaterThan(TimeSpan val, TimeSpan comparer, string property, string message)
+        public Contract IsGreaterThan(TimeSpan val, TimeSpan comparer, string property, string message)
         {
             if (val <= comparer)
                 AddNotification(property, message);
@@ -38,7 +38,7 @@ namespace Flunt.Validations
 
         public Contract IsBetween(TimeSpan val, TimeSpan from, TimeSpan to, string property, string message)
         {
-            if (!(val > from && val < to))
+            if (!(val >= from && val <= to))
                 AddNotification(property, message);
 
             return this;

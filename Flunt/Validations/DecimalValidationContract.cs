@@ -3,6 +3,7 @@
     public partial class Contract
     {
         #region IsGreaterThan
+
         public Contract IsGreaterThan(decimal val, decimal comparer, string property, string message)
         {
             if (val <= comparer)
@@ -42,9 +43,11 @@
 
             return this;
         }
-        #endregion
+
+        #endregion IsGreaterThan
 
         #region IsGreaterOrEqualsThan
+
         public Contract IsGreaterOrEqualsThan(decimal val, decimal comparer, string property, string message)
         {
             if (val < comparer)
@@ -84,9 +87,11 @@
 
             return this;
         }
-        #endregion
+
+        #endregion IsGreaterOrEqualsThan
 
         #region IsLowerThan
+
         public Contract IsLowerThan(decimal val, decimal comparer, string property, string message)
         {
             if (val >= comparer)
@@ -126,9 +131,11 @@
 
             return this;
         }
-        #endregion
+
+        #endregion IsLowerThan
 
         #region IsLowerOrEqualsThan
+
         public Contract IsLowerOrEqualsThan(decimal val, decimal comparer, string property, string message)
         {
             if (val > comparer)
@@ -168,9 +175,11 @@
 
             return this;
         }
-        #endregion
+
+        #endregion IsLowerOrEqualsThan
 
         #region AreEquals
+
         public Contract AreEquals(decimal val, decimal comparer, string property, string message)
         {
             if (val != comparer)
@@ -210,9 +219,11 @@
 
             return this;
         }
-        #endregion
+
+        #endregion AreEquals
 
         #region AreNotEquals
+
         public Contract AreNotEquals(decimal val, decimal comparer, string property, string message)
         {
             if (val == comparer)
@@ -252,25 +263,27 @@
 
             return this;
         }
-        #endregion
+
+        #endregion AreNotEquals
 
         #region Between
+
         public Contract IsBetween(decimal val, decimal from, decimal to, string property, string message)
         {
-            if (!(val > from && val < to))
-                AddNotification(property, message);
-
-            return this;
-        }      
-        #endregion
-
-        public Contract IsNullOrNullable(decimal? val, string property, string message)
-        {
-            if (val== null || !val.HasValue)
+            if (!(val >= from && val <= to))
                 AddNotification(property, message);
 
             return this;
         }
 
+        #endregion Between
+
+        public Contract IsNullOrNullable(decimal? val, string property, string message)
+        {
+            if (val == null || !val.HasValue)
+                AddNotification(property, message);
+
+            return this;
+        }
     }
 }
