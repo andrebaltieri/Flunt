@@ -295,5 +295,42 @@ namespace Flunt.Tests
 
             Assert.AreEqual(true, right.Valid);
         }
+
+        [TestMethod]
+        [TestCategory("StringValidation")]
+        public void AreEquals()
+        {
+            var wrong = new Contract()
+                .Requires()
+                .IsNotNullOrEmpty(null, "string", "String is Null")
+                .IsNotNullOrEmpty("", "string", "String is Empty");
+
+            Assert.AreEqual(false, wrong.Valid);
+            Assert.AreEqual(2, wrong.Notifications.Count);
+
+            var right = new Contract()
+                .Requires()
+                .IsNotNullOrEmpty("Some valid string", "string", "String is Null");
+            Assert.AreEqual(true, right.Valid);
+        }
+
+
+        [TestMethod]
+        [TestCategory("StringValidation")]
+        public void AreNotEquals()
+        {
+            var wrong = new Contract()
+                .Requires()
+                .AreEquals("String", "String not equals", "string", "String are not equals")
+                .AreNotEquals("String", "String", "string", "String are equals");
+
+            Assert.AreEqual(false, wrong.Valid);
+            Assert.AreEqual(2, wrong.Notifications.Count);
+
+            var right = new Contract()
+                .Requires()
+                .AreEquals("String", "String", "string", "String are equals");
+            Assert.AreEqual(true, right.Valid);
+        }
     }
 }
