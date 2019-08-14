@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>André Baltieri</Authors>
     <Company>balta.io</Company>
     <Description>Flunt is a fluent way to use Notification Pattern with your entities</Description>
     <PackageLicenseUrl>https://github.com/andrebaltieri/flunt</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/andrebaltieri/flunt</PackageProjectUrl>
     <RepositoryUrl>https://github.com/andrebaltieri/flunt</RepositoryUrl>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <FileVersion>1.0.4.0</FileVersion>
   </PropertyGroup>
 </Project>
