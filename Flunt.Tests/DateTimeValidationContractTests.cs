@@ -79,7 +79,7 @@ namespace Flunt.Tests
 
             var right = new Contract()
                 .Requires()
-                .IsLowerThan(_dummy.dateTimeProp, _dummy.dateTimeProp.AddMilliseconds(1),nameof(_dummy.dateTimeProp), "Date 1 is not lower than Date 2")
+                .IsLowerThan(_dummy.dateTimeProp, _dummy.dateTimeProp.AddMilliseconds(1), nameof(_dummy.dateTimeProp), "Date 1 is not lower than Date 2")
                 .IsLowerThan(_dummy.dateTimeProp, _dummy.dateTimeProp.AddSeconds(1), nameof(_dummy.dateTimeProp), "Date 1 is not lower than Date 2")
                 .IsLowerThan(_dummy.dateTimeProp, _dummy.dateTimeProp.AddMinutes(1), nameof(_dummy.dateTimeProp), "Date 1 is not lower than Date 2");
 
@@ -115,31 +115,28 @@ namespace Flunt.Tests
         [TestMethod]
         [TestCategory("DateTimeValidation")]
         public void IsBetween()
-        {            
-            var from = new DateTime(2017, 10, 1);
-            var to = from.AddDays(30);
-            
-            var wrong = new Contract()
-                .Requires()
-                .IsBetween(new DateTime(2017, 10, 1), from, to, "datetime", "The date must be between 01/10/2017 and 31/10/2017");
+        {
+            var startDate = new DateTime(2018, 01, 01);
+            var endDate = new DateTime(2018, 01, 10);
+            var date = new DateTime(2018, 01, 5);
 
-            Assert.AreEqual(false, wrong.Valid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            var valid = new Contract().Requires()
+                .IsBetween(date, startDate, endDate, "prop", "message");
 
-            var right = new Contract()
-                .Requires()
-                .IsBetween(new DateTime(2017, 10, 30), from, to, "datetime", "The date is between 01/10/2017 and 31/10/2017");
+            var invalid = new Contract().Requires()
+                .IsBetween(DateTime.Now, startDate, endDate, "prop", "message");
 
-            Assert.AreEqual(true, right.Valid);
+            Assert.AreEqual(true, valid.Valid);
+            Assert.AreEqual(false, invalid.Valid);
         }
-        
+
 
         [TestMethod]
         [TestCategory("DateTimeValidation")]
         public void IsNullOrNullable()
-        {            
+        {
             var date = new Nullable<DateTime>();
-            
+
             var wrong = new Contract()
                 .Requires()
                 .IsNullOrNullable(date, "datetime", "The date is required");
@@ -148,7 +145,7 @@ namespace Flunt.Tests
             Assert.AreEqual(1, wrong.Notifications.Count);
 
             Nullable<DateTime> dateNull = null;
-            
+
             var wrongNull = new Contract()
                 .Requires()
                 .IsNullOrNullable(dateNull, "datetime", "The date is required");
