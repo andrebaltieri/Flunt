@@ -10,54 +10,62 @@ namespace Flunt.Tests
         [TestCategory("StringValidation")]
         public void IsNotNullOrEmpty()
         {
+            var right = new Contract()
+                .Requires()
+                .IsNotNullOrEmpty("Some valid string", "string", "String is not Null");
+
+            Assert.AreEqual(false, right.Valid);
+            Assert.AreEqual(1, right.Notifications.Count);
+
             var wrong = new Contract()
                 .Requires()
                 .IsNotNullOrEmpty(null, "string", "String is Null")
                 .IsNotNullOrEmpty("", "string", "String is Empty");
 
-            Assert.AreEqual(false, wrong.Valid);
-            Assert.AreEqual(2, wrong.Notifications.Count);
-
-            var right = new Contract()
-                .Requires()
-                .IsNotNullOrEmpty("Some valid string", "string", "String is Null");
-            Assert.AreEqual(true, right.Valid);
+            Assert.AreEqual(true, wrong.Valid);
+            Assert.AreEqual(0, wrong.Notifications.Count);
         }
 
         [TestMethod]
         [TestCategory("StringValidation")]
         public void IsNotNullOrWhiteSpace()
         {
-            var wrong = new Contract()
-                .Requires()
-                .IsNotNullOrWhiteSpace(null, "string", "String is Null")
-                .IsNotNullOrWhiteSpace("     ", "string", "String is Empty");
-
-            Assert.AreEqual(false, wrong.Valid);
-            Assert.AreEqual(2, wrong.Notifications.Count);
-
+        
             var right = new Contract()
                 .Requires()
-                .IsNotNullOrWhiteSpace("Some valid string", "string", "String is Null");
-            Assert.AreEqual(true, right.Valid);
+                .IsNotNullOrWhiteSpace("Some valid string", "string", "String is not Null");
+
+            Assert.AreEqual(false, right.Valid);
+            Assert.AreEqual(1, right.Notifications.Count);
+
+            var wrong = new Contract()
+                .Requires()
+                .IsNotNullOrWhiteSpace(null, "string", "String is not Null")
+                .IsNotNullOrWhiteSpace("", "string", "String is not Empty");
+
+            Assert.AreEqual(true, wrong.Valid);
+            Assert.AreEqual(0, wrong.Notifications.Count);
         }
 
         [TestMethod]
         [TestCategory("StringValidation")]
         public void IsNullOrEmpty()
         {
+          
             var right = new Contract()
                 .Requires()
                 .IsNullOrEmpty(null, "string", "String is Null")
                 .IsNullOrEmpty("", "string", "String is Empty");
 
-            Assert.AreEqual(true, right.Valid);
-            Assert.AreEqual(0, right.Notifications.Count);
+            Assert.AreEqual(false, right.Valid);
+            Assert.AreEqual(2, right.Notifications.Count);
 
             var wrong = new Contract()
                 .Requires()
                 .IsNullOrEmpty("Some valid string", "string", "String is Null");
-            Assert.AreEqual(false, wrong.Valid);
+
+            Assert.AreEqual(true, wrong.Valid);
+            Assert.AreEqual(0, wrong.Notifications.Count);
         }
 
         [TestMethod]
@@ -300,18 +308,19 @@ namespace Flunt.Tests
         [TestCategory("StringValidation")]
         public void AreEquals()
         {
-            var wrong = new Contract()
-                .Requires()
-                .IsNotNullOrEmpty(null, "string", "String is Null")
-                .IsNotNullOrEmpty("", "string", "String is Empty");
-
-            Assert.AreEqual(false, wrong.Valid);
-            Assert.AreEqual(2, wrong.Notifications.Count);
-
             var right = new Contract()
                 .Requires()
                 .IsNotNullOrEmpty("Some valid string", "string", "String is Null");
-            Assert.AreEqual(true, right.Valid);
+
+            Assert.AreEqual(false, right.Valid);
+            Assert.AreEqual(1, right.Notifications.Count);
+
+            var wrong = new Contract()
+                .IsNotNullOrEmpty(null, "string", "String is Null")
+                .IsNotNullOrEmpty("", "string", "String is Empty");
+
+            Assert.AreEqual(true, wrong.Valid);
+            Assert.AreEqual(0, wrong.Notifications.Count);
         }
 
 
