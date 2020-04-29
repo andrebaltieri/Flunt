@@ -47,6 +47,11 @@ namespace Flunt.Notifications
                 AddNotifications(item);
         }
 
+        public void Clear()
+        {
+            _notifications.Clear();
+        }
+
         public bool Invalid => _notifications.Any();
         public bool Valid => !Invalid;
     }

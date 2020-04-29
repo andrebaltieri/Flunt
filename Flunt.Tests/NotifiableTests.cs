@@ -13,14 +13,14 @@ namespace Flunt.Tests
         [TestCategory("Notifiable")]
         public void AddNotificationForOneNotifiable()
         {
-            var name =new Name();
+            var name = new Name();
             var cus = new Customer();
 
             AddNotifications(name);
             AddNotifications(cus);
 
             Assert.AreEqual(false, Valid);
-            Assert.AreEqual(2, Notifications.Count);            
+            Assert.AreEqual(2, Notifications.Count);
         }
 
         [TestMethod]
@@ -34,6 +34,18 @@ namespace Flunt.Tests
 
             Assert.AreEqual(false, Valid);
             Assert.AreEqual(2, Notifications.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("Notifiable")]
+        public void ClearNotifications()
+        {
+            var cus = new Customer();
+            AddNotifications(cus);
+
+            cus.Clear();
+
+            Assert.AreEqual(0, cus.Notifications.Count);
         }
     }
 
