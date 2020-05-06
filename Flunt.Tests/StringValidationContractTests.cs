@@ -302,15 +302,17 @@ namespace Flunt.Tests
         {
             var wrong = new Contract()
                 .Requires()
-                .IsNotNullOrEmpty(null, "string", "String is Null")
-                .IsNotNullOrEmpty("", "string", "String is Empty");
+                .AreEquals(null, "String not equals", "string", "String are not equals")
+                .AreEquals("", "String not equals", "string", "String are not equals")
+                .AreEquals("String almost equals", "String almolst equals", "string", "String are not equals");
 
-            Assert.AreEqual(false, wrong.Valid);
-            Assert.AreEqual(2, wrong.Notifications.Count);
+            Assert.IsFalse(wrong.Valid);
+            Assert.AreEqual(3, wrong.Notifications.Count);
 
             var right = new Contract()
                 .Requires()
-                .IsNotNullOrEmpty("Some valid string", "string", "String is Null");
+                .AreEquals("Some valid string", "Some valid string", "string", "String are equals");
+
             Assert.AreEqual(true, right.Valid);
         }
 
@@ -321,16 +323,18 @@ namespace Flunt.Tests
         {
             var wrong = new Contract()
                 .Requires()
-                .AreEquals("String", "String not equals", "string", "String are not equals")
-                .AreNotEquals("String", "String", "string", "String are equals");
+                .AreNotEquals("Some valid string", "Some valid string", "string", "String are equals");
 
-            Assert.AreEqual(false, wrong.Valid);
-            Assert.AreEqual(2, wrong.Notifications.Count);
+            Assert.IsFalse(wrong.Valid);
+            Assert.AreEqual(1, wrong.Notifications.Count);
 
             var right = new Contract()
                 .Requires()
-                .AreEquals("String", "String", "string", "String are equals");
-            Assert.AreEqual(true, right.Valid);
+                .AreNotEquals(null, "String not equals", "string", "String are not equals")
+                .AreNotEquals("", "String not equals", "string", "String are not equals")
+                .AreNotEquals("String almost equals", "String almolst equals", "string", "String are not equals");
+
+            Assert.IsTrue(right.Valid);
         }
     }
 }
