@@ -10,5 +10,10 @@ namespace Flunt.Notifications
 
         public string Property { get; private set; }
         public string Message { get; private set; }
+
+        public void SetParentProperty(string parentProperty)
+        {
+            Property = $"{parentProperty}.{Property}";
+        }
     }
 }

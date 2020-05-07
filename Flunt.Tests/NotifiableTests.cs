@@ -38,6 +38,20 @@ namespace Flunt.Tests
 
         [TestMethod]
         [TestCategory("Notifiable")]
+        public void AddChildNotificationForOneNotifiable()
+        {
+            var name = new Name();
+            var cus = new Customer();
+
+            AddChildNotifications("Vendor", name);
+            AddChildNotifications("Vendor", cus);
+
+            Assert.AreEqual(false, Valid);
+            Assert.AreEqual(2, Notifications.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("Notifiable")]
         public void ClearNotifications()
         {
             var cus = new Customer();

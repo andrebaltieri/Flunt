@@ -41,6 +41,15 @@ namespace Flunt.Notifications
             AddNotifications(item.Notifications);
         }
 
+        public void AddChildNotifications(string property, Notifiable item)
+        {
+            foreach (var notification in item.Notifications)
+            {
+                notification.SetParentProperty(property);
+            }
+            AddNotifications(item.Notifications);
+        }
+
         public void AddNotifications(params Notifiable[] items)
         {
             foreach (var item in items)
