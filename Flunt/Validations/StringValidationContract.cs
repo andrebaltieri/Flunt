@@ -1,6 +1,6 @@
 using System;
-using System.Linq;
-using System.Text.RegularExpressions;	
+using System.Linq.Expressions;
+using System.Text.RegularExpressions;
 
 namespace Flunt.Validations
 {
@@ -143,6 +143,15 @@ namespace Flunt.Validations
             if (!string.IsNullOrEmpty(text) && text.Length != len)
                 AddNotification(property, message);
 
+            return this;
+        }
+
+        public Contract IfNotNullOrEmpty(string parameterType, Expression<Func<Contract, Contract>> contractExpression)
+        {
+            if (!string.IsNullOrEmpty(parameterType))
+            {
+                contractExpression.Compile().Invoke(this);
+            }
             return this;
         }
     }

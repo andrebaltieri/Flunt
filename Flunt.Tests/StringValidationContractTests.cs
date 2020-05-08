@@ -1,3 +1,4 @@
+using Fluent.Tests.Entities;
 using Flunt.Validations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -331,6 +332,47 @@ namespace Flunt.Tests
                 .Requires()
                 .AreEquals("String", "String", "string", "String are equals");
             Assert.AreEqual(true, right.Valid);
+        }
+
+        [TestMethod]
+        [TestCategory("StringConditionalValidation")]
+        public void IfNotNullOrEmpty()
+        {
+            var _dummy = new Dummy();
+
+            _dummy.stringProp = "abc";
+
+            var wrong = new Contract()
+                .Requires()
+                .IfNotNullOrEmpty(_dummy.stringProp, x => x.IsDigit(_dummy.stringProp, nameof(_dummy.stringProp), "Property should be digit if not null"));
+
+            Assert.AreEqual(false, wrong.Valid);
+            Assert.AreEqual(1, wrong.Notifications.Count);
+
+            _dummy.stringProp = "1234";
+
+            var right = new Contract()
+                .Requires()
+                .IfNotNullOrEmpty(_dummy.stringProp, x => x.IsDigit(_dummy.stringProp, nameof(_dummy.stringProp), "Property should be digit if not null"))
+                .IfNotNullOrEmpty(_dummy.stringProp, x => x.HasMinLen(_dummy.stringProp, 1, nameof(_dummy.stringProp), "Property should be digit if not null"));
+
+            Assert.AreEqual(true, right.Valid);
+
+            _dummy.stringProp = "";
+
+            var rightEmpty = new Contract()
+                .Requires()
+                .IfNotNullOrEmpty(_dummy.stringProp, x => x.IsDigit(_dummy.stringProp, nameof(_dummy.stringProp), "Property should be digit if not null"));
+
+            Assert.AreEqual(true, rightEmpty.Valid);
+
+            _dummy.stringProp = null;
+
+            var rightNull = new Contract()
+                .Requires()
+                .IfNotNullOrEmpty(_dummy.stringProp, x => x.IsDigit(_dummy.stringProp, nameof(_dummy.stringProp), "Property should be digit if not null"));
+
+            Assert.AreEqual(true, rightNull.Valid);
         }
     }
 }
