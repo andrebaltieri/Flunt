@@ -11,6 +11,18 @@ namespace Flunt.Notifications
 
         public IReadOnlyCollection<Notification> Notifications => _notifications;
 
+        public List<string> NotificationsToList()
+        {
+            List<string> lista = new List<string>();
+
+            lista.Clear();
+            foreach (var item in Notifications)
+            {
+                lista.Add(item.Property +  ": " + item.Message);
+            }
+            return lista;
+        }
+        
         public void AddNotification(string property, string message)
         {
             _notifications.Add(new Notification(property, message));
