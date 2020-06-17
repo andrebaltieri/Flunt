@@ -11,6 +11,11 @@ namespace Flunt.Notifications
 
         public IReadOnlyCollection<Notification> Notifications => _notifications;
 
+        public List<string> NotificationsToList()
+        {
+            return Notifications.Select(n => $"{n.Property}: {n.Message}").ToList();
+        }
+        
         public void AddNotification(string property, string message)
         {
             _notifications.Add(new Notification(property, message));
