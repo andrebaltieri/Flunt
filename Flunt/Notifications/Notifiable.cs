@@ -9,7 +9,9 @@ namespace Flunt.Notifications
 
         protected Notifiable() => _notifications = new List<Notification>();
 
-        public IReadOnlyCollection<Notification> Notifications => _notifications;
+        public IReadOnlyCollection<Notification> Notifications { get { return _notifications; } }
+1
+public IReadOnlyCollection<Notification> Notifications { get { return _notifications; } }
 
         public void AddNotification(string property, string message)
         {
