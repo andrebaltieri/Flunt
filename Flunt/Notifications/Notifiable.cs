@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,6 +20,11 @@ namespace Flunt.Notifications
         public void AddNotification(Notification notification)
         {
             _notifications.Add(notification);
+        }
+
+        public void AddNotification(Type property, string message)
+        {
+            _notifications.Add(new Notification(property?.Name, message));
         }
 
         public void AddNotifications(IReadOnlyCollection<Notification> notifications)
