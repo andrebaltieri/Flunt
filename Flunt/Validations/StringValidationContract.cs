@@ -145,5 +145,44 @@ namespace Flunt.Validations
 
             return this;
         }
+
+        public Contract IsCreditCard(string creditcard, string property, string message)
+        {
+            creditcard = Regex.Replace(creditcard, @"[^0-9]+", "");
+
+            if (string.IsNullOrWhiteSpace(creditcard))
+            {
+                AddNotification(property, message);
+                return this;
+            }
+            
+            bool even = false;
+            int checksum = 0;
+
+            foreach (char digit in creditcard.ToCharArray().Reverse())
+            {
+                if (!char.IsDigit(digit))
+                {
+                    AddNotification(property, message);
+                    return this;
+                }
+
+                int value = (digit - '0') * (even ? 2 : 1);
+                even = !even;
+
+                while (value > 0)
+                {
+                    checksum += value % 10;
+                    value /= 10;
+                }
+            }
+
+            if (checksum % 10 != 0)
+            {
+                AddNotification(property, message);
+            }
+            return this;
+        }
+
     }
 }
