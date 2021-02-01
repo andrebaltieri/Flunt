@@ -66,7 +66,7 @@ namespace Flunt.Validations
 
         public Contract AreEquals(string val, string text, string property, string message, StringComparison comparisonType = StringComparison.OrdinalIgnoreCase)
         {
-            if (!val.Equals(text, comparisonType))
+            if (!string.Equals(val, text, comparisonType))
                 AddNotification(property, message);
 
             return this;
@@ -74,7 +74,7 @@ namespace Flunt.Validations
 
         public Contract AreNotEquals(string val, string text, string property, string message, StringComparison comparisonType = StringComparison.OrdinalIgnoreCase)
         {
-            if (val.Equals(text, comparisonType))
+            if (string.Equals(val, text, comparisonType))
                 AddNotification(property, message);
 
             return this;
