@@ -16,6 +16,8 @@ https://docs.microsoft.com/pt-br/dotnet/standard/net-standard
 ## Instalation
 This package is available through Nuget Packages: https://www.nuget.org/packages/Flunt
 
+Note: For Brazilian validations like (CPF, CNPJ) you also need to install another lib with the necessary extensions: https://github.com/lira92/flunt.br
+
 **Nuget**
 ```
 Install-Package Flunt

@@ -350,5 +350,26 @@ namespace Flunt.Tests
                 .AreEquals("String", "String", "string", "String are equals");
             Assert.AreEqual(true, right.Valid);
         }
+
+        [TestMethod]
+        [TestCategory("StringValidation")]
+        public void IsCreditCard()
+        {
+            var wrong = new Contract()
+                .Requires()
+                .IsCreditCard("0123-4567-8910-1112", "string", "Invalid credit card");
+
+            Assert.AreEqual(false, wrong.Valid);
+            Assert.AreEqual(1, wrong.Notifications.Count);
+
+            var right = new Contract()
+            .Requires()
+            .IsCreditCard("5542-4867-7143-5554", "string", "Invalid credit card")
+            .IsCreditCard("4485218645194493", "string", "Invalid credit card")
+            .IsCreditCard("3416 608582 70977", "string", "Invalid credit card");
+
+            Assert.AreEqual(true, right.Valid);
+        }
+
     }
 }
