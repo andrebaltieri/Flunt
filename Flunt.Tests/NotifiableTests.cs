@@ -57,6 +57,11 @@ namespace Flunt.Tests
         }
 
         public Name Name { get; set; }
+
+        public void Validate()
+        {
+            AddNotification(typeof(Name), "Teste");
+        }
     }
 
     public class Name : Notifiable
