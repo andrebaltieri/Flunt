@@ -1,12 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Flunt.Validations
+﻿namespace Flunt.Validations
 {
-    class ObjectValidationContract
+    public partial class Contract<T>
     {
+        public Contract<T> IsNull(object val, string key, string message)
+        {
+            return this;
+        }
+
+        public Contract<T> IsNotNull(object val, string key, string message)
+        {
+            return this;
+        }
+
+        public Contract<T> AreEquals(object val, object comparer, string key, string message)
+        {
+            return this;
+        }
+
+        public Contract<T> AreNotEquals(object val, object comparer, string key, string message)
+        {
+            return this;
+        }
     }
 }

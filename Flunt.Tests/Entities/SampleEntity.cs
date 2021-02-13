@@ -49,5 +49,7 @@ namespace Flunt.Tests.Entities
         public decimal DecimalNotBetweenStartAndEnd = -50;
         public List<decimal> DecimalList = new List<decimal> { 1, 3, 5, 7, 9 };
 
+        public Guid GuidEmpty = Guid.Empty;
+        public Guid GuidNotEmpty = new Guid("f4ac2eab-8de5-430a-85b1-f0daa71df176");
     }
 }
