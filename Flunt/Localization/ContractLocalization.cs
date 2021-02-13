@@ -20,8 +20,8 @@
         public static string IsNotMinValueErrorMessage(string key, string minValue) => $"{key} should not be {minValue}";
         public static string IsMaxValueErrorMessage(string key, string maxValue) => $"{key} should be {maxValue}";
         public static string IsNotMaxValueErrorMessage(string key, string maxValue) => $"{key} should not be {maxValue}";
-        public static string AreEqualsErrorMessage(string key, string comparer) => $"{key} should not be equals {comparer}";
-        public static string AreNotEqualsErrorMessage(string key, string comparer) => $"{key} should be equals {comparer}";
+        public static string AreEqualsErrorMessage(string val, string comparer) => $"{val} should not be equals {comparer}";
+        public static string AreNotEqualsErrorMessage(string val, string comparer) => $"{val} should be equals {comparer}";
         public static string ContainsErrorMessage(string key, string comparer) => $"{key} should contain value {comparer}";
         public static string NotContainsErrorMessage(string key, string comparer) => $"{key} should not contain value {comparer}";
 
