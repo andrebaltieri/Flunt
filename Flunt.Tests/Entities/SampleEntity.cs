@@ -22,6 +22,18 @@ namespace Flunt.Tests.Entities
         public DateTime DateTimeNotBetweenStartAndEndDate = DateTimeSnapshot.AddHours(+5);
         public List<DateTime> DateTimeList = new List<DateTime> { DateTimeSnapshot };
 
+        public static TimeSpan TimeSpanSnapshot = DateTime.Now.TimeOfDay;
+        public TimeSpan TimeSpanStartDate = TimeSpanSnapshot.Add(new TimeSpan(0, -1, 0, 0));
+        public TimeSpan TimeSpanEndDate = TimeSpanSnapshot.Add(new TimeSpan(0, 1, 0, 0));
+        public TimeSpan TimeSpanGreaterThanNow = TimeSpanSnapshot.Add(new TimeSpan(0, 1, 0, 0));
+        public TimeSpan TimeSpanGreaterOrEqualsThanNow = TimeSpanSnapshot;
+        public TimeSpan TimeSpanLowerThanNow = TimeSpanSnapshot.Add(new TimeSpan(0, -1, 0, 0));
+        public TimeSpan TimeSpanLowerOrEqualsThanNow = TimeSpanSnapshot;
+        public TimeSpan? TimeSpanNull = null;
+        public TimeSpan TimeSpanBetweenStartAndEndDate = TimeSpanSnapshot;
+        public TimeSpan TimeSpanNotBetweenStartAndEndDate = TimeSpanSnapshot.Add(new TimeSpan(0, 5, 0, 0));
+        public List<TimeSpan> TimeSpanList = new List<TimeSpan> { TimeSpanSnapshot };
+
         public int IntStart = 0;
         public int IntEnd = 100;
         public int? IntNull = null;
@@ -78,7 +90,6 @@ namespace Flunt.Tests.Entities
         public string StringFiveCharsLong = "A2D3R";
         public string StringNumbersOnly = "123456";
         public string StringSpecialCharsOnly = "@#$%$#$$";
-
     }
 
     public class SampleObject : IEquatable<SampleObject>
