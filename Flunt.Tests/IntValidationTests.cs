@@ -36,6 +36,13 @@ namespace Flunt.Tests
                 .IsGreaterThan((int)20, (double)10, "Int")
                 .IsGreaterThan((int)20, (double)10, "Int", "Custom message here")
 
+                .IsGreaterThan((int)0, (long)10, "Int")
+                .IsGreaterThan((int)0, (long)10, "Int", "Custom message here")
+                .IsGreaterThan((int)10, (long)10, "Int")
+                .IsGreaterThan((int)10, (long)10, "Int", "Custom message here")
+                .IsGreaterThan((int)20, (long)10, "Int")
+                .IsGreaterThan((int)20, (long)10, "Int", "Custom message here")
+
                 .IsGreaterThan((int)0, (decimal)10, "Int")
                 .IsGreaterThan((int)0, (decimal)10, "Int", "Custom message here")
                 .IsGreaterThan((int)10, (decimal)10, "Int")
@@ -44,7 +51,7 @@ namespace Flunt.Tests
                 .IsGreaterThan((int)20, (decimal)10, "Int", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 16);
+            Assert.AreEqual(contract.Notifications.Count, 20);
         }
 
         [TestCategory("Int Validation")]
@@ -74,6 +81,13 @@ namespace Flunt.Tests
                 .IsGreaterOrEqualsThan((int)20, (double)10, "Int")
                 .IsGreaterOrEqualsThan((int)20, (double)10, "Int", "Custom message here")
 
+                .IsGreaterOrEqualsThan((int)0, (long)10, "Int")
+                .IsGreaterOrEqualsThan((int)0, (long)10, "Int", "Custom message here")
+                .IsGreaterOrEqualsThan((int)10, (long)10, "Int")
+                .IsGreaterOrEqualsThan((int)10, (long)10, "Int", "Custom message here")
+                .IsGreaterOrEqualsThan((int)20, (long)10, "Int")
+                .IsGreaterOrEqualsThan((int)20, (long)10, "Int", "Custom message here")
+
                 .IsGreaterOrEqualsThan((int)0, (decimal)10, "Int")
                 .IsGreaterOrEqualsThan((int)0, (decimal)10, "Int", "Custom message here")
                 .IsGreaterOrEqualsThan((int)10, (decimal)10, "Int")
@@ -82,7 +96,7 @@ namespace Flunt.Tests
                 .IsGreaterOrEqualsThan((int)20, (decimal)10, "Int", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Int Validation")]
@@ -112,6 +126,13 @@ namespace Flunt.Tests
                 .IsLowerThan((int)5, (double)0, "Int")
                 .IsLowerThan((int)5, (double)0, "Int", "Custom message here")
 
+                .IsLowerThan((int)0, (long)0, "Int")
+                .IsLowerThan((int)0, (long)0, "Int", "Custom message here")
+                .IsLowerThan((int)-5, (long)0, "Int")
+                .IsLowerThan((int)-5, (long)0, "Int", "Custom message here")
+                .IsLowerThan((int)5, (long)0, "Int")
+                .IsLowerThan((int)5, (long)0, "Int", "Custom message here")
+
                 .IsLowerThan((int)0, (decimal)0, "Int")
                 .IsLowerThan((int)0, (decimal)0, "Int", "Custom message here")
                 .IsLowerThan((int)-5, (decimal)0, "Int")
@@ -120,7 +141,7 @@ namespace Flunt.Tests
                 .IsLowerThan((int)5, (decimal)0, "Int", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 16);
+            Assert.AreEqual(contract.Notifications.Count, 20);
         }
 
         [TestCategory("Int Validation")]
@@ -150,6 +171,13 @@ namespace Flunt.Tests
                 .IsLowerOrEqualsThan((int)20, (double)10, "Int")
                 .IsLowerOrEqualsThan((int)20, (double)10, "Int", "Custom message here")
 
+                .IsLowerOrEqualsThan((int)0, (long)10, "Int")
+                .IsLowerOrEqualsThan((int)0, (long)10, "Int", "Custom message here")
+                .IsLowerOrEqualsThan((int)10, (long)10, "Int")
+                .IsLowerOrEqualsThan((int)10, (long)10, "Int", "Custom message here")
+                .IsLowerOrEqualsThan((int)20, (long)10, "Int")
+                .IsLowerOrEqualsThan((int)20, (long)10, "Int", "Custom message here")
+
                 .IsLowerOrEqualsThan((int)0, (decimal)10, "Int")
                 .IsLowerOrEqualsThan((int)0, (decimal)10, "Int", "Custom message here")
                 .IsLowerOrEqualsThan((int)10, (decimal)10, "Int")
@@ -158,7 +186,7 @@ namespace Flunt.Tests
                 .IsLowerOrEqualsThan((int)20, (decimal)10, "Int", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Int Validation")]
@@ -242,13 +270,18 @@ namespace Flunt.Tests
                 .AreEquals((int)0, (double)10, "Int")
                 .AreEquals((int)0, (double)10, "Int", "Custom message here")
 
+                .AreEquals((int)0, (long)0, "Int")
+                .AreEquals((int)0, (long)0, "Int", "Custom message here")
+                .AreEquals((int)0, (long)10, "Int")
+                .AreEquals((int)0, (long)10, "Int", "Custom message here")
+
                 .AreEquals((int)0, (decimal)0, "Int")
                 .AreEquals((int)0, (decimal)0, "Int", "Custom message here")
                 .AreEquals((int)0, (decimal)10, "Int")
                 .AreEquals((int)0, (decimal)10, "Int", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Int Validation")]
@@ -272,13 +305,18 @@ namespace Flunt.Tests
                 .AreNotEquals((int)0, (double)10, "Int")
                 .AreNotEquals((int)0, (double)10, "Int", "Custom message here")
 
+                .AreNotEquals((int)0, (long)0, "Int")
+                .AreNotEquals((int)0, (long)0, "Int", "Custom message here")
+                .AreNotEquals((int)0, (long)10, "Int")
+                .AreNotEquals((int)0, (long)10, "Int", "Custom message here")
+
                 .AreNotEquals((int)0, (decimal)0, "Int")
                 .AreNotEquals((int)0, (decimal)0, "Int", "Custom message here")
                 .AreNotEquals((int)0, (decimal)10, "Int")
                 .AreNotEquals((int)0, (decimal)10, "Int", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Int Validation")]
@@ -344,6 +382,15 @@ namespace Flunt.Tests
                 .IsBetween(_entity.IntNotBetweenStartAndEnd, (float)_entity.IntStart, (float)_entity.IntEnd, "Int")
                 .IsBetween(_entity.IntNotBetweenStartAndEnd, (float)_entity.IntStart, (float)_entity.IntEnd, "Int", "Custom message here")
 
+                .IsBetween(_entity.IntBetweenStartAndEnd, (long)_entity.IntStart, (long)_entity.IntEnd, "Int")
+                .IsBetween(_entity.IntBetweenStartAndEnd, (long)_entity.IntStart, (long)_entity.IntEnd, "Int", "Custom message here")
+                .IsBetween(_entity.IntStart, (long)_entity.IntStart, (long)_entity.IntEnd, "Int")
+                .IsBetween(_entity.IntStart, (long)_entity.IntStart, (long)_entity.IntEnd, "Int", "Custom message here")
+                .IsBetween(_entity.IntEnd, (long)_entity.IntStart, (long)_entity.IntEnd, "Int")
+                .IsBetween(_entity.IntEnd, (long)_entity.IntStart, (long)_entity.IntEnd, "Int", "Custom message here")
+                .IsBetween(_entity.IntNotBetweenStartAndEnd, (long)_entity.IntStart, (long)_entity.IntEnd, "Int")
+                .IsBetween(_entity.IntNotBetweenStartAndEnd, (long)_entity.IntStart, (long)_entity.IntEnd, "Int", "Custom message here")
+
                 .IsBetween(_entity.IntBetweenStartAndEnd, _entity.IntStart, _entity.IntEnd, "Int")
                 .IsBetween(_entity.IntBetweenStartAndEnd, _entity.IntStart, _entity.IntEnd, "Int", "Custom message here")
                 .IsBetween(_entity.IntStart, _entity.IntStart, _entity.IntEnd, "Int")
@@ -354,7 +401,7 @@ namespace Flunt.Tests
                 .IsBetween(_entity.IntNotBetweenStartAndEnd, _entity.IntStart, _entity.IntEnd, "Int", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Int Validation")]
@@ -390,6 +437,15 @@ namespace Flunt.Tests
                 .IsNotBetween(_entity.IntNotBetweenStartAndEnd, (float)_entity.IntStart, (float)_entity.IntEnd, "Int")
                 .IsNotBetween(_entity.IntNotBetweenStartAndEnd, (float)_entity.IntStart, (float)_entity.IntEnd, "Int", "Custom message here")
 
+                .IsNotBetween(_entity.IntBetweenStartAndEnd, (long)_entity.IntStart, (long)_entity.IntEnd, "Int")
+                .IsNotBetween(_entity.IntBetweenStartAndEnd, (long)_entity.IntStart, (long)_entity.IntEnd, "Int", "Custom message here")
+                .IsNotBetween(_entity.IntStart, (long)_entity.IntStart, (long)_entity.IntEnd, "Int")
+                .IsNotBetween(_entity.IntStart, (long)_entity.IntStart, (long)_entity.IntEnd, "Int", "Custom message here")
+                .IsNotBetween(_entity.IntEnd, (long)_entity.IntStart, (long)_entity.IntEnd, "Int")
+                .IsNotBetween(_entity.IntEnd, (long)_entity.IntStart, (long)_entity.IntEnd, "Int", "Custom message here")
+                .IsNotBetween(_entity.IntNotBetweenStartAndEnd, (long)_entity.IntStart, (long)_entity.IntEnd, "Int")
+                .IsNotBetween(_entity.IntNotBetweenStartAndEnd, (long)_entity.IntStart, (long)_entity.IntEnd, "Int", "Custom message here")
+
                 .IsNotBetween(_entity.IntBetweenStartAndEnd, _entity.IntStart, _entity.IntEnd, "Int")
                 .IsNotBetween(_entity.IntBetweenStartAndEnd, _entity.IntStart, _entity.IntEnd, "Int", "Custom message here")
                 .IsNotBetween(_entity.IntStart, _entity.IntStart, _entity.IntEnd, "Int")
@@ -400,7 +456,7 @@ namespace Flunt.Tests
                 .IsNotBetween(_entity.IntNotBetweenStartAndEnd, _entity.IntStart, _entity.IntEnd, "Int", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 24);
+            Assert.AreEqual(contract.Notifications.Count, 30);
         }
 
         [TestCategory("Int Validation")]

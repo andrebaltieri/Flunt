@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Flunt.Tests.Enums;
 
 namespace Flunt.Tests.Entities
 {
@@ -27,6 +28,13 @@ namespace Flunt.Tests.Entities
         public int IntBetweenStartAndEnd = 5;
         public int IntNotBetweenStartAndEnd = -50;
         public List<int> IntList = new List<int> { 1, 3, 5, 7, 9 };
+
+        public long LongStart = 0;
+        public long LongEnd = 100;
+        public long? LongNull = null;
+        public long LongBetweenStartAndEnd = 5;
+        public long LongNotBetweenStartAndEnd = -50;
+        public List<long> LongList = new List<long> { 1, 3, 5, 7, 9 };
 
         public double DoubleStart = 0;
         public double DoubleEnd = 100;
@@ -56,5 +64,23 @@ namespace Flunt.Tests.Entities
         public IList<string> ListNotNull = new List<string> { "Some item" };
         public IList<string> ListEmpty = new List<string>();
         public IList<string> ListNotEmpty = new List<string> { "Some item", "other item", "last item" };
+
+        public SampleEnum Enum = SampleEnum.Value;
+
+        public SampleObject ObjectNull = null;
+        public SampleObject ObjectToCompare = new SampleObject(1);
+        public SampleObject ObjectAnotherToCompare = new SampleObject(1);
+
+    }
+
+    public class SampleObject : IEquatable<SampleObject>
+    {
+        public SampleObject(int id)
+        {
+            Id = id;
+        }
+
+        public int Id { get; set; }
+        public bool Equals(SampleObject other) => Id == other?.Id;
     }
 }

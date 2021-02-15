@@ -36,6 +36,13 @@ namespace Flunt.Tests
                 .IsGreaterThan((decimal)20, (double)10, "Decimal")
                 .IsGreaterThan((decimal)20, (double)10, "Decimal", "Custom message here")
 
+                .IsGreaterThan((decimal)0, (long)10, "Decimal")
+                .IsGreaterThan((decimal)0, (long)10, "Decimal", "Custom message here")
+                .IsGreaterThan((decimal)10, (long)10, "Decimal")
+                .IsGreaterThan((decimal)10, (long)10, "Decimal", "Custom message here")
+                .IsGreaterThan((decimal)20, (long)10, "Decimal")
+                .IsGreaterThan((decimal)20, (long)10, "Decimal", "Custom message here")
+
                 .IsGreaterThan((decimal)0, (decimal)10, "Decimal")
                 .IsGreaterThan((decimal)0, (decimal)10, "Decimal", "Custom message here")
                 .IsGreaterThan((decimal)10, (decimal)10, "Decimal")
@@ -44,7 +51,7 @@ namespace Flunt.Tests
                 .IsGreaterThan((decimal)20, (decimal)10, "Decimal", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 16);
+            Assert.AreEqual(contract.Notifications.Count, 20);
         }
 
         [TestCategory("Decimal Validation")]
@@ -74,6 +81,13 @@ namespace Flunt.Tests
                 .IsGreaterOrEqualsThan((decimal)20, (double)10, "Decimal")
                 .IsGreaterOrEqualsThan((decimal)20, (double)10, "Decimal", "Custom message here")
 
+                .IsGreaterOrEqualsThan((decimal)0, (long)10, "Decimal")
+                .IsGreaterOrEqualsThan((decimal)0, (long)10, "Decimal", "Custom message here")
+                .IsGreaterOrEqualsThan((decimal)10, (long)10, "Decimal")
+                .IsGreaterOrEqualsThan((decimal)10, (long)10, "Decimal", "Custom message here")
+                .IsGreaterOrEqualsThan((decimal)20, (long)10, "Decimal")
+                .IsGreaterOrEqualsThan((decimal)20, (long)10, "Decimal", "Custom message here")
+
                 .IsGreaterOrEqualsThan((decimal)0, (decimal)10, "Decimal")
                 .IsGreaterOrEqualsThan((decimal)0, (decimal)10, "Decimal", "Custom message here")
                 .IsGreaterOrEqualsThan((decimal)10, (decimal)10, "Decimal")
@@ -82,7 +96,7 @@ namespace Flunt.Tests
                 .IsGreaterOrEqualsThan((decimal)20, (decimal)10, "Decimal", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Decimal Validation")]
@@ -112,6 +126,13 @@ namespace Flunt.Tests
                 .IsLowerThan((decimal)5, (double)0, "Decimal")
                 .IsLowerThan((decimal)5, (double)0, "Decimal", "Custom message here")
 
+                .IsLowerThan((decimal)0, (long)0, "Decimal")
+                .IsLowerThan((decimal)0, (long)0, "Decimal", "Custom message here")
+                .IsLowerThan((decimal)-5, (long)0, "Decimal")
+                .IsLowerThan((decimal)-5, (long)0, "Decimal", "Custom message here")
+                .IsLowerThan((decimal)5, (long)0, "Decimal")
+                .IsLowerThan((decimal)5, (long)0, "Decimal", "Custom message here")
+
                 .IsLowerThan((decimal)0, (decimal)0, "Decimal")
                 .IsLowerThan((decimal)0, (decimal)0, "Decimal", "Custom message here")
                 .IsLowerThan((decimal)-5, (decimal)0, "Decimal")
@@ -120,7 +141,7 @@ namespace Flunt.Tests
                 .IsLowerThan((decimal)5, (decimal)0, "Decimal", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 16);
+            Assert.AreEqual(contract.Notifications.Count, 20);
         }
 
         [TestCategory("Decimal Validation")]
@@ -150,6 +171,13 @@ namespace Flunt.Tests
                 .IsLowerOrEqualsThan((decimal)20, (double)10, "Decimal")
                 .IsLowerOrEqualsThan((decimal)20, (double)10, "Decimal", "Custom message here")
 
+                .IsLowerOrEqualsThan((decimal)0, (long)10, "Decimal")
+                .IsLowerOrEqualsThan((decimal)0, (long)10, "Decimal", "Custom message here")
+                .IsLowerOrEqualsThan((decimal)10, (long)10, "Decimal")
+                .IsLowerOrEqualsThan((decimal)10, (long)10, "Decimal", "Custom message here")
+                .IsLowerOrEqualsThan((decimal)20, (long)10, "Decimal")
+                .IsLowerOrEqualsThan((decimal)20, (long)10, "Decimal", "Custom message here")
+
                 .IsLowerOrEqualsThan((decimal)0, (decimal)10, "Decimal")
                 .IsLowerOrEqualsThan((decimal)0, (decimal)10, "Decimal", "Custom message here")
                 .IsLowerOrEqualsThan((decimal)10, (decimal)10, "Decimal")
@@ -158,7 +186,7 @@ namespace Flunt.Tests
                 .IsLowerOrEqualsThan((decimal)20, (decimal)10, "Decimal", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Decimal Validation")]
@@ -242,13 +270,18 @@ namespace Flunt.Tests
                 .AreEquals((decimal)0, (double)10, "Decimal")
                 .AreEquals((decimal)0, (double)10, "Decimal", "Custom message here")
 
+                .AreEquals((decimal)0, (long)0, "Decimal")
+                .AreEquals((decimal)0, (long)0, "Decimal", "Custom message here")
+                .AreEquals((decimal)0, (long)10, "Decimal")
+                .AreEquals((decimal)0, (long)10, "Decimal", "Custom message here")
+
                 .AreEquals((decimal)0, (decimal)0, "Decimal")
                 .AreEquals((decimal)0, (decimal)0, "Decimal", "Custom message here")
                 .AreEquals((decimal)0, (decimal)10, "Decimal")
                 .AreEquals((decimal)0, (decimal)10, "Decimal", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Decimal Validation")]
@@ -272,13 +305,18 @@ namespace Flunt.Tests
                 .AreNotEquals((decimal)0, (double)10, "Decimal")
                 .AreNotEquals((decimal)0, (double)10, "Decimal", "Custom message here")
 
+                .AreNotEquals((decimal)0, (long)0, "Decimal")
+                .AreNotEquals((decimal)0, (long)0, "Decimal", "Custom message here")
+                .AreNotEquals((decimal)0, (long)10, "Decimal")
+                .AreNotEquals((decimal)0, (long)10, "Decimal", "Custom message here")
+
                 .AreNotEquals((decimal)0, (decimal)0, "Decimal")
                 .AreNotEquals((decimal)0, (decimal)0, "Decimal", "Custom message here")
                 .AreNotEquals((decimal)0, (decimal)10, "Decimal")
                 .AreNotEquals((decimal)0, (decimal)10, "Decimal", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Decimal Validation")]
@@ -344,6 +382,15 @@ namespace Flunt.Tests
                 .IsBetween(_entity.DecimalNotBetweenStartAndEnd, (float)_entity.DecimalStart, (float)_entity.DecimalEnd, "Decimal")
                 .IsBetween(_entity.DecimalNotBetweenStartAndEnd, (float)_entity.DecimalStart, (float)_entity.DecimalEnd, "Decimal", "Custom message here")
 
+                .IsBetween(_entity.DecimalBetweenStartAndEnd, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal")
+                .IsBetween(_entity.DecimalBetweenStartAndEnd, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal", "Custom message here")
+                .IsBetween(_entity.DecimalStart, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal")
+                .IsBetween(_entity.DecimalStart, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal", "Custom message here")
+                .IsBetween(_entity.DecimalEnd, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal")
+                .IsBetween(_entity.DecimalEnd, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal", "Custom message here")
+                .IsBetween(_entity.DecimalNotBetweenStartAndEnd, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal")
+                .IsBetween(_entity.DecimalNotBetweenStartAndEnd, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal", "Custom message here")
+
                 .IsBetween(_entity.DecimalBetweenStartAndEnd, _entity.DecimalStart, _entity.DecimalEnd, "Decimal")
                 .IsBetween(_entity.DecimalBetweenStartAndEnd, _entity.DecimalStart, _entity.DecimalEnd, "Decimal", "Custom message here")
                 .IsBetween(_entity.DecimalStart, _entity.DecimalStart, _entity.DecimalEnd, "Decimal")
@@ -354,7 +401,7 @@ namespace Flunt.Tests
                 .IsBetween(_entity.DecimalNotBetweenStartAndEnd, _entity.DecimalStart, _entity.DecimalEnd, "Decimal", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Decimal Validation")]
@@ -390,6 +437,15 @@ namespace Flunt.Tests
                 .IsNotBetween(_entity.DecimalNotBetweenStartAndEnd, (float)_entity.DecimalStart, (float)_entity.DecimalEnd, "Decimal")
                 .IsNotBetween(_entity.DecimalNotBetweenStartAndEnd, (float)_entity.DecimalStart, (float)_entity.DecimalEnd, "Decimal", "Custom message here")
 
+                .IsNotBetween(_entity.DecimalBetweenStartAndEnd, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal")
+                .IsNotBetween(_entity.DecimalBetweenStartAndEnd, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal", "Custom message here")
+                .IsNotBetween(_entity.DecimalStart, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal")
+                .IsNotBetween(_entity.DecimalStart, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal", "Custom message here")
+                .IsNotBetween(_entity.DecimalEnd, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal")
+                .IsNotBetween(_entity.DecimalEnd, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal", "Custom message here")
+                .IsNotBetween(_entity.DecimalNotBetweenStartAndEnd, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal")
+                .IsNotBetween(_entity.DecimalNotBetweenStartAndEnd, (long)_entity.DecimalStart, (long)_entity.DecimalEnd, "Decimal", "Custom message here")
+
                 .IsNotBetween(_entity.DecimalBetweenStartAndEnd, _entity.DecimalStart, _entity.DecimalEnd, "Decimal")
                 .IsNotBetween(_entity.DecimalBetweenStartAndEnd, _entity.DecimalStart, _entity.DecimalEnd, "Decimal", "Custom message here")
                 .IsNotBetween(_entity.DecimalStart, _entity.DecimalStart, _entity.DecimalEnd, "Decimal")
@@ -400,7 +456,7 @@ namespace Flunt.Tests
                 .IsNotBetween(_entity.DecimalNotBetweenStartAndEnd, _entity.DecimalStart, _entity.DecimalEnd, "Decimal", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 24);
+            Assert.AreEqual(contract.Notifications.Count, 30);
         }
 
         [TestCategory("Decimal Validation")]

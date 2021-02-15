@@ -132,7 +132,7 @@ namespace Flunt.Tests
                 .IsLowerThan(_entity.ListNotEmpty, 4, "List", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 4);
+            Assert.AreEqual(contract.Notifications.Count, 8);
         }
 
         [TestCategory("List Validation")]
@@ -141,20 +141,20 @@ namespace Flunt.Tests
         {
             var contract = new Contract<SampleEntity>()
                 .Requires()
-                .IsLowerThan(_entity.ListNotEmpty, 0, "List")
-                .IsLowerThan(_entity.ListNotEmpty, 1, "List")
-                .IsLowerThan(_entity.ListNotEmpty, 2, "List")
-                .IsLowerThan(_entity.ListNotEmpty, 3, "List")
-                .IsLowerThan(_entity.ListNotEmpty, 4, "List")
+                .IsLowerOrEqualsThan(_entity.ListNotEmpty, 0, "List")
+                .IsLowerOrEqualsThan(_entity.ListNotEmpty, 1, "List")
+                .IsLowerOrEqualsThan(_entity.ListNotEmpty, 2, "List")
+                .IsLowerOrEqualsThan(_entity.ListNotEmpty, 3, "List")
+                .IsLowerOrEqualsThan(_entity.ListNotEmpty, 4, "List")
 
-                .IsLowerThan(_entity.ListNotEmpty, 0, "List", "Custom message here")
-                .IsLowerThan(_entity.ListNotEmpty, 1, "List", "Custom message here")
-                .IsLowerThan(_entity.ListNotEmpty, 2, "List", "Custom message here")
-                .IsLowerThan(_entity.ListNotEmpty, 3, "List", "Custom message here")
-                .IsLowerThan(_entity.ListNotEmpty, 4, "List", "Custom message here");
+                .IsLowerOrEqualsThan(_entity.ListNotEmpty, 0, "List", "Custom message here")
+                .IsLowerOrEqualsThan(_entity.ListNotEmpty, 1, "List", "Custom message here")
+                .IsLowerOrEqualsThan(_entity.ListNotEmpty, 2, "List", "Custom message here")
+                .IsLowerOrEqualsThan(_entity.ListNotEmpty, 3, "List", "Custom message here")
+                .IsLowerOrEqualsThan(_entity.ListNotEmpty, 4, "List", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 6);
         }
     }
 }

@@ -36,6 +36,13 @@ namespace Flunt.Tests
                 .IsGreaterThan((double)20, (double)10, "Double")
                 .IsGreaterThan((double)20, (double)10, "Double", "Custom message here")
 
+                .IsGreaterThan((double)0, (long)10, "Double")
+                .IsGreaterThan((double)0, (long)10, "Double", "Custom message here")
+                .IsGreaterThan((double)10, (long)10, "Double")
+                .IsGreaterThan((double)10, (long)10, "Double", "Custom message here")
+                .IsGreaterThan((double)20, (long)10, "Double")
+                .IsGreaterThan((double)20, (long)10, "Double", "Custom message here")
+
                 .IsGreaterThan((double)0, (decimal)10, "Double")
                 .IsGreaterThan((double)0, (decimal)10, "Double", "Custom message here")
                 .IsGreaterThan((double)10, (decimal)10, "Double")
@@ -44,7 +51,7 @@ namespace Flunt.Tests
                 .IsGreaterThan((double)20, (decimal)10, "Double", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 16);
+            Assert.AreEqual(contract.Notifications.Count, 20);
         }
 
         [TestCategory("Double Validation")]
@@ -74,6 +81,13 @@ namespace Flunt.Tests
                 .IsGreaterOrEqualsThan((double)20, (double)10, "Double")
                 .IsGreaterOrEqualsThan((double)20, (double)10, "Double", "Custom message here")
 
+                .IsGreaterOrEqualsThan((double)0, (long)10, "Double")
+                .IsGreaterOrEqualsThan((double)0, (long)10, "Double", "Custom message here")
+                .IsGreaterOrEqualsThan((double)10, (long)10, "Double")
+                .IsGreaterOrEqualsThan((double)10, (long)10, "Double", "Custom message here")
+                .IsGreaterOrEqualsThan((double)20, (long)10, "Double")
+                .IsGreaterOrEqualsThan((double)20, (long)10, "Double", "Custom message here")
+
                 .IsGreaterOrEqualsThan((double)0, (decimal)10, "Double")
                 .IsGreaterOrEqualsThan((double)0, (decimal)10, "Double", "Custom message here")
                 .IsGreaterOrEqualsThan((double)10, (decimal)10, "Double")
@@ -82,7 +96,7 @@ namespace Flunt.Tests
                 .IsGreaterOrEqualsThan((double)20, (decimal)10, "Double", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Double Validation")]
@@ -112,6 +126,13 @@ namespace Flunt.Tests
                 .IsLowerThan((double)5, (double)0, "Double")
                 .IsLowerThan((double)5, (double)0, "Double", "Custom message here")
 
+                .IsLowerThan((double)0, (long)0, "Double")
+                .IsLowerThan((double)0, (long)0, "Double", "Custom message here")
+                .IsLowerThan((double)-5, (long)0, "Double")
+                .IsLowerThan((double)-5, (long)0, "Double", "Custom message here")
+                .IsLowerThan((double)5, (long)0, "Double")
+                .IsLowerThan((double)5, (long)0, "Double", "Custom message here")
+
                 .IsLowerThan((double)0, (decimal)0, "Double")
                 .IsLowerThan((double)0, (decimal)0, "Double", "Custom message here")
                 .IsLowerThan((double)-5, (decimal)0, "Double")
@@ -120,7 +141,7 @@ namespace Flunt.Tests
                 .IsLowerThan((double)5, (decimal)0, "Double", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 16);
+            Assert.AreEqual(contract.Notifications.Count, 20);
         }
 
         [TestCategory("Double Validation")]
@@ -150,6 +171,13 @@ namespace Flunt.Tests
                 .IsLowerOrEqualsThan((double)20, (double)10, "Double")
                 .IsLowerOrEqualsThan((double)20, (double)10, "Double", "Custom message here")
 
+                .IsLowerOrEqualsThan((double)0, (long)10, "Double")
+                .IsLowerOrEqualsThan((double)0, (long)10, "Double", "Custom message here")
+                .IsLowerOrEqualsThan((double)10, (long)10, "Double")
+                .IsLowerOrEqualsThan((double)10, (long)10, "Double", "Custom message here")
+                .IsLowerOrEqualsThan((double)20, (long)10, "Double")
+                .IsLowerOrEqualsThan((double)20, (long)10, "Double", "Custom message here")
+
                 .IsLowerOrEqualsThan((double)0, (decimal)10, "Double")
                 .IsLowerOrEqualsThan((double)0, (decimal)10, "Double", "Custom message here")
                 .IsLowerOrEqualsThan((double)10, (decimal)10, "Double")
@@ -158,7 +186,7 @@ namespace Flunt.Tests
                 .IsLowerOrEqualsThan((double)20, (decimal)10, "Double", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Double Validation")]
@@ -242,13 +270,18 @@ namespace Flunt.Tests
                 .AreEquals((double)0, (double)10, "Double")
                 .AreEquals((double)0, (double)10, "Double", "Custom message here")
 
+                .AreEquals((double)0, (long)0, "Double")
+                .AreEquals((double)0, (long)0, "Double", "Custom message here")
+                .AreEquals((double)0, (long)10, "Double")
+                .AreEquals((double)0, (long)10, "Double", "Custom message here")
+
                 .AreEquals((double)0, (decimal)0, "Double")
                 .AreEquals((double)0, (decimal)0, "Double", "Custom message here")
                 .AreEquals((double)0, (decimal)10, "Double")
                 .AreEquals((double)0, (decimal)10, "Double", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Double Validation")]
@@ -272,13 +305,18 @@ namespace Flunt.Tests
                 .AreNotEquals((double)0, (double)10, "Double")
                 .AreNotEquals((double)0, (double)10, "Double", "Custom message here")
 
+                .AreNotEquals((double)0, (long)0, "Double")
+                .AreNotEquals((double)0, (long)0, "Double", "Custom message here")
+                .AreNotEquals((double)0, (long)10, "Double")
+                .AreNotEquals((double)0, (long)10, "Double", "Custom message here")
+
                 .AreNotEquals((double)0, (decimal)0, "Double")
                 .AreNotEquals((double)0, (decimal)0, "Double", "Custom message here")
                 .AreNotEquals((double)0, (decimal)10, "Double")
                 .AreNotEquals((double)0, (decimal)10, "Double", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Double Validation")]
@@ -344,6 +382,15 @@ namespace Flunt.Tests
                 .IsBetween(_entity.DoubleNotBetweenStartAndEnd, (float)_entity.DoubleStart, (float)_entity.DoubleEnd, "Double")
                 .IsBetween(_entity.DoubleNotBetweenStartAndEnd, (float)_entity.DoubleStart, (float)_entity.DoubleEnd, "Double", "Custom message here")
 
+                .IsBetween(_entity.DoubleBetweenStartAndEnd, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double")
+                .IsBetween(_entity.DoubleBetweenStartAndEnd, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double", "Custom message here")
+                .IsBetween(_entity.DoubleStart, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double")
+                .IsBetween(_entity.DoubleStart, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double", "Custom message here")
+                .IsBetween(_entity.DoubleEnd, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double")
+                .IsBetween(_entity.DoubleEnd, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double", "Custom message here")
+                .IsBetween(_entity.DoubleNotBetweenStartAndEnd, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double")
+                .IsBetween(_entity.DoubleNotBetweenStartAndEnd, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double", "Custom message here")
+
                 .IsBetween(_entity.DoubleBetweenStartAndEnd, _entity.DoubleStart, _entity.DoubleEnd, "Double")
                 .IsBetween(_entity.DoubleBetweenStartAndEnd, _entity.DoubleStart, _entity.DoubleEnd, "Double", "Custom message here")
                 .IsBetween(_entity.DoubleStart, _entity.DoubleStart, _entity.DoubleEnd, "Double")
@@ -354,7 +401,7 @@ namespace Flunt.Tests
                 .IsBetween(_entity.DoubleNotBetweenStartAndEnd, _entity.DoubleStart, _entity.DoubleEnd, "Double", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 8);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("Double Validation")]
@@ -390,6 +437,15 @@ namespace Flunt.Tests
                 .IsNotBetween(_entity.DoubleNotBetweenStartAndEnd, (float)_entity.DoubleStart, (float)_entity.DoubleEnd, "Double")
                 .IsNotBetween(_entity.DoubleNotBetweenStartAndEnd, (float)_entity.DoubleStart, (float)_entity.DoubleEnd, "Double", "Custom message here")
 
+                .IsNotBetween(_entity.DoubleBetweenStartAndEnd, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double")
+                .IsNotBetween(_entity.DoubleBetweenStartAndEnd, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double", "Custom message here")
+                .IsNotBetween(_entity.DoubleStart, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double")
+                .IsNotBetween(_entity.DoubleStart, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double", "Custom message here")
+                .IsNotBetween(_entity.DoubleEnd, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double")
+                .IsNotBetween(_entity.DoubleEnd, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double", "Custom message here")
+                .IsNotBetween(_entity.DoubleNotBetweenStartAndEnd, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double")
+                .IsNotBetween(_entity.DoubleNotBetweenStartAndEnd, (long)_entity.DoubleStart, (long)_entity.DoubleEnd, "Double", "Custom message here")
+
                 .IsNotBetween(_entity.DoubleBetweenStartAndEnd, _entity.DoubleStart, _entity.DoubleEnd, "Double")
                 .IsNotBetween(_entity.DoubleBetweenStartAndEnd, _entity.DoubleStart, _entity.DoubleEnd, "Double", "Custom message here")
                 .IsNotBetween(_entity.DoubleStart, _entity.DoubleStart, _entity.DoubleEnd, "Double")
@@ -400,7 +456,7 @@ namespace Flunt.Tests
                 .IsNotBetween(_entity.DoubleNotBetweenStartAndEnd, _entity.DoubleStart, _entity.DoubleEnd, "Double", "Custom message here");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 24);
+            Assert.AreEqual(contract.Notifications.Count, 30);
         }
 
         [TestCategory("Double Validation")]

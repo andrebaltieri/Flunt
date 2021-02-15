@@ -95,6 +95,27 @@ namespace Flunt.Validations
         /// <returns></returns>
         public Contract<T> IsGreaterThan(decimal val, int comparer, string key, string message) =>
             IsGreaterThan(val, (decimal)comparer, key, message);
+
+        /// <summary>
+        /// Requires a decimal is greater than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(decimal val, long comparer, string key) =>
+            IsGreaterThan(val, comparer, key, ContractLocalization.IsGreaterThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a decimal is greater than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <param name="message">Custom error message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(decimal val, long comparer, string key, string message) =>
+            IsGreaterThan(val, (decimal)comparer, key, message);
         #endregion
 
         #region IsGreaterOrEqualsThan
@@ -185,6 +206,27 @@ namespace Flunt.Validations
         /// <param name="message">Customer error message</param>
         /// <returns></returns>
         public Contract<T> IsGreaterOrEqualsThan(decimal val, int comparer, string key, string message) =>
+            IsGreaterOrEqualsThan(val, (decimal)comparer, key, message);
+
+        /// <summary>
+        /// Requires a decimal is greater or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(decimal val, long comparer, string key) =>
+            IsGreaterOrEqualsThan(val, (decimal)comparer, key, ContractLocalization.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a decimal is greater or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <param name="message">Customer error message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(decimal val, long comparer, string key, string message) =>
             IsGreaterOrEqualsThan(val, (decimal)comparer, key, message);
         #endregion
 
@@ -277,6 +319,27 @@ namespace Flunt.Validations
         /// <returns></returns>
         public Contract<T> IsLowerThan(decimal val, int comparer, string key, string message) =>
             IsLowerThan(val, (decimal)comparer, key, message);
+
+        /// <summary>
+        /// Requires a decimal is lower than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(decimal val, long comparer, string key) =>
+            IsLowerThan(val, comparer, key, ContractLocalization.IsLowerThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a decimal is lower than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <param name="message">Custom error message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(decimal val, long comparer, string key, string message) =>
+            IsLowerThan(val, (decimal)comparer, key, message);
         #endregion
 
         #region IsLowerOrEqualsThan
@@ -367,6 +430,27 @@ namespace Flunt.Validations
         /// <param name="message">Customer error message</param>
         /// <returns></returns>
         public Contract<T> IsLowerOrEqualsThan(decimal val, int comparer, string key, string message) =>
+            IsLowerOrEqualsThan(val, (decimal)comparer, key, message);
+
+        /// <summary>
+        /// Requires a decimal is lower or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(decimal val, long comparer, string key) =>
+            IsLowerOrEqualsThan(val, (decimal)comparer, key, ContractLocalization.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a decimal is lower or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <param name="message">Customer error message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(decimal val, long comparer, string key, string message) =>
             IsLowerOrEqualsThan(val, (decimal)comparer, key, message);
         #endregion
 
@@ -564,6 +648,27 @@ namespace Flunt.Validations
         /// <returns></returns>
         public Contract<T> AreEquals(decimal val, double comparer, string key, string message) =>
             AreEquals(val, (decimal)comparer, key, message);
+
+        /// <summary>
+        /// Requires two decimals are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(decimal val, long comparer, string key) =>
+            AreEquals(val, (decimal)comparer, key, ContractLocalization.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
+
+        /// <summary>
+        /// Requires two decimals are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(decimal val, long comparer, string key, string message) =>
+            AreEquals(val, (decimal)comparer, key, message);
         #endregion
 
         #region AreNotEquals
@@ -655,6 +760,27 @@ namespace Flunt.Validations
         /// <param name="message"></param>
         /// <returns></returns>
         public Contract<T> AreNotEquals(decimal val, double comparer, string key, string message) =>
+            AreNotEquals(val, (decimal)comparer, key, message);
+
+        /// <summary>
+        /// Requires two decimals are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(decimal val, long comparer, string key) =>
+            AreNotEquals(val, (decimal)comparer, key, ContractLocalization.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
+
+        /// <summary>
+        /// Requires two decimals are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(decimal val, long comparer, string key, string message) =>
             AreNotEquals(val, (decimal)comparer, key, message);
         #endregion
 
@@ -807,6 +933,29 @@ namespace Flunt.Validations
         /// <returns></returns>
         public Contract<T> IsBetween(decimal val, double start, double end, string key, string message) =>
             IsBetween(val, (decimal)start, (decimal)end, key, message);
+
+        /// <summary>
+        /// Requires a decimal is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(decimal val, long start, long end, string key) =>
+            IsBetween(val, (decimal)start, (decimal)end, key, ContractLocalization.IsBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+
+        /// <summary>
+        /// Requires a decimal is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(decimal val, long start, long end, string key, string message) =>
+            IsBetween(val, (decimal)start, (decimal)end, key, message);
         #endregion
 
         #region IsNotBetween
@@ -905,6 +1054,29 @@ namespace Flunt.Validations
         /// <param name="message"></param>
         /// <returns></returns>
         public Contract<T> IsNotBetween(decimal val, double start, double end, string key, string message) =>
+            IsNotBetween(val, (decimal)start, (decimal)end, key, message);
+
+        /// <summary>
+        /// Requires a decimal is not between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotBetween(decimal val, long start, long end, string key) =>
+            IsNotBetween(val, (decimal)start, (decimal)end, key, ContractLocalization.IsNotBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+
+        /// <summary>
+        /// Requires a decimal is not between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotBetween(decimal val, long start, long end, string key, string message) =>
             IsNotBetween(val, (decimal)start, (decimal)end, key, message);
         #endregion
 
