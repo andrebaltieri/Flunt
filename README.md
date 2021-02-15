@@ -1,32 +1,22 @@
-![Flunt](https://raw.githubusercontent.com/andrebaltieri/flunt/main/media/flunt-share.png)
-
-* What is Flunt?
-* Dependencies
-* Installation
-* Basic usage
-* Wiki
-* Projects
-* Milestones
-* Releases
-* FluntBR
-* FluntJava
-* Flunt on Facebook
-* Flunt arts
-
 # Flunt
 Flunt is a fluent way to use Notification Pattern with your entities, concentrating every change you made and easy accessing it when you need.
 
-## Dependencies
-.NET Standard 1.3+
+
+| Package |  Version | Downloads |
+| ------- | ----- | ----- |
+| `Flunt` | [![NuGet](https://img.shields.io/nuget/v/Flunt.svg)](https://nuget.org/packages/Flunt) | [![Nuget](https://img.shields.io/nuget/dt/Flunt.svg)](https://nuget.org/packages/Flunt) |
+
+
+### Dependencies
+.NET Standard 2.0
 
 You can check supported frameworks here:
 
 https://docs.microsoft.com/pt-br/dotnet/standard/net-standard
 
-## Instalation
+### Instalation
 This package is available through Nuget Packages: https://www.nuget.org/packages/Flunt
 
-Note: For Brazilian validations like (CPF, CNPJ) you also need to install another lib with the necessary extensions: https://github.com/lira92/flunt.br
 
 **Nuget**
 ```
@@ -38,19 +28,12 @@ Install-Package Flunt
 dotnet add package Flunt
 ```
 
-# How to Use
-Just check our Wiki
+## How to use
+Just check our [Wiki](https://github.com/andrebaltieri/Flunt/wiki) for more details and samples of how to use Flunt in your applications.
 
-https://github.com/andrebaltieri/Flunt/wiki
+## Extensions and Mods
+* [Flunt.Br](https://github.com/carlosbritojun/jflunt)
+* [Flunt for Java](https://github.com/lira92/flunt.br)
 
-
-
-
-# Wiki
-https://www.facebook.com/flunt.io
-
-# Flunt for Java
-You can find a port of this library to Java here: https://github.com/carlosbritojun/jflunt
-
-# About the Art
+## About the Art
 All logo, icons, colors and fonts were provided with love by Gregory Buso
