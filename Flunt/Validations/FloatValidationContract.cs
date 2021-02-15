@@ -1,289 +1,1139 @@
-﻿namespace Flunt.Validations
+﻿using System.Collections.Generic;
+using System.Linq;
+using Flunt.Localization;
+
+namespace Flunt.Validations
 {
-    public partial class Contract
+    public partial class Contract<T>
     {
         #region IsGreaterThan
+        /// <summary>
+        /// Requires a float is greater than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(float val, float comparer, string key) =>
+            IsGreaterThan(val, comparer, key, FluntErrorMessages.IsGreaterThanErrorMessage(key, comparer.ToString()));
 
-        public Contract IsGreaterThan(decimal val, float comparer, string property, string message)
+        /// <summary>
+        /// Requires a float is greater than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <param name="message">Custom error message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(float val, float comparer, string key, string message)
         {
-            if ((double)val <= comparer)
-                AddNotification(property, message);
+            if (val <= (float)comparer)
+                AddNotification(key, message);
 
             return this;
         }
 
-        public Contract IsGreaterThan(double val, float comparer, string property, string message)
-        {
-            if (val <= comparer)
-                AddNotification(property, message);
+        /// <summary>
+        /// Requires a float is greater than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(float val, decimal comparer, string key) =>
+            IsGreaterThan(val, comparer, key, FluntErrorMessages.IsGreaterThanErrorMessage(key, comparer.ToString()));
 
-            return this;
-        }
+        /// <summary>
+        /// Requires a float is greater than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <param name="message">Custom error message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(float val, decimal comparer, string key, string message) =>
+            IsGreaterThan(val, (float)comparer, key, message);
 
-        public Contract IsGreaterThan(float val, float comparer, string property, string message)
-        {
-            if (val <= comparer)
-                AddNotification(property, message);
+        /// <summary>
+        /// Requires a float is greater than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(float val, double comparer, string key) =>
+            IsGreaterThan(val, comparer, key, FluntErrorMessages.IsGreaterThanErrorMessage(key, comparer.ToString()));
 
-            return this;
-        }
+        /// <summary>
+        /// Requires a float is greater than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <param name="message">Custom error message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(float val, double comparer, string key, string message) =>
+            IsGreaterThan(val, (float)comparer, key, message);
 
-        public Contract IsGreaterThan(long val, float comparer, string property, string message)
-        {
-            if (val <= comparer)
-                AddNotification(property, message);
+        /// <summary>
+        /// Requires a float is greater than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(float val, int comparer, string key) =>
+            IsGreaterThan(val, comparer, key, FluntErrorMessages.IsGreaterThanErrorMessage(key, comparer.ToString()));
 
-            return this;
-        }
+        /// <summary>
+        /// Requires a float is greater than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <param name="message">Custom error message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(float val, int comparer, string key, string message) =>
+            IsGreaterThan(val, (float)comparer, key, message);
 
-        public Contract IsGreaterThan(int val, float comparer, string property, string message)
-        {
-            if (val <= comparer)
-                AddNotification(property, message);
+        /// <summary>
+        /// Requires a float is greater than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(float val, long comparer, string key) =>
+            IsGreaterThan(val, comparer, key, FluntErrorMessages.IsGreaterThanErrorMessage(key, comparer.ToString()));
 
-            return this;
-        }
-
-        #endregion IsGreaterThan
+        /// <summary>
+        /// Requires a float is greater than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <param name="message">Custom error message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(float val, long comparer, string key, string message) =>
+            IsGreaterThan(val, (float)comparer, key, message);
+        #endregion
 
         #region IsGreaterOrEqualsThan
+        /// <summary>
+        /// Requires a float is greater or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(float val, float comparer, string key) =>
+            IsGreaterOrEqualsThan(val, comparer, key, FluntErrorMessages.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
 
-        public Contract IsGreaterOrEqualsThan(decimal val, float comparer, string property, string message)
-        {
-            if ((double)val < comparer)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract IsGreaterOrEqualsThan(double val, float comparer, string property, string message)
-        {
-            if (val < comparer)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract IsGreaterOrEqualsThan(float val, float comparer, string property, string message)
-        {
-            if (val < comparer)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract IsGreaterOrEqualsThan(long val, float comparer, string property, string message)
+        /// <summary>
+        /// Requires a float is greater or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <param name="message">Customer error message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(float val, float comparer, string key, string message)
         {
             if (val < comparer)
-                AddNotification(property, message);
+                AddNotification(key, message);
 
             return this;
         }
 
-        public Contract IsGreaterOrEqualsThan(int val, float comparer, string property, string message)
-        {
-            if (val < comparer)
-                AddNotification(property, message);
+        /// <summary>
+        /// Requires a float is greater or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(float val, decimal comparer, string key) =>
+            IsGreaterOrEqualsThan(val, (float)comparer, key, FluntErrorMessages.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
 
-            return this;
-        }
+        /// <summary>
+        /// Requires a float is greater or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <param name="message">Customer error message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(float val, decimal comparer, string key, string message) =>
+            IsGreaterOrEqualsThan(val, (float)comparer, key, message);
 
-        #endregion IsGreaterOrEqualsThan
+        /// <summary>
+        /// Requires a float is greater or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(float val, double comparer, string key) =>
+            IsGreaterOrEqualsThan(val, (float)comparer, key, FluntErrorMessages.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a float is greater or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <param name="message">Customer error message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(float val, double comparer, string key, string message) =>
+            IsGreaterOrEqualsThan(val, (float)comparer, key, message);
+
+        /// <summary>
+        /// Requires a float is greater or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(float val, int comparer, string key) =>
+            IsGreaterOrEqualsThan(val, (float)comparer, key, FluntErrorMessages.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a float is greater or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <param name="message">Customer error message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(float val, int comparer, string key, string message) =>
+            IsGreaterOrEqualsThan(val, (float)comparer, key, message);
+
+        /// <summary>
+        /// Requires a float is greater or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(float val, long comparer, string key) =>
+            IsGreaterOrEqualsThan(val, (float)comparer, key, FluntErrorMessages.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a float is greater or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <param name="message">Customer error message</param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(float val, long comparer, string key, string message) =>
+            IsGreaterOrEqualsThan(val, (float)comparer, key, message);
+        #endregion
 
         #region IsLowerThan
+        /// <summary>
+        /// Requires a float is lower than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(float val, float comparer, string key) =>
+            IsLowerThan(val, comparer, key, FluntErrorMessages.IsLowerThanErrorMessage(key, comparer.ToString()));
 
-        public Contract IsLowerThan(decimal val, float comparer, string property, string message)
-        {
-            if ((double)val >= comparer)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract IsLowerThan(double val, float comparer, string property, string message)
-        {
-            if (val >= comparer)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract IsLowerThan(float val, float comparer, string property, string message)
-        {
-            if (val >= comparer)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract IsLowerThan(long val, float comparer, string property, string message)
+        /// <summary>
+        /// Requires a float is lower than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <param name="message">Custom error message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(float val, float comparer, string key, string message)
         {
             if (val >= comparer)
-                AddNotification(property, message);
+                AddNotification(key, message);
 
             return this;
         }
 
-        public Contract IsLowerThan(int val, float comparer, string property, string message)
-        {
-            if (val >= comparer)
-                AddNotification(property, message);
+        /// <summary>
+        /// Requires a float is lower than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(float val, decimal comparer, string key) =>
+            IsLowerThan(val, comparer, key, FluntErrorMessages.IsLowerThanErrorMessage(key, comparer.ToString()));
 
-            return this;
-        }
+        /// <summary>
+        /// Requires a float is lower than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <param name="message">Custom error message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(float val, decimal comparer, string key, string message) =>
+            IsLowerThan(val, (float)comparer, key, message);
 
-        #endregion IsLowerThan
+        /// <summary>
+        /// Requires a float is lower than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(float val, double comparer, string key) =>
+            IsLowerThan(val, comparer, key, FluntErrorMessages.IsLowerThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a float is lower than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <param name="message">Custom error message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(float val, double comparer, string key, string message) =>
+            IsLowerThan(val, (float)comparer, key, message);
+
+        /// <summary>
+        /// Requires a float is lower than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(float val, int comparer, string key) =>
+            IsLowerThan(val, comparer, key, FluntErrorMessages.IsLowerThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a float is lower than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <param name="message">Custom error message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(float val, int comparer, string key, string message) =>
+            IsLowerThan(val, (float)comparer, key, message);
+
+        /// <summary>
+        /// Requires a float is lower than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(float val, long comparer, string key) =>
+            IsLowerThan(val, comparer, key, FluntErrorMessages.IsLowerThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a float is lower than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Name</param>
+        /// <param name="message">Custom error message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(float val, long comparer, string key, string message) =>
+            IsLowerThan(val, (float)comparer, key, message);
+        #endregion
 
         #region IsLowerOrEqualsThan
+        /// <summary>
+        /// Requires a float is lower or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(float val, float comparer, string key) =>
+            IsLowerOrEqualsThan(val, comparer, key, FluntErrorMessages.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
 
-        public Contract IsLowerOrEqualsThan(decimal val, float comparer, string property, string message)
+        /// <summary>
+        /// Requires a float is lower or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <param name="message">Customer error message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(float val, float comparer, string key, string message)
         {
-            if ((double)val > comparer)
-                AddNotification(property, message);
+            if (val < comparer)
+                AddNotification(key, message);
 
             return this;
         }
 
-        public Contract IsLowerOrEqualsThan(double val, float comparer, string property, string message)
+        /// <summary>
+        /// Requires a float is lower or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(float val, decimal comparer, string key) =>
+            IsLowerOrEqualsThan(val, (float)comparer, key, FluntErrorMessages.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a float is lower or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <param name="message">Customer error message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(float val, decimal comparer, string key, string message) =>
+            IsLowerOrEqualsThan(val, (float)comparer, key, message);
+
+        /// <summary>
+        /// Requires a float is lower or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(float val, double comparer, string key) =>
+            IsLowerOrEqualsThan(val, (float)comparer, key, FluntErrorMessages.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a float is lower or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <param name="message">Customer error message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(float val, double comparer, string key, string message) =>
+            IsLowerOrEqualsThan(val, (float)comparer, key, message);
+
+        /// <summary>
+        /// Requires a float is lower or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(float val, int comparer, string key) =>
+            IsLowerOrEqualsThan(val, (float)comparer, key, FluntErrorMessages.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a float is lower or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <param name="message">Customer error message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(float val, int comparer, string key, string message) =>
+            IsLowerOrEqualsThan(val, (float)comparer, key, message);
+
+        /// <summary>
+        /// Requires a float is lower or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(float val, long comparer, string key) =>
+            IsLowerOrEqualsThan(val, (float)comparer, key, FluntErrorMessages.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a float is lower or equals than
+        /// </summary>
+        /// <param name="val">val</param>
+        /// <param name="comparer">comparer</param>
+        /// <param name="key">Key or Property Message</param>
+        /// <param name="message">Customer error message</param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(float val, long comparer, string key, string message) =>
+            IsLowerOrEqualsThan(val, (float)comparer, key, message);
+        #endregion
+
+        #region IsMinValue
+        /// <summary>
+        /// Requires a float has its min value
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsMinValue(float val, string key) =>
+            IsMinValue(val, key, FluntErrorMessages.IsMinValueErrorMessage(key, decimal.MinValue.ToString()));
+
+        /// <summary>
+        /// Requires a float has its min value
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsMinValue(float val, string key, string message)
         {
-            if (val > comparer)
-                AddNotification(property, message);
+            if (val != float.MinValue)
+                AddNotification(key, message);
 
             return this;
         }
+        #endregion
 
-        public Contract IsLowerOrEqualsThan(float val, float comparer, string property, string message)
+        #region IsNotMinValue
+        /// <summary>
+        /// Requires a float has not its min value
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotMinValue(float val, string key) =>
+            IsNotMinValue(val, key, FluntErrorMessages.IsNotMinValueErrorMessage(key, decimal.MinValue.ToString()));
+
+        /// <summary>
+        /// Requires a float has not its min value
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotMinValue(float val, string key, string message)
         {
-            if (val > comparer)
-                AddNotification(property, message);
+            if (val == float.MinValue)
+                AddNotification(key, message);
 
             return this;
         }
+        #endregion
 
-        public Contract IsLowerOrEqualsThan(long val, float comparer, string property, string message)
+        #region IsMaxValue
+        /// <summary>
+        /// Requires a float has its max value
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsMaxValue(float val, string key) =>
+            IsMaxValue(val, key, FluntErrorMessages.IsMaxValueErrorMessage(key, decimal.MaxValue.ToString()));
+
+        /// <summary>
+        /// Requires a float has its max value
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsMaxValue(float val, string key, string message)
         {
-            if (val > comparer)
-                AddNotification(property, message);
+            if (val != float.MaxValue)
+                AddNotification(key, message);
 
             return this;
         }
+        #endregion
 
-        public Contract IsLowerOrEqualsThan(int val, float comparer, string property, string message)
+        #region IsNotMaxValue
+        /// <summary>
+        /// Requires a float has not its max value
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotMaxValue(float val, string key) =>
+            IsNotMaxValue(val, key, FluntErrorMessages.IsNotMaxValueErrorMessage(key, decimal.MaxValue.ToString()));
+
+        /// <summary>
+        /// Requires a float has not its min value
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotMaxValue(float val, string key, string message)
         {
-            if (val > comparer)
-                AddNotification(property, message);
+            if (val == float.MaxValue)
+                AddNotification(key, message);
 
             return this;
         }
-
-        #endregion IsLowerOrEqualsThan
+        #endregion
 
         #region AreEquals
+        /// <summary>
+        /// Requires two decimals are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(float val, float comparer, string key) =>
+            AreEquals(val, comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
-        public Contract AreEquals(decimal val, float comparer, string property, string message)
-        {
-            if ((double)val != comparer)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract AreEquals(double val, float comparer, string property, string message)
-        {
-            if (val != comparer)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract AreEquals(float val, float comparer, string property, string message)
-        {
-            if (val != comparer)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract AreEquals(long val, float comparer, string property, string message)
+        /// <summary>
+        /// Requires two decimals are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(float val, float comparer, string key, string message)
         {
             if (val != comparer)
-                AddNotification(property, message);
+                AddNotification(key, message);
 
             return this;
         }
 
-        public Contract AreEquals(int val, float comparer, string property, string message)
-        {
-            if (val != comparer)
-                AddNotification(property, message);
+        /// <summary>
+        /// Requires two decimals are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(float val, int comparer, string key) =>
+            AreEquals(val, (float)comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
-            return this;
-        }
+        /// <summary>
+        /// Requires two decimals are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(float val, int comparer, string key, string message) =>
+            AreEquals(val, (float)comparer, key, message);
 
-        #endregion AreEquals
+        /// <summary>
+        /// Requires two decimals are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(float val, double comparer, string key) =>
+            AreEquals(val, (float)comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
+
+        /// <summary>
+        /// Requires two decimals are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(float val, double comparer, string key, string message) =>
+            AreEquals(val, (float)comparer, key, message);
+
+        /// <summary>
+        /// Requires two decimals are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(float val, decimal comparer, string key) =>
+            AreEquals(val, (float)comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
+
+        /// <summary>
+        /// Requires two decimals are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(float val, decimal comparer, string key, string message) =>
+            AreEquals(val, (float)comparer, key, message);
+
+        /// <summary>
+        /// Requires two decimals are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(float val, long comparer, string key) =>
+            AreEquals(val, (float)comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
+
+        /// <summary>
+        /// Requires two decimals are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(float val, long comparer, string key, string message) =>
+            AreEquals(val, (float)comparer, key, message);
+        #endregion
 
         #region AreNotEquals
+        /// <summary>
+        /// Requires two decimals are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(float val, float comparer, string key) =>
+            AreNotEquals(val, comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
-        public Contract AreNotEquals(decimal val, float comparer, string property, string message)
-        {
-            if ((double)val == comparer)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract AreNotEquals(double val, float comparer, string property, string message)
-        {
-            if (val == comparer)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract AreNotEquals(float val, float comparer, string property, string message)
-        {
-            if (val == comparer)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract AreNotEquals(long val, float comparer, string property, string message)
+        /// <summary>
+        /// Requires two decimals are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(float val, float comparer, string key, string message)
         {
             if (val == comparer)
-                AddNotification(property, message);
+                AddNotification(key, message);
 
             return this;
         }
 
-        public Contract AreNotEquals(int val, float comparer, string property, string message)
+        /// <summary>
+        /// Requires two decimals are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(float val, int comparer, string key) =>
+            AreNotEquals(val, (float)comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
+
+        /// <summary>
+        /// Requires two decimals are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(float val, int comparer, string key, string message) =>
+            AreNotEquals(val, (float)comparer, key, message);
+
+        /// <summary>
+        /// Requires two decimals are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(float val, double comparer, string key) =>
+            AreNotEquals(val, (float)comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
+
+        /// <summary>
+        /// Requires two decimals are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(float val, double comparer, string key, string message) =>
+            AreNotEquals(val, (float)comparer, key, message);
+
+        /// <summary>
+        /// Requires two decimals are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(float val, decimal comparer, string key) =>
+            AreNotEquals(val, (float)comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
+
+        /// <summary>
+        /// Requires two decimals are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(float val, decimal comparer, string key, string message) =>
+            AreNotEquals(val, (float)comparer, key, message);
+
+        /// <summary>
+        /// Requires two decimals are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(float val, long comparer, string key) =>
+            AreNotEquals(val, (float)comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
+
+        /// <summary>
+        /// Requires two decimals are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(float val, long comparer, string key, string message) =>
+            AreNotEquals(val, (float)comparer, key, message);
+        #endregion
+
+        #region IsNull
+        /// <summary>
+        /// Requires a float is null
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNull(float? val, string key) =>
+            IsNull(val, key, FluntErrorMessages.IsNullErrorMessage(key));
+
+        /// <summary>
+        /// Requires a float is null
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNull(float? val, string key, string message)
         {
-            if (val == comparer)
-                AddNotification(property, message);
+            if (val != null)
+                AddNotification(key, message);
 
             return this;
         }
+        #endregion
 
-        #endregion AreNotEquals
+        #region IsNotNull
+        /// <summary>
+        /// Requires a float is not null
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotNull(float? val, string key) =>
+            IsNotNull(val, key, FluntErrorMessages.IsNotNullErrorMessage(key));
 
-        #region Between
-
-        public Contract IsBetween(float val, float from, float to, string property, string message)
+        /// <summary>
+        /// Requires a float is not null
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotNull(float? val, string key, string message)
         {
-            if (!(val >= from && val <= to))
-                AddNotification(property, message);
+            if (val == null)
+                AddNotification(key, message);
 
             return this;
         }
+        #endregion
 
-        #endregion Between
+        #region IsBetween
+        /// <summary>
+        /// Requires a float is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(float val, float start, float end, string key) =>
+            IsBetween(val, start, end, key, FluntErrorMessages.IsBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
-        public Contract IsNullOrNullable(float? val, string property, string message)
+        /// <summary>
+        /// Requires a float is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(float val, float start, float end, string key, string message)
         {
-            if (val == null || !val.HasValue)
-                AddNotification(property, message);
+            if ((val >= start && val <= end) == false)
+                AddNotification(key, message);
 
             return this;
         }
+
+        /// <summary>
+        /// Requires a float is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(float val, int start, int end, string key) =>
+            IsBetween(val, (float)start, (float)end, key, FluntErrorMessages.IsBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
+
+        /// <summary>
+        /// Requires a float is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(float val, int start, int end, string key, string message) =>
+            IsBetween(val, (float)start, (float)end, key, message);
+
+        /// <summary>
+        /// Requires a float is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(float val, double start, double end, string key) =>
+            IsBetween(val, (float)start, (float)end, key, FluntErrorMessages.IsBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
+
+        /// <summary>
+        /// Requires a float is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(float val, double start, double end, string key, string message) =>
+            IsBetween(val, (float)start, (float)end, key, message);
+
+        /// <summary>
+        /// Requires a float is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(float val, decimal start, decimal end, string key) =>
+            IsBetween(val, (float)start, (float)end, key, FluntErrorMessages.IsBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
+
+        /// <summary>
+        /// Requires a float is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(float val, decimal start, decimal end, string key, string message) =>
+            IsBetween(val, (float)start, (float)end, key, message);
+
+        /// <summary>
+        /// Requires a float is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(float val, long start, long end, string key) =>
+            IsBetween(val, (float)start, (float)end, key, FluntErrorMessages.IsBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
+
+        /// <summary>
+        /// Requires a float is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(float val, long start, long end, string key, string message) =>
+            IsBetween(val, (float)start, (float)end, key, message);
+        #endregion
+
+        #region IsNotBetween
+        /// <summary>
+        /// Requires a float is not between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotBetween(float val, float start, float end, string key) =>
+            IsNotBetween(val, start, end, key, FluntErrorMessages.IsNotBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
+
+        /// <summary>
+        /// Requires a float is not between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotBetween(float val, float start, float end, string key, string message)
+        {
+            if ((val >= start && val <= end) == true)
+                AddNotification(key, message);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Requires a float is not between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotBetween(float val, int start, int end, string key) =>
+            IsNotBetween(val, (float)start, (float)end, key, FluntErrorMessages.IsNotBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
+
+        /// <summary>
+        /// Requires a float is not between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotBetween(float val, int start, int end, string key, string message) =>
+            IsNotBetween(val, (float)start, (float)end, key, message);
+
+        /// <summary>
+        /// Requires a float is not between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotBetween(float val, double start, double end, string key) =>
+            IsNotBetween(val, (float)start, (float)end, key, FluntErrorMessages.IsNotBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
+
+        /// <summary>
+        /// Requires a float is not between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotBetween(float val, double start, double end, string key, string message) =>
+            IsNotBetween(val, (float)start, (float)end, key, message);
+
+        /// <summary>
+        /// Requires a float is not between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotBetween(float val, decimal start, decimal end, string key) =>
+            IsNotBetween(val, (float)start, (float)end, key, FluntErrorMessages.IsNotBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
+
+        /// <summary>
+        /// Requires a float is not between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotBetween(float val, decimal start, decimal end, string key, string message) =>
+            IsNotBetween(val, (float)start, (float)end, key, message);
+
+        /// <summary>
+        /// Requires a float is not between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotBetween(float val, long start, long end, string key) =>
+            IsNotBetween(val, (float)start, (float)end, key, FluntErrorMessages.IsNotBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
+
+        /// <summary>
+        /// Requires a float is not between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotBetween(float val, long start, long end, string key, string message) =>
+            IsNotBetween(val, (float)start, (float)end, key, message);
+        #endregion
+
+        #region Contains
+        /// <summary>
+        /// Requires a list contains a float
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="list"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> Contains(float val, IEnumerable<float> list, string key) =>
+            Contains(val, list, key, FluntErrorMessages.ContainsErrorMessage(key, val.ToString()));
+
+        /// <summary>
+        /// Requires a list contains a float
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="list"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> Contains(float val, IEnumerable<float> list, string key, string message)
+        {
+            if (list.Any(x => x == val) == false)
+                AddNotification(key, message);
+
+            return this;
+        }
+        #endregion
+
+        #region NotContains
+        /// <summary>
+        /// Requires a list does not contains a float
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="list"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> NotContains(float val, IEnumerable<float> list, string key) =>
+            NotContains(val, list, key, FluntErrorMessages.NotContainsErrorMessage(key, val.ToString()));
+
+        /// <summary>
+        /// Requires a list does not contains a float
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="list"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> NotContains(float val, IEnumerable<float> list, string key, string message)
+        {
+            if (list.Any(x => x == val) == true)
+                AddNotification(key, message);
+
+            return this;
+        }
+        #endregion
     }
 }

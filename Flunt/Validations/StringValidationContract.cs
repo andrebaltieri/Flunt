@@ -1,188 +1,438 @@
-using System;
-using System.Linq;
-using System.Text.RegularExpressions;	
+﻿using Flunt.Localization;
 
 namespace Flunt.Validations
 {
-    public partial class Contract
+    public partial class Contract<T>
     {
-        public Contract IsNotNullOrEmpty(string val, string property, string message)
+        /// <summary>
+        /// Requires a string is null
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNull(string val, string key) =>
+            IsNull(val, key, FluntErrorMessages.IsNullErrorMessage(key));
+
+        /// <summary>
+        /// Requires a string is null
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNull(string val, string key, string message)
+        {
+            if (val != null)
+                AddNotification(key, message);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Requires a string is not null
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotNull(string val, string key) =>
+            IsNotNull(val, key, FluntErrorMessages.IsNotNullErrorMessage(key));
+
+        /// <summary>
+        /// Requires a string is not null
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotNull(string val, string key, string message)
+        {
+            if (val == null)
+                AddNotification(key, message);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Requires a string is null or empty
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNullOrEmpty(string val, string key) =>
+            IsNullOrEmpty(val, key, FluntErrorMessages.IsNullOrEmptyErrorMessage(key));
+
+        /// <summary>
+        /// Requires a string is null or empty
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNullOrEmpty(string val, string key, string message)
+        {
+            if (string.IsNullOrEmpty(val) == false)
+                AddNotification(key, message);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Requires a string is not null or empty
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotNullOrEmpty(string val, string key) =>
+            IsNotNullOrEmpty(val, key, FluntErrorMessages.IsNotNullOrEmptyErrorMessage(key));
+
+        /// <summary>
+        /// Requires a string is not null or empty
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotNullOrEmpty(string val, string key, string message)
         {
             if (string.IsNullOrEmpty(val))
-                AddNotification(property, message);
+                AddNotification(key, message);
 
             return this;
         }
 
-        public Contract IsNotNullOrWhiteSpace(string val, string property, string message)
+        /// <summary>
+        /// Requires a string is null or white space
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNullOrWhiteSpace(string val, string key) =>
+            IsNullOrWhiteSpace(val, key, FluntErrorMessages.IsNullOrWhiteSpaceErrorMessage(key));
+
+        /// <summary>
+        /// Requires a string is null or white space
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNullOrWhiteSpace(string val, string key, string message)
         {
-            if (string.IsNullOrWhiteSpace(val))
-                AddNotification(property, message);
+            if (string.IsNullOrWhiteSpace(val) == false)
+                AddNotification(key, message);
 
             return this;
         }
 
+        /// <summary>
+        /// Requires a string is not null or white space
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotNullOrWhiteSpace(string val, string key) =>
+            IsNotNullOrWhiteSpace(val, key, FluntErrorMessages.IsNotNullOrWhiteSpaceErrorMessage(key));
 
-        public Contract IsNullOrEmpty(string val, string property, string message)
+        /// <summary>
+        /// Requires a string is not null or white space
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsNotNullOrWhiteSpace(string val, string key, string message)
         {
-            if (!string.IsNullOrEmpty(val))
-                AddNotification(property, message);
+            if (string.IsNullOrWhiteSpace(val) == false)
+                AddNotification(key, message);
 
             return this;
         }
 
-        public Contract HasMinLen(string val, int min, string property, string message)
+        /// <summary>
+        /// Requires two strings are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(string val, string comparer, string key) =>
+            AreEquals(val, comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val, comparer));
+
+        /// <summary>
+        /// Requires two strings are equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(string val, string comparer, string key, string message)
         {
-            if (string.IsNullOrEmpty(val) || val.Length < min)
-                AddNotification(property, message);
+            if (val != comparer)
+                AddNotification(key, message);
 
             return this;
         }
 
-        public Contract HasMaxLen(string val, int max, string property, string message)
+        /// <summary>
+        /// Requires a string have a len
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(string val, int comparer, string key) =>
+            AreEquals(val, comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a string have a len
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreEquals(string val, int comparer, string key, string message)
         {
-            if (string.IsNullOrEmpty(val) || val.Length > max)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract HasLen(string val, int len, string property, string message)
-        {
-            if (string.IsNullOrEmpty(val) || val.Length != len)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract Contains(string val, string text, string property, string message)
-        {
-            // TODO: StringComparison.OrdinalIgnoreCase not suported yet
-            if (!val.Contains(text))
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract AreEquals(string val, string text, string property, string message, StringComparison comparisonType = StringComparison.OrdinalIgnoreCase)
-        {
-            if (!string.Equals(val, text, comparisonType))
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract AreNotEquals(string val, string text, string property, string message, StringComparison comparisonType = StringComparison.OrdinalIgnoreCase)
-        {
-            if (string.Equals(val, text, comparisonType))
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract IsEmail(string email, string property, string message)
-        {
-            const string pattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
-            return Matchs(email, pattern, property, message);
-        }
-
-        public Contract IsEmailOrEmpty(string email, string property, string message)
-        {
-            if (string.IsNullOrEmpty(email))
+            if (val == null)
                 return this;
 
-            return IsEmail(email, property, message);
+            if (val.Length != comparer)
+                AddNotification(key, message);
+
+            return this;
         }
 
-        public Contract IsUrl(string url, string property, string message)
+        /// <summary>
+        /// Requires two strings are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(string val, string comparer, string key) =>
+            AreNotEquals(val, comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val, comparer));
+
+        /// <summary>
+        /// Requires two strings are not equals
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(string val, string comparer, string key, string message)
         {
-            const string pattern = @"^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$";
-            return Matchs(url, pattern, property, message);
+            if (val == comparer)
+                AddNotification(key, message);
+
+            return this;
         }
 
-        public Contract IsUrlOrEmpty(string url, string property, string message)
+        /// <summary>
+        /// Requires a string do not have a len
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(string val, int comparer, string key) =>
+            AreNotEquals(val, comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a string do not have a len
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> AreNotEquals(string val, int comparer, string key, string message)
         {
-            if (string.IsNullOrEmpty(url))
+            if (val == null)
                 return this;
 
-            return IsUrl(url, property, message);
-        }
-
-        public Contract Matchs(string text, string pattern, string property, string message)
-        {
-            if (!Regex.IsMatch(text ?? "", pattern))
-                AddNotification(property, message);
+            if (val.Length == comparer)
+                AddNotification(key, message);
 
             return this;
         }
 
-        public Contract IsDigit(string text, string property, string message)
-        {
-            const string pattern = @"^\d+$";
-            return Matchs(text, pattern, property, message);
-        }
 
-        public Contract HasMinLengthIfNotNullOrEmpty(string text, int min, string property, string message)
+        /// <summary>
+        /// Requires a string contains
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> Contains(string val, string comparer, string key) =>
+            Contains(val, comparer, key, FluntErrorMessages.ContainsErrorMessage(val, comparer));
+
+        /// <summary>
+        /// Requires a string contains
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> Contains(string val, string comparer, string key, string message)
         {
-            if (!string.IsNullOrEmpty(text) && text.Length < min)
-                AddNotification(property, message);
+            if (string.IsNullOrEmpty(val))
+                val = string.Empty;
+
+            if (val.Contains(comparer) == false)
+                AddNotification(key, message);
 
             return this;
         }
 
-        public Contract HasMaxLengthIfNotNullOrEmpty(string text, int max, string property, string message)
+        /// <summary>
+        /// Requires a string not contains
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> NotContains(string val, string comparer, string key) =>
+            NotContains(val, comparer, key, FluntErrorMessages.NotContainsErrorMessage(val, comparer));
+
+        /// <summary>
+        /// Requires a string not contains
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> NotContains(string val, string comparer, string key, string message)
         {
-            if (!string.IsNullOrEmpty(text) && text.Length > max)
-                AddNotification(property, message);
+            if (string.IsNullOrEmpty(val))
+                val = string.Empty;
+
+            if (val.Contains(comparer))
+                AddNotification(key, message);
 
             return this;
         }
 
-        public Contract HasExactLengthIfNotNullOrEmpty(string text, int len, string property, string message)
+        /// <summary>
+        /// Requires a string len is greater than
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(string val, int comparer, string key) =>
+            IsGreaterThan(val, comparer, key, FluntErrorMessages.IsGreaterThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a string is greater than
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterThan(string val, int comparer, string key, string message)
         {
-            if (!string.IsNullOrEmpty(text) && text.Length != len)
-                AddNotification(property, message);
-
-            return this;
-        }
-
-        public Contract IsCreditCard(string creditcard, string property, string message)
-        {
-            creditcard = Regex.Replace(creditcard, @"[^0-9]+", "");
-
-            if (string.IsNullOrWhiteSpace(creditcard))
-            {
-                AddNotification(property, message);
+            if (val == null)
                 return this;
-            }
-            
-            bool even = false;
-            int checksum = 0;
 
-            foreach (char digit in creditcard.ToCharArray().Reverse())
-            {
-                if (!char.IsDigit(digit))
-                {
-                    AddNotification(property, message);
-                    return this;
-                }
+            if (val.Length <= comparer)
+                AddNotification(key, message);
 
-                int value = (digit - '0') * (even ? 2 : 1);
-                even = !even;
-
-                while (value > 0)
-                {
-                    checksum += value % 10;
-                    value /= 10;
-                }
-            }
-
-            if (checksum % 10 != 0)
-            {
-                AddNotification(property, message);
-            }
             return this;
         }
 
+        /// <summary>
+        /// Requires a string len is greater or equals than
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(string val, int comparer, string key) =>
+            IsGreaterOrEqualsThan(val, comparer, key, FluntErrorMessages.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a string len is greater or equals than
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsGreaterOrEqualsThan(string val, int comparer, string key, string message)
+        {
+            if (val == null)
+                return this;
+
+            if (val.Length < comparer)
+                AddNotification(key, message);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Requires a string len is lower than
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(string val, int comparer, string key) =>
+            IsLowerThan(val, comparer, key, FluntErrorMessages.IsLowerThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a string len is lower than
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsLowerThan(string val, int comparer, string key, string message)
+        {
+            if (val == null)
+                return this;
+
+            if (val.Length >= comparer)
+                AddNotification(key, message);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Requires a string len is lower or equals than
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(string val, int comparer, string key) =>
+            IsLowerOrEqualsThan(val, comparer, key, FluntErrorMessages.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
+
+        /// <summary>
+        /// Requires a string len is lower or equals than
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="comparer"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsLowerOrEqualsThan(string val, int comparer, string key, string message)
+        {
+            if (val == null)
+                return this;
+
+            if (val.Length > comparer)
+                AddNotification(key, message);
+
+            return this;
+        }
     }
 }

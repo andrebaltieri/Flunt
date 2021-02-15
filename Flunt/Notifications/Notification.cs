@@ -1,14 +1,19 @@
-namespace Flunt.Notifications
+﻿namespace Flunt.Notifications
 {
     public class Notification
     {
-        public Notification(string property, string message)
+        public Notification()
         {
-            Property = property;
+
+        }
+
+        public Notification(string key, string message)
+        {
+            Key = key;
             Message = message;
         }
 
-        public string Property { get; private set; }
-        public string Message { get; private set; }
+        public string Key { get; set; }
+        public string Message { get; set; }
     }
 }

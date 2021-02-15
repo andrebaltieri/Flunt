@@ -1,37 +1,24 @@
-﻿using System;
-using System.Linq.Expressions;
-using Flunt.Notifications;
+﻿using Flunt.Notifications;
+using System;
 
 namespace Flunt.Validations
 {
-    public partial class Contract : Notifiable
+    public partial class Contract<T> : Notifiable<Notification>
     {
-        public Contract Requires()
+        public Contract<T> Requires()
         {
             return this;
         }
 
-        public Contract Join(params Notifiable[] items)
+        public Contract<T> Join(params Notifiable<Notification>[] items)
         {
-            if (items != null)
+            if (items == null) return this;
+            foreach (var notifiable in items)
             {
-                foreach (var notifiable in items)
-                {
-                    if (notifiable.Invalid)
-                        AddNotifications(notifiable.Notifications);
-                }
+                if (notifiable.IsValid == false)
+                    AddNotifications(notifiable.Notifications);
             }
 
-            return this;
-        }
-        
-        public Contract IfNotNull(object parameterType, Expression<Func<Contract, Contract>> contractExpression)
-        {
-            if (parameterType != null)
-            {
-                contractExpression.Compile().Invoke(this);
-            }
-            
             return this;
         }
     }

@@ -1,53 +1,60 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Flunt.Notifications
 {
-    public abstract class Notifiable
+    public abstract class Notifiable<T> where T : Notification
     {
-        private readonly List<Notification> _notifications;
+        private readonly List<T> _notifications;
 
-        protected Notifiable() => _notifications = new List<Notification>();
+        protected Notifiable() => _notifications = new List<T>();
 
-        public IReadOnlyCollection<Notification> Notifications => _notifications;
-
-        public void AddNotification(string property, string message)
+        private T GetNotificationInstance(string key, string message)
         {
-            _notifications.Add(new Notification(property, message));
+            return (T)Activator.CreateInstance(typeof(T), new object[] { key, message });
         }
 
-        public void AddNotification(Notification notification)
+        public IReadOnlyCollection<T> Notifications => _notifications;
+
+        public void AddNotification(string key, string message)
+        {
+            var notification = GetNotificationInstance(key, message);
+            _notifications.Add(notification);
+        }
+
+        public void AddNotification(T notification)
         {
             _notifications.Add(notification);
         }
 
         public void AddNotification(Type property, string message)
         {
-            _notifications.Add(new Notification(property?.Name, message));
+            var notification = GetNotificationInstance(property?.Name, message);
+            _notifications.Add(notification);
         }
 
-        public void AddNotifications(IReadOnlyCollection<Notification> notifications)
+        public void AddNotifications(IReadOnlyCollection<T> notifications)
         {
             _notifications.AddRange(notifications);
         }
 
-        public void AddNotifications(IList<Notification> notifications)
+        public void AddNotifications(IList<T> notifications)
         {
             _notifications.AddRange(notifications);
         }
 
-        public void AddNotifications(ICollection<Notification> notifications)
+        public void AddNotifications(ICollection<T> notifications)
         {
             _notifications.AddRange(notifications);
         }
 
-        public void AddNotifications(Notifiable item)
+        public void AddNotifications(Notifiable<T> item)
         {
             AddNotifications(item.Notifications);
         }
 
-        public void AddNotifications(params Notifiable[] items)
+        public void AddNotifications(params Notifiable<T>[] items)
         {
             foreach (var item in items)
                 AddNotifications(item);
@@ -58,7 +65,6 @@ namespace Flunt.Notifications
             _notifications.Clear();
         }
 
-        public bool Invalid => _notifications.Any();
-        public bool Valid => !Invalid;
+        public bool IsValid => _notifications.Any() == false;
     }
 }
