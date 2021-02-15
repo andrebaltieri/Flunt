@@ -17,6 +17,11 @@
             return this;
         }
 
+        public Contract<T> IsNotNullOrEmpty(string val, string key)
+        {
+            return this;
+        }
+
         public Contract<T> IsNotNullOrEmpty(string val, string key, string message)
         {
             return this;

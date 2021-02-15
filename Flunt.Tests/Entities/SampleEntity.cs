@@ -51,5 +51,10 @@ namespace Flunt.Tests.Entities
 
         public Guid GuidEmpty = Guid.Empty;
         public Guid GuidNotEmpty = new Guid("f4ac2eab-8de5-430a-85b1-f0daa71df176");
+
+        public IList<string> ListNull = null;
+        public IList<string> ListNotNull = new List<string> { "Some item" };
+        public IList<string> ListEmpty = new List<string>();
+        public IList<string> ListNotEmpty = new List<string> { "Some item", "other item", "last item" };
     }
 }
