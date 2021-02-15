@@ -24,4 +24,4 @@ jobs:
       run: dotnet pack --configuration Release
 
     - name: Publish
-      run: dotnet nuget push "Flunt/bin/Release/*.nupkg" -k ${{ secrets.NUGET_TOKEN }}
+      run: dotnet nuget push "Flunt/bin/Release/*.nupkg" -k ${{ secrets.NUGET_TOKEN }} -s https://nuget.pkg.github.com/flunt/index.json
