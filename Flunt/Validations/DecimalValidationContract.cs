@@ -15,7 +15,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsGreaterThan(decimal val, decimal comparer, string key) =>
-            IsGreaterThan(val, comparer, key, ContractLocalization.IsGreaterThanErrorMessage(key, comparer.ToString()));
+            IsGreaterThan(val, comparer, key, FluntErrorMessages.IsGreaterThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is greater than
@@ -41,7 +41,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsGreaterThan(decimal val, double comparer, string key) =>
-            IsGreaterThan(val, comparer, key, ContractLocalization.IsGreaterThanErrorMessage(key, comparer.ToString()));
+            IsGreaterThan(val, comparer, key, FluntErrorMessages.IsGreaterThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is greater than
@@ -62,7 +62,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsGreaterThan(decimal val, float comparer, string key) =>
-            IsGreaterThan(val, comparer, key, ContractLocalization.IsGreaterThanErrorMessage(key, comparer.ToString()));
+            IsGreaterThan(val, comparer, key, FluntErrorMessages.IsGreaterThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is greater than
@@ -83,7 +83,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsGreaterThan(decimal val, int comparer, string key) =>
-            IsGreaterThan(val, comparer, key, ContractLocalization.IsGreaterThanErrorMessage(key, comparer.ToString()));
+            IsGreaterThan(val, comparer, key, FluntErrorMessages.IsGreaterThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is greater than
@@ -104,7 +104,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsGreaterThan(decimal val, long comparer, string key) =>
-            IsGreaterThan(val, comparer, key, ContractLocalization.IsGreaterThanErrorMessage(key, comparer.ToString()));
+            IsGreaterThan(val, comparer, key, FluntErrorMessages.IsGreaterThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is greater than
@@ -127,7 +127,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Message</param>
         /// <returns></returns>
         public Contract<T> IsGreaterOrEqualsThan(decimal val, decimal comparer, string key) =>
-            IsGreaterOrEqualsThan(val, comparer, key, ContractLocalization.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
+            IsGreaterOrEqualsThan(val, comparer, key, FluntErrorMessages.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is greater or equals than
@@ -153,7 +153,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Message</param>
         /// <returns></returns>
         public Contract<T> IsGreaterOrEqualsThan(decimal val, double comparer, string key) =>
-            IsGreaterOrEqualsThan(val, (decimal)comparer, key, ContractLocalization.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
+            IsGreaterOrEqualsThan(val, (decimal)comparer, key, FluntErrorMessages.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is greater or equals than
@@ -174,7 +174,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Message</param>
         /// <returns></returns>
         public Contract<T> IsGreaterOrEqualsThan(decimal val, float comparer, string key) =>
-            IsGreaterOrEqualsThan(val, (decimal)comparer, key, ContractLocalization.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
+            IsGreaterOrEqualsThan(val, (decimal)comparer, key, FluntErrorMessages.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is greater or equals than
@@ -195,7 +195,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Message</param>
         /// <returns></returns>
         public Contract<T> IsGreaterOrEqualsThan(decimal val, int comparer, string key) =>
-            IsGreaterOrEqualsThan(val, (decimal)comparer, key, ContractLocalization.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
+            IsGreaterOrEqualsThan(val, (decimal)comparer, key, FluntErrorMessages.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is greater or equals than
@@ -216,7 +216,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Message</param>
         /// <returns></returns>
         public Contract<T> IsGreaterOrEqualsThan(decimal val, long comparer, string key) =>
-            IsGreaterOrEqualsThan(val, (decimal)comparer, key, ContractLocalization.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
+            IsGreaterOrEqualsThan(val, (decimal)comparer, key, FluntErrorMessages.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is greater or equals than
@@ -239,7 +239,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsLowerThan(decimal val, decimal comparer, string key) =>
-            IsLowerThan(val, comparer, key, ContractLocalization.IsLowerThanErrorMessage(key, comparer.ToString()));
+            IsLowerThan(val, comparer, key, FluntErrorMessages.IsLowerThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is lower than
@@ -265,7 +265,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsLowerThan(decimal val, double comparer, string key) =>
-            IsLowerThan(val, comparer, key, ContractLocalization.IsLowerThanErrorMessage(key, comparer.ToString()));
+            IsLowerThan(val, comparer, key, FluntErrorMessages.IsLowerThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is lower than
@@ -286,7 +286,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsLowerThan(decimal val, float comparer, string key) =>
-            IsLowerThan(val, comparer, key, ContractLocalization.IsLowerThanErrorMessage(key, comparer.ToString()));
+            IsLowerThan(val, comparer, key, FluntErrorMessages.IsLowerThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is lower than
@@ -307,7 +307,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsLowerThan(decimal val, int comparer, string key) =>
-            IsLowerThan(val, comparer, key, ContractLocalization.IsLowerThanErrorMessage(key, comparer.ToString()));
+            IsLowerThan(val, comparer, key, FluntErrorMessages.IsLowerThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is lower than
@@ -328,7 +328,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsLowerThan(decimal val, long comparer, string key) =>
-            IsLowerThan(val, comparer, key, ContractLocalization.IsLowerThanErrorMessage(key, comparer.ToString()));
+            IsLowerThan(val, comparer, key, FluntErrorMessages.IsLowerThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is lower than
@@ -351,7 +351,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Message</param>
         /// <returns></returns>
         public Contract<T> IsLowerOrEqualsThan(decimal val, decimal comparer, string key) =>
-            IsLowerOrEqualsThan(val, comparer, key, ContractLocalization.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
+            IsLowerOrEqualsThan(val, comparer, key, FluntErrorMessages.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is lower or equals than
@@ -377,7 +377,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Message</param>
         /// <returns></returns>
         public Contract<T> IsLowerOrEqualsThan(decimal val, double comparer, string key) =>
-            IsLowerOrEqualsThan(val, (decimal)comparer, key, ContractLocalization.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
+            IsLowerOrEqualsThan(val, (decimal)comparer, key, FluntErrorMessages.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is lower or equals than
@@ -398,7 +398,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Message</param>
         /// <returns></returns>
         public Contract<T> IsLowerOrEqualsThan(decimal val, float comparer, string key) =>
-            IsLowerOrEqualsThan(val, (decimal)comparer, key, ContractLocalization.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
+            IsLowerOrEqualsThan(val, (decimal)comparer, key, FluntErrorMessages.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is lower or equals than
@@ -419,7 +419,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Message</param>
         /// <returns></returns>
         public Contract<T> IsLowerOrEqualsThan(decimal val, int comparer, string key) =>
-            IsLowerOrEqualsThan(val, (decimal)comparer, key, ContractLocalization.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
+            IsLowerOrEqualsThan(val, (decimal)comparer, key, FluntErrorMessages.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is lower or equals than
@@ -440,7 +440,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Message</param>
         /// <returns></returns>
         public Contract<T> IsLowerOrEqualsThan(decimal val, long comparer, string key) =>
-            IsLowerOrEqualsThan(val, (decimal)comparer, key, ContractLocalization.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
+            IsLowerOrEqualsThan(val, (decimal)comparer, key, FluntErrorMessages.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString()));
 
         /// <summary>
         /// Requires a decimal is lower or equals than
@@ -462,7 +462,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsMinValue(decimal val, string key) =>
-            IsMinValue(val, key, ContractLocalization.IsMinValueErrorMessage(key, decimal.MinValue.ToString()));
+            IsMinValue(val, key, FluntErrorMessages.IsMinValueErrorMessage(key, decimal.MinValue.ToString()));
 
         /// <summary>
         /// Requires a decimal has its min value
@@ -488,7 +488,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNotMinValue(decimal val, string key) =>
-            IsNotMinValue(val, key, ContractLocalization.IsNotMinValueErrorMessage(key, decimal.MinValue.ToString()));
+            IsNotMinValue(val, key, FluntErrorMessages.IsNotMinValueErrorMessage(key, decimal.MinValue.ToString()));
 
         /// <summary>
         /// Requires a decimal has not its min value
@@ -514,7 +514,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsMaxValue(decimal val, string key) =>
-            IsMaxValue(val, key, ContractLocalization.IsMaxValueErrorMessage(key, decimal.MaxValue.ToString()));
+            IsMaxValue(val, key, FluntErrorMessages.IsMaxValueErrorMessage(key, decimal.MaxValue.ToString()));
 
         /// <summary>
         /// Requires a decimal has its max value
@@ -540,7 +540,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNotMaxValue(decimal val, string key) =>
-            IsNotMaxValue(val, key, ContractLocalization.IsNotMaxValueErrorMessage(key, decimal.MaxValue.ToString()));
+            IsNotMaxValue(val, key, FluntErrorMessages.IsNotMaxValueErrorMessage(key, decimal.MaxValue.ToString()));
 
         /// <summary>
         /// Requires a decimal has not its min value
@@ -568,7 +568,7 @@ namespace Flunt.Validations
         /// <param name="message"></param>
         /// <returns></returns>
         public Contract<T> AreEquals(decimal val, decimal comparer, string key) =>
-            AreEquals(val, comparer, key, ContractLocalization.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
+            AreEquals(val, comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
         /// <summary>
         /// Requires two decimals are equals
@@ -594,7 +594,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> AreEquals(decimal val, int comparer, string key) =>
-            AreEquals(val, (decimal)comparer, key, ContractLocalization.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
+            AreEquals(val, (decimal)comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
         /// <summary>
         /// Requires two decimals are equals
@@ -615,7 +615,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> AreEquals(decimal val, float comparer, string key) =>
-            AreEquals(val, (decimal)comparer, key, ContractLocalization.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
+            AreEquals(val, (decimal)comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
         /// <summary>
         /// Requires two decimals are equals
@@ -636,7 +636,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> AreEquals(decimal val, double comparer, string key) =>
-            AreEquals(val, (decimal)comparer, key, ContractLocalization.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
+            AreEquals(val, (decimal)comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
         /// <summary>
         /// Requires two decimals are equals
@@ -657,7 +657,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> AreEquals(decimal val, long comparer, string key) =>
-            AreEquals(val, (decimal)comparer, key, ContractLocalization.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
+            AreEquals(val, (decimal)comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
         /// <summary>
         /// Requires two decimals are equals
@@ -681,7 +681,7 @@ namespace Flunt.Validations
         /// <param name="message"></param>
         /// <returns></returns>
         public Contract<T> AreNotEquals(decimal val, decimal comparer, string key) =>
-            AreNotEquals(val, comparer, key, ContractLocalization.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
+            AreNotEquals(val, comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
         /// <summary>
         /// Requires two decimals are not equals
@@ -707,7 +707,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> AreNotEquals(decimal val, int comparer, string key) =>
-            AreNotEquals(val, (decimal)comparer, key, ContractLocalization.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
+            AreNotEquals(val, (decimal)comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
         /// <summary>
         /// Requires two decimals are not equals
@@ -728,7 +728,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> AreNotEquals(decimal val, float comparer, string key) =>
-            AreNotEquals(val, (decimal)comparer, key, ContractLocalization.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
+            AreNotEquals(val, (decimal)comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
         /// <summary>
         /// Requires two decimals are not equals
@@ -749,7 +749,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> AreNotEquals(decimal val, double comparer, string key) =>
-            AreNotEquals(val, (decimal)comparer, key, ContractLocalization.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
+            AreNotEquals(val, (decimal)comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
         /// <summary>
         /// Requires two decimals are not equals
@@ -770,7 +770,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> AreNotEquals(decimal val, long comparer, string key) =>
-            AreNotEquals(val, (decimal)comparer, key, ContractLocalization.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
+            AreNotEquals(val, (decimal)comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
         /// <summary>
         /// Requires two decimals are not equals
@@ -792,7 +792,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNull(decimal? val, string key) =>
-            IsNull(val, key, ContractLocalization.IsNullErrorMessage(key));
+            IsNull(val, key, FluntErrorMessages.IsNullErrorMessage(key));
 
         /// <summary>
         /// Requires a decimal is null
@@ -818,7 +818,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNotNull(decimal? val, string key) =>
-            IsNotNull(val, key, ContractLocalization.IsNotNullErrorMessage(key));
+            IsNotNull(val, key, FluntErrorMessages.IsNotNullErrorMessage(key));
 
         /// <summary>
         /// Requires a decimal is not null
@@ -846,7 +846,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsBetween(decimal val, decimal start, decimal end, string key) =>
-            IsBetween(val, start, end, key, ContractLocalization.IsBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+            IsBetween(val, start, end, key, FluntErrorMessages.IsBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a decimal is between
@@ -874,7 +874,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsBetween(decimal val, int start, int end, string key) =>
-            IsBetween(val, (decimal)start, (decimal)end, key, ContractLocalization.IsBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+            IsBetween(val, (decimal)start, (decimal)end, key, FluntErrorMessages.IsBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a decimal is between
@@ -897,7 +897,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsBetween(decimal val, float start, float end, string key) =>
-            IsBetween(val, (decimal)start, (decimal)end, key, ContractLocalization.IsBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+            IsBetween(val, (decimal)start, (decimal)end, key, FluntErrorMessages.IsBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a decimal is between
@@ -920,7 +920,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsBetween(decimal val, double start, double end, string key) =>
-            IsBetween(val, (decimal)start, (decimal)end, key, ContractLocalization.IsBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+            IsBetween(val, (decimal)start, (decimal)end, key, FluntErrorMessages.IsBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a decimal is between
@@ -943,7 +943,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsBetween(decimal val, long start, long end, string key) =>
-            IsBetween(val, (decimal)start, (decimal)end, key, ContractLocalization.IsBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+            IsBetween(val, (decimal)start, (decimal)end, key, FluntErrorMessages.IsBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a decimal is between
@@ -968,7 +968,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNotBetween(decimal val, decimal start, decimal end, string key) =>
-            IsNotBetween(val, start, end, key, ContractLocalization.IsNotBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+            IsNotBetween(val, start, end, key, FluntErrorMessages.IsNotBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a decimal is not between
@@ -996,7 +996,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNotBetween(decimal val, int start, int end, string key) =>
-            IsNotBetween(val, (decimal)start, (decimal)end, key, ContractLocalization.IsNotBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+            IsNotBetween(val, (decimal)start, (decimal)end, key, FluntErrorMessages.IsNotBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a decimal is not between
@@ -1019,7 +1019,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNotBetween(decimal val, float start, float end, string key) =>
-            IsNotBetween(val, (decimal)start, (decimal)end, key, ContractLocalization.IsNotBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+            IsNotBetween(val, (decimal)start, (decimal)end, key, FluntErrorMessages.IsNotBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a decimal is not between
@@ -1042,7 +1042,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNotBetween(decimal val, double start, double end, string key) =>
-            IsNotBetween(val, (decimal)start, (decimal)end, key, ContractLocalization.IsNotBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+            IsNotBetween(val, (decimal)start, (decimal)end, key, FluntErrorMessages.IsNotBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a decimal is not between
@@ -1065,7 +1065,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNotBetween(decimal val, long start, long end, string key) =>
-            IsNotBetween(val, (decimal)start, (decimal)end, key, ContractLocalization.IsNotBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+            IsNotBetween(val, (decimal)start, (decimal)end, key, FluntErrorMessages.IsNotBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a decimal is not between
@@ -1089,7 +1089,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> Contains(decimal val, IEnumerable<decimal> list, string key) =>
-            Contains(val, list, key, ContractLocalization.ContainsErrorMessage(key, val.ToString()));
+            Contains(val, list, key, FluntErrorMessages.ContainsErrorMessage(key, val.ToString()));
 
         /// <summary>
         /// Requires a list contains a decimal
@@ -1117,7 +1117,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> NotContains(decimal val, IEnumerable<decimal> list, string key) =>
-            NotContains(val, list, key, ContractLocalization.NotContainsErrorMessage(key, val.ToString()));
+            NotContains(val, list, key, FluntErrorMessages.NotContainsErrorMessage(key, val.ToString()));
 
         /// <summary>
         /// Requires a list does not contains a decimal

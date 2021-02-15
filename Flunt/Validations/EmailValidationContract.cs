@@ -11,7 +11,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsEmail(string val, string key) =>
-            IsEmail(val, key, ContractLocalization.IsEmailErrorMessage(key));
+            IsEmail(val, key, FluntErrorMessages.IsEmailErrorMessage(key));
 
         /// <summary>
         /// Requires a string is an email
@@ -22,7 +22,7 @@ namespace Flunt.Validations
         /// <returns></returns>
         public Contract<T> IsEmail(string val, string key, string message)
         {
-            return Matches(val, ContractLocalization.EmailRegexPattern, key, message);
+            return Matches(val, FluntRegexPatterns.EmailRegexPattern, key, message);
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsEmailOrEmpty(string val, string key) =>
-            IsEmailOrEmpty(val, key, ContractLocalization.IsEmailOrEmptyErrorMessage(key));
+            IsEmailOrEmpty(val, key, FluntErrorMessages.IsEmailOrEmptyErrorMessage(key));
 
         /// <summary>
         /// Requires a string is an email or empty
@@ -55,7 +55,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNotEmail(string val, string key) =>
-            IsNotEmail(val, key, ContractLocalization.IsNotEmailErrorMessage(key));
+            IsNotEmail(val, key, FluntErrorMessages.IsNotEmailErrorMessage(key));
 
         /// <summary>
         /// Requires a string is not an email
@@ -66,7 +66,7 @@ namespace Flunt.Validations
         /// <returns></returns>
         public Contract<T> IsNotEmail(string val, string key, string message)
         {
-            return NotMatches(val, ContractLocalization.EmailRegexPattern, key, message);
+            return NotMatches(val, FluntRegexPatterns.EmailRegexPattern, key, message);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Flunt.Validations
         /// <param name="property">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsFalse(bool val, string property) =>
-            IsFalse(val, property, ContractLocalization.IsFalseErrorMessage(property));
+            IsFalse(val, property, FluntErrorMessages.IsFalseErrorMessage(property));
 
         /// <summary>
         /// Requires that a bool is false
@@ -38,7 +38,7 @@ namespace Flunt.Validations
         /// <param name="property">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsTrue(bool val, string property) =>
-            IsTrue(val, property, ContractLocalization.IsTrueErrorMessage(property));
+            IsTrue(val, property, FluntErrorMessages.IsTrueErrorMessage(property));
 
         /// <summary>
         /// Requires that a bool is true
@@ -64,7 +64,7 @@ namespace Flunt.Validations
         /// <param name="property">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsNull(bool? val, string property) =>
-                IsNull(val, property, ContractLocalization.IsNullErrorMessage(property));
+                IsNull(val, property, FluntErrorMessages.IsNullErrorMessage(property));
 
         /// <summary>
         /// Requires that a bool is null
@@ -90,7 +90,7 @@ namespace Flunt.Validations
         /// <param name="property">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsNotNull(bool? val, string property) =>
-            IsNotNull(val, property, ContractLocalization.IsNotNullErrorMessage(property));
+            IsNotNull(val, property, FluntErrorMessages.IsNotNullErrorMessage(property));
 
         /// <summary>
         /// Requires that a bool is not null

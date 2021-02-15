@@ -1,13 +1,7 @@
 ﻿namespace Flunt.Localization
 {
-    public static class ContractLocalization
+    public static class FluntErrorMessages
     {
-        public static string EmailRegexPattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
-        public static string OnlyNumbersPattern = @"[^0-9]+";
-
-        public static string DateFormat = "MM/DD/yyyy";
-        public static string DateTimeFormat = "MM/DD/yyyy hh:mm";
-
         public static string AndLocalizationErrorMessageLocalization = "and";
         public static string OrLocalizationErrorMessageLocalization = "or";
         public static string IsFalseLocalizationErrorMessage = $"should not be true";
@@ -17,6 +11,9 @@
         public static string IsNotNullOrEmptyLocalizationErrorMessage = $"should not be null or empty";
         public static string IsNotNullLocalizationErrorMessage = $"should not be null";
         public static string IsNullLocalizationErrorMessage = $"should be null";
+        public static string IsNullOrEmptyLocalizationErrorMessage = $"should be null or empty";
+        public static string IsNullOrWhiteSpaceLocalizationErrorMessage = "should be null or white space";
+        public static string IsNotNullOrWhiteSpaceLocalizationErrorMessage = "should not be null or white space";
         public static string IsGreaterThanLocalizationErrorMessage = $"should be greater than";
         public static string IsGreaterOrEqualsThanLocalizationErrorMessage = $"should be greater or equals than";
         public static string IsLowerThanLocalizationErrorMessage = $"should be lower than";
@@ -45,6 +42,9 @@
         public static string IsNotNullOrEmptyErrorMessage(string key) => $"{key} {IsNotNullOrEmptyLocalizationErrorMessage}";
         public static string IsNotNullErrorMessage(string key) => $"{key} {IsNotNullLocalizationErrorMessage}";
         public static string IsNullErrorMessage(string key) => $"{key} {IsNullLocalizationErrorMessage}";
+        public static string IsNullOrEmptyErrorMessage(string key) => $"{key} {IsNullOrEmptyLocalizationErrorMessage}";
+        public static string IsNullOrWhiteSpaceErrorMessage(string key) => $"{key} {IsNullOrWhiteSpaceLocalizationErrorMessage}";
+        public static string IsNotNullOrWhiteSpaceErrorMessage(string key) => $"{key} {IsNotNullOrWhiteSpaceLocalizationErrorMessage}";
         public static string IsGreaterThanErrorMessage(string key, string comparer) => $"{key} {IsGreaterThanLocalizationErrorMessage} {comparer}";
         public static string IsGreaterOrEqualsThanErrorMessage(string key, string comparer) => $"{key} {IsGreaterOrEqualsThanLocalizationErrorMessage} {comparer}";
         public static string IsLowerThanErrorMessage(string key, string comparer) => $"{key} {IsLowerThanLocalizationErrorMessage} {comparer}";

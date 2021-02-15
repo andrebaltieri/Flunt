@@ -16,7 +16,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsGreaterThan(DateTime val, DateTime comparer, string key) =>
-            IsGreaterThan(val, comparer, key, ContractLocalization.IsGreaterThanErrorMessage(key, comparer.ToString(ContractLocalization.DateTimeFormat)));
+            IsGreaterThan(val, comparer, key, FluntErrorMessages.IsGreaterThanErrorMessage(key, comparer.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a date is greater than
@@ -44,7 +44,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsGreaterOrEqualsThan(DateTime val, DateTime comparer, string key) =>
-            IsGreaterOrEqualsThan(val, comparer, key, ContractLocalization.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString(ContractLocalization.DateTimeFormat)));
+            IsGreaterOrEqualsThan(val, comparer, key, FluntErrorMessages.IsGreaterOrEqualsThanErrorMessage(key, comparer.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a date is greater or equals than
@@ -72,7 +72,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsLowerThan(DateTime val, DateTime comparer, string key) =>
-            IsLowerThan(val, comparer, key, ContractLocalization.IsLowerThanErrorMessage(key, comparer.ToString(ContractLocalization.DateTimeFormat)));
+            IsLowerThan(val, comparer, key, FluntErrorMessages.IsLowerThanErrorMessage(key, comparer.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a date is lower than
@@ -100,7 +100,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsLowerOrEqualsThan(DateTime val, DateTime comparer, string key) =>
-            IsLowerOrEqualsThan(val, comparer, key, ContractLocalization.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString(ContractLocalization.DateTimeFormat)));
+            IsLowerOrEqualsThan(val, comparer, key, FluntErrorMessages.IsLowerOrEqualsThanErrorMessage(key, comparer.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a date is lower or equals than
@@ -127,7 +127,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsNull(DateTime? val, string key) =>
-            IsNull(val, key, ContractLocalization.IsNullErrorMessage(key));
+            IsNull(val, key, FluntErrorMessages.IsNullErrorMessage(key));
 
         /// <summary>
         /// Requires a date is null
@@ -153,7 +153,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsNotNull(DateTime? val, string key) =>
-            IsNotNull(val, key, ContractLocalization.IsNotNullErrorMessage(key));
+            IsNotNull(val, key, FluntErrorMessages.IsNotNullErrorMessage(key));
 
         /// <summary>
         /// Requires a date is not null
@@ -181,7 +181,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsBetween(DateTime val, DateTime start, DateTime end, string key) =>
-            IsBetween(val, start, end, key, ContractLocalization.IsBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+            IsBetween(val, start, end, key, FluntErrorMessages.IsBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a date is between
@@ -211,7 +211,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsNotBetween(DateTime val, DateTime start, DateTime end, string key) =>
-            IsNotBetween(val, start, end, key, ContractLocalization.IsNotBetweenErrorMessage(key, start.ToString(ContractLocalization.DateTimeFormat), end.ToString(ContractLocalization.DateTimeFormat)));
+            IsNotBetween(val, start, end, key, FluntErrorMessages.IsNotBetweenErrorMessage(key, start.ToString(FluntFormats.DateTimeFormat), end.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a date is not between
@@ -239,7 +239,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsMinValue(DateTime val, string key) =>
-            IsMinValue(val, key, ContractLocalization.IsMinValueErrorMessage(key, DateTime.MinValue.ToString(ContractLocalization.DateTimeFormat)));
+            IsMinValue(val, key, FluntErrorMessages.IsMinValueErrorMessage(key, DateTime.MinValue.ToString(FluntFormats.DateTimeFormat)));
 
 
         /// <summary>
@@ -266,7 +266,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsNotMinValue(DateTime val, string key) =>
-            IsNotMinValue(val, key, ContractLocalization.IsNotMinValueErrorMessage(key, DateTime.MinValue.ToString(ContractLocalization.DateTimeFormat)));
+            IsNotMinValue(val, key, FluntErrorMessages.IsNotMinValueErrorMessage(key, DateTime.MinValue.ToString(FluntFormats.DateTimeFormat)));
 
 
         /// <summary>
@@ -293,7 +293,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsMaxValue(DateTime val, string key) =>
-            IsMaxValue(val, key, ContractLocalization.IsMaxValueErrorMessage(key, DateTime.MaxValue.ToString(ContractLocalization.DateTimeFormat)));
+            IsMaxValue(val, key, FluntErrorMessages.IsMaxValueErrorMessage(key, DateTime.MaxValue.ToString(FluntFormats.DateTimeFormat)));
 
 
         /// <summary>
@@ -320,7 +320,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> IsNotMaxValue(DateTime val, string key) =>
-            IsNotMaxValue(val, key, ContractLocalization.IsNotMaxValueErrorMessage(key, DateTime.MaxValue.ToString(ContractLocalization.DateTimeFormat)));
+            IsNotMaxValue(val, key, FluntErrorMessages.IsNotMaxValueErrorMessage(key, DateTime.MaxValue.ToString(FluntFormats.DateTimeFormat)));
 
 
         /// <summary>
@@ -349,7 +349,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> AreEquals(DateTime val, DateTime comparer, string key)
-            => AreEquals(val, comparer, key, ContractLocalization.AreEqualsErrorMessage(val.ToString(ContractLocalization.DateTimeFormat), comparer.ToString(ContractLocalization.DateTimeFormat)));
+            => AreEquals(val, comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val.ToString(FluntFormats.DateTimeFormat), comparer.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Require dates are equals
@@ -377,7 +377,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> AreNotEquals(DateTime val, DateTime comparer, string key)
-            => AreNotEquals(val, comparer, key, ContractLocalization.AreNotEqualsErrorMessage(val.ToString(ContractLocalization.DateTimeFormat), comparer.ToString(ContractLocalization.DateTimeFormat)));
+            => AreNotEquals(val, comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val.ToString(FluntFormats.DateTimeFormat), comparer.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires two dates are not equals
@@ -405,7 +405,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> Contains(DateTime val, IEnumerable<DateTime> list, string key)
-            => Contains(val, list, key, ContractLocalization.ContainsErrorMessage(key, val.ToString(ContractLocalization.DateTimeFormat)));
+            => Contains(val, list, key, FluntErrorMessages.ContainsErrorMessage(key, val.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a list contains a date
@@ -433,7 +433,7 @@ namespace Flunt.Validations
         /// <param name="key">Key or Property Name</param>
         /// <returns></returns>
         public Contract<T> NotContains(DateTime val, IEnumerable<DateTime> list, string key)
-            => NotContains(val, list, key, ContractLocalization.NotContainsErrorMessage(key, val.ToString(ContractLocalization.DateTimeFormat)));
+            => NotContains(val, list, key, FluntErrorMessages.NotContainsErrorMessage(key, val.ToString(FluntFormats.DateTimeFormat)));
 
         /// <summary>
         /// Requires a list not contains a date

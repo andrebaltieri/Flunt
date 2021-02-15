@@ -7,7 +7,7 @@ namespace Flunt.Samples.Entities.Contracts
         public CreateCustomerContract(Customer customer)
         {
             Requires()
-                .IsNotNullOrEmpty(customer.Name, "Name");
+                .IsNotNullOrEmpty(customer.Name, "Name", "Custom error message");
         }
     }
 }

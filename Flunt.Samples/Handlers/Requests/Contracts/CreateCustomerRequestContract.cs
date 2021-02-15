@@ -7,7 +7,7 @@ namespace Flunt.Samples.Handlers.Requests.Contracts
         public CreateCustomerRequestContract(CreateCustomerRequest request)
         {
             Requires()
-                .IsNotNullOrEmpty(request.Name, "Name")
+                .IsNotNullOrEmpty(request.Name, "Name", "Custom error message")
                 .IsEmail(request.Email, "Email");
         }
     }

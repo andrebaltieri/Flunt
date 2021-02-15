@@ -2,7 +2,6 @@
 using Flunt.Localization;
 using Flunt.Samples.Handlers;
 using Flunt.Samples.Handlers.Requests;
-using Flunt.Samples.ValueObjects;
 
 namespace Flunt.Samples
 {
@@ -10,7 +9,7 @@ namespace Flunt.Samples
     {
         static void Main(string[] args)
         {
-            ContractLocalization.IsEmailLocalizationErrorMessage = "deve ser um E-mail";
+            FluntErrorMessages.IsEmailLocalizationErrorMessage = "deve ser um E-mail";
 
             var request = new CreateCustomerRequest("", "");
             var handler = new CustomerHandler();

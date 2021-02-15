@@ -124,8 +124,8 @@ namespace Flunt.Tests
         public UpdateCustomerSpecification(Customer customer)
         {
             Requires()
-                .IsNotNullOrEmpty(customer.Name, "FirstName")
-                .IsNotNullOrEmpty(customer.Email, "Email");
+                .IsNotNullOrEmpty(customer.Name, "FirstName", "Custom error message")
+                .IsNotNullOrEmpty(customer.Email, "Email", "Custom error message");
         }
     }
     #endregion

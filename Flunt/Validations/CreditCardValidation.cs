@@ -13,7 +13,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsCreditCard(string val, string key) =>
-            IsCreditCard(val, key, ContractLocalization.IsCreditCardErrorMessage(key));
+            IsCreditCard(val, key, FluntErrorMessages.IsCreditCardErrorMessage(key));
 
         /// <summary>
         /// Requires a string is a Credit Card number
@@ -24,7 +24,7 @@ namespace Flunt.Validations
         /// <returns></returns>
         public Contract<T> IsCreditCard(string val, string key, string message)
         {
-            val = Regex.Replace(val, ContractLocalization.OnlyNumbersPattern, "");
+            val = Regex.Replace(val, FluntRegexPatterns.OnlyNumbersPattern, "");
 
             if (string.IsNullOrWhiteSpace(val))
             {

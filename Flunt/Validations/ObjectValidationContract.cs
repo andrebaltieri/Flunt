@@ -11,7 +11,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNull(object val, string key) =>
-            IsNull(val, key, ContractLocalization.IsNullErrorMessage(key));
+            IsNull(val, key, FluntErrorMessages.IsNullErrorMessage(key));
 
         /// <summary>
         /// Requires an object is null
@@ -35,7 +35,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNotNull(object val, string key) =>
-            IsNotNull(val, key, ContractLocalization.IsNotNullErrorMessage(key));
+            IsNotNull(val, key, FluntErrorMessages.IsNotNullErrorMessage(key));
 
         /// <summary>
         /// Requires an object is not null
@@ -60,7 +60,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> AreEquals(object val, object comparer, string key) =>
-            AreEquals(val, comparer, key, ContractLocalization.AreEqualsErrorMessage(val?.ToString(), comparer?.ToString()));
+            AreEquals(val, comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val?.ToString(), comparer?.ToString()));
 
         /// <summary>
         /// Requires two objects are equals
@@ -89,7 +89,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> AreNotEquals(object val, object comparer, string key) =>
-            AreNotEquals(val, comparer, key, ContractLocalization.AreNotEqualsErrorMessage(val?.ToString(), comparer?.ToString()));
+            AreNotEquals(val, comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val?.ToString(), comparer?.ToString()));
 
         /// <summary>
         /// Requires two objects are not equals

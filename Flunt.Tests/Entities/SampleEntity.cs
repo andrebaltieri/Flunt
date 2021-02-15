@@ -71,6 +71,14 @@ namespace Flunt.Tests.Entities
         public SampleObject ObjectToCompare = new SampleObject(1);
         public SampleObject ObjectAnotherToCompare = new SampleObject(1);
 
+        public string StringNull = null;
+        public string StringEmpty = string.Empty;
+        public string StringNotEmpty = "some string";
+        public string StringWhiteSpace = " ";
+        public string StringFiveCharsLong = "A2D3R";
+        public string StringNumbersOnly = "123456";
+        public string StringSpecialCharsOnly = "@#$%$#$$";
+
     }
 
     public class SampleObject : IEquatable<SampleObject>

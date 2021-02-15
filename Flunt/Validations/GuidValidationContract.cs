@@ -13,7 +13,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> AreEquals(Guid val, Guid comparer, string key) =>
-            AreEquals(val, comparer, key, ContractLocalization.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
+            AreEquals(val, comparer, key, FluntErrorMessages.AreEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
         /// <summary>
         /// Requires two Guids are equals
@@ -39,7 +39,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> AreNotEquals(Guid val, Guid comparer, string key) =>
-            AreNotEquals(val, comparer, key, ContractLocalization.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
+            AreNotEquals(val, comparer, key, FluntErrorMessages.AreNotEqualsErrorMessage(val.ToString(), comparer.ToString()));
 
         /// <summary>
         /// Requires two Guids are not equals
@@ -64,7 +64,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsEmpty(Guid val, string key) =>
-            IsEmpty(val, key, ContractLocalization.IsEmptyErrorMessage(key));
+            IsEmpty(val, key, FluntErrorMessages.IsEmptyErrorMessage(key));
 
         /// <summary>
         /// Requires a Guid is empty
@@ -88,7 +88,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <returns></returns>
         public Contract<T> IsNotEmpty(Guid val, string key) =>
-            IsNotEmpty(val, key, ContractLocalization.IsNotEmptyErrorMessage(key));
+            IsNotEmpty(val, key, FluntErrorMessages.IsNotEmptyErrorMessage(key));
 
         /// <summary>
         /// Requires a Guid is not empty
