@@ -32,8 +32,9 @@ dotnet add package Flunt
 Just check our [Wiki](https://github.com/andrebaltieri/Flunt/wiki) for more details and samples of how to use Flunt in your applications.
 
 ## Extensions and Mods
-* [Flunt.Br](https://github.com/carlosbritojun/jflunt)
-* [Flunt for Java](https://github.com/lira92/flunt.br)
+* [Flunt.Br](https://github.com/lira92/flunt.br)
+* [Flunt for Java](https://github.com/carlosbritojun/jflunt)
+* [Flunt for JavaScript](https://github.com/jhonesgoncal/flunt)
 
 ## About the Art
 All logo, icons, colors and fonts were provided with love by Gregory Buso
