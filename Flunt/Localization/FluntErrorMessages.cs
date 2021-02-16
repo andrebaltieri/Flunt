@@ -36,6 +36,7 @@
         public static string IsNotEmailLocalizationErrorMessage = $"should not be an email";
         public static string IsUrlLocalizationErrorMessage = "should be an URL";
         public static string IsNotUrlLocalizationErrorMessage = "should not be an URL";
+        public static string IsPassportLocalizationErrorMessage = "should be a passport number";
 
         public static string IsFalseErrorMessage(string key) => $"{key} {IsFalseLocalizationErrorMessage}";
         public static string IsTrueErrorMessage(string key) => $"{key} {IsTrueLocalizationErrorMessage}";
@@ -71,5 +72,6 @@
         public static string IsNotUrlErrorMessage(string key) => $"{key} {IsNotUrlLocalizationErrorMessage}";
         public static string IsUrlOrEmptyErrorMessage(string key) => $"{key} {IsUrlLocalizationErrorMessage} {OrLocalizationErrorMessageLocalization} {IsEmptyLocalizationErrorMessage}";
         public static string IsNotUrlOrEmptyErrorMessage(string key) => $"{key} {IsNotUrlLocalizationErrorMessage} {OrLocalizationErrorMessageLocalization} {IsEmptyLocalizationErrorMessage}";
+        public static string IsPassportErrorMessage(string key) => $"{key} {IsPassportLocalizationErrorMessage}";
     }
 }
