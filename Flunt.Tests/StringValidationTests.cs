@@ -144,7 +144,7 @@ namespace Flunt.Tests
                 .IsNotNullOrWhiteSpace(_entity.StringWhiteSpace, "String", "Custom error message");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 2);
+            Assert.AreEqual(contract.Notifications.Count, 6);
         }
 
         [TestCategory("String Validation")]

@@ -142,7 +142,7 @@ namespace Flunt.Validations
         /// <returns></returns>
         public Contract<T> IsNotNullOrWhiteSpace(string val, string key, string message)
         {
-            if (string.IsNullOrWhiteSpace(val) == false)
+            if (string.IsNullOrWhiteSpace(val))
                 AddNotification(key, message);
 
             return this;
