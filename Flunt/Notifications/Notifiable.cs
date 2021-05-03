@@ -15,7 +15,7 @@ namespace Flunt.Notifications
             return (T)Activator.CreateInstance(typeof(T), new object[] { key, message });
         }
 
-        public IReadOnlyCollection<T> Notifications => _notifications;
+        public IReadOnlyCollection<Notification> Notifications => _notifications;
 
         public void AddNotification(string key, string message)
         {
