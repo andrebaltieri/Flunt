@@ -29,9 +29,26 @@ dotnet add package Flunt
 ```
 
 ## How to use
+```csharp
+public class Customer : Notifiable<Notification>
+{
+  ...
+}
+
+var customer = new Customer();
+customer.AddNotification("Name", "Invalid name");
+
+if(customer.IsValid)
+  ...
+```
+
 Just check our [Wiki](https://github.com/andrebaltieri/Flunt/wiki) for more details and samples of how to use Flunt in your applications.
 
-## Extensions and Mods
+## Extensions
+* [Flunt.Extensions.Br](https://github.com/andrebaltieri/Flunt.Extensions.Br)
+* [Flunt.Extensions.AspNet](https://github.com/andrebaltieri/Flunt.Extensions.AspNet)
+
+## Mods
 * [Flunt.Br](https://github.com/lira92/flunt.br)
 * [Flunt for Java](https://github.com/carlosbritojun/jflunt)
 * [Flunt for JavaScript](https://github.com/jhonesgoncal/flunt)
