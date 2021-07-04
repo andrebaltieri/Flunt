@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
 
     <PackageId>Flunt</PackageId>
-    <Version>2.0.3</Version>
+    <Version>2.0.4</Version>
     <icon>https://baltaio.blob.core.windows.net/static/images/icons/flunt-icon.png</icon>
     <License>MIT</License>
     <Authors>André Baltieri</Authors>
