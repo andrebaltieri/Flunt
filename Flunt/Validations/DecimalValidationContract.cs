@@ -363,7 +363,7 @@ namespace Flunt.Validations
         /// <returns></returns>
         public Contract<T> IsLowerOrEqualsThan(decimal val, decimal comparer, string key, string message)
         {
-            if (val < comparer)
+            if (val > comparer)
                 AddNotification(key, message);
 
             return this;
