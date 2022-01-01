@@ -400,5 +400,26 @@ namespace Flunt.Tests
             Assert.AreEqual(false, contract.IsValid);
             Assert.AreEqual(contract.Notifications.Count, 2);
         }
+
+        [TestCategory("String Validation")]
+        [TestMethod("requires string len to be in a range")]
+        public void IsBeetween()
+        {
+            var contract = new Contract<SampleEntity>()
+                .Requires()
+
+                .IsBeetween(_entity.StringEmpty, 5, 10, "String", "Custom error message")
+                
+                .IsBeetween(_entity.StringFiveCharsLong, 6, 10, "String", "Custom error message")
+                
+                .IsBeetween(_entity.StringNull, 5, 10, "String", "Custom error message")
+                
+                .IsBeetween(_entity.StringWhiteSpace, 5, 10, "String", "Custom error message")
+                
+                .IsBeetween(_entity.StringNotEmpty, 3, 10, "String", "Custom error message");
+
+            Assert.AreEqual(false, contract.IsValid);
+            Assert.AreEqual(contract.Notifications.Count, 2);
+        }
     }
 }
