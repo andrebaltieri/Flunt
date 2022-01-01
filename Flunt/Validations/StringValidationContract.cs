@@ -445,7 +445,7 @@ namespace Flunt.Validations
         /// <param name="key"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public Contract<T> IsBeetween(string val, int min, int max, string key, string message)
+        public Contract<T> IsBetween(string val, int min, int max, string key, string message)
         {
             if (val == null)
                 return this;

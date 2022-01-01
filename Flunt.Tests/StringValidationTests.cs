@@ -403,20 +403,20 @@ namespace Flunt.Tests
 
         [TestCategory("String Validation")]
         [TestMethod("requires string len to be in a range")]
-        public void IsBeetween()
+        public void IsBetween()
         {
             var contract = new Contract<SampleEntity>()
                 .Requires()
 
-                .IsBeetween(_entity.StringEmpty, 5, 10, "String", "Custom error message")
+                .IsBetween(_entity.StringEmpty, 5, 10, "String", "Custom error message")
                 
-                .IsBeetween(_entity.StringFiveCharsLong, 6, 10, "String", "Custom error message")
+                .IsBetween(_entity.StringFiveCharsLong, 6, 10, "String", "Custom error message")
                 
-                .IsBeetween(_entity.StringNull, 5, 10, "String", "Custom error message")
+                .IsBetween(_entity.StringNull, 5, 10, "String", "Custom error message")
                 
-                .IsBeetween(_entity.StringWhiteSpace, 5, 10, "String", "Custom error message")
+                .IsBetween(_entity.StringWhiteSpace, 5, 10, "String", "Custom error message")
                 
-                .IsBeetween(_entity.StringNotEmpty, 3, 10, "String", "Custom error message");
+                .IsBetween(_entity.StringNotEmpty, 3, 10, "String", "Custom error message");
 
             Assert.AreEqual(false, contract.IsValid);
             Assert.AreEqual(contract.Notifications.Count, 2);
