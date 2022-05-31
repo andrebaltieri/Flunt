@@ -53,6 +53,7 @@ Just check our [Wiki](https://github.com/andrebaltieri/Flunt/wiki) for more deta
 * [Flunt for Java](https://github.com/carlosbritojun/jflunt)
 * [Flunt for JavaScript](https://github.com/jhonesgoncal/flunt)
 * [Flunt for Python](https://github.com/Delatorrea/PyFlunt)
+* [Flunt for PHP](https://github.com/matheusbloise/flunt-php)
 
 ## About the Art
 All logo, icons, colors and fonts were provided with love by Gregory Buso
