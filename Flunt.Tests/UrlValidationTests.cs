@@ -33,10 +33,34 @@ namespace Flunt.Tests
                 .IsUrl(string.Empty, "String", "Custom error message")
 
                 .IsUrl(" ", "String")
-                .IsUrl(" ", "String", "Custom error message");
+                .IsUrl(" ", "String", "Custom error message")
+
+                .IsUrl("http://localhost:1000", "String")
+                .IsUrl("http://localhost:1000", "String", "Custom error message")
+
+                .IsUrl("localhost:1000", "String")
+                .IsUrl("localhost:1000", "String", "Custom error message")
+
+                .IsUrl("https://127.0.0.1:10000", "String")
+                .IsUrl("https://127.0.0.1:10000", "String", "Custom error message")
+
+                .IsUrl("127.0.0.1:10000", "String")
+                .IsUrl("127.0.0.1:10000", "String", "Custom error message")
+
+                .IsUrl("https://127.0.256.1:10000", "String")
+                .IsUrl("https://127.0.256.1:10000", "String", "Custom error message")
+
+                .IsUrl("127.0.256.1:10000", "String")
+                .IsUrl("127.0.256.1:10000", "String", "Custom error message")
+
+                .IsUrl("http://127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String")
+                .IsUrl("http://127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String", "Custom error message")
+
+                .IsUrl("127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String")
+                .IsUrl("127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String", "Custom error message");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 10);
+            Assert.AreEqual(contract.Notifications.Count, 20);
         }
 
         [TestCategory("URL Validation")]
@@ -65,10 +89,34 @@ namespace Flunt.Tests
                 .IsUrlOrEmpty(string.Empty, "String", "Custom error message")
 
                 .IsUrlOrEmpty(" ", "String")
-                .IsUrlOrEmpty(" ", "String", "Custom error message");
+                .IsUrlOrEmpty(" ", "String", "Custom error message")
+
+                .IsUrlOrEmpty("http://localhost:1000", "String")
+                .IsUrlOrEmpty("http://localhost:1000", "String", "Custom error message")
+
+                .IsUrlOrEmpty("localhost:1000", "String")
+                .IsUrlOrEmpty("localhost:1000", "String", "Custom error message")
+
+                .IsUrlOrEmpty("https://127.0.0.1:10000", "String")
+                .IsUrlOrEmpty("https://127.0.0.1:10000", "String", "Custom error message")
+
+                .IsUrlOrEmpty("127.0.0.1:10000", "String")
+                .IsUrlOrEmpty("127.0.0.1:10000", "String", "Custom error message")
+
+                .IsUrlOrEmpty("https://127.0.256.1:10000", "String")
+                .IsUrlOrEmpty("https://127.0.256.1:10000", "String", "Custom error message")
+
+                .IsUrlOrEmpty("127.0.256.1:10000", "String")
+                .IsUrlOrEmpty("127.0.256.1:10000", "String", "Custom error message")
+
+                .IsUrlOrEmpty("http://127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String")
+                .IsUrlOrEmpty("http://127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String", "Custom error message")
+
+                .IsUrlOrEmpty("127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String")
+                .IsUrlOrEmpty("127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String", "Custom error message");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 6);
+            Assert.AreEqual(contract.Notifications.Count, 16);
         }
 
         [TestCategory("URL Validation")]
@@ -97,10 +145,34 @@ namespace Flunt.Tests
                 .IsNotUrl(string.Empty, "String", "Custom error message")
 
                 .IsNotUrl(" ", "String")
-                .IsNotUrl(" ", "String", "Custom error message");
+                .IsNotUrl(" ", "String", "Custom error message")
+
+                .IsNotUrl("http://localhost:1000", "String")
+                .IsNotUrl("http://localhost:1000", "String", "Custom error message")
+
+                .IsNotUrl("localhost:1000", "String")
+                .IsNotUrl("localhost:1000", "String", "Custom error message")
+
+                .IsNotUrl("https://127.0.0.1:10000", "String")
+                .IsNotUrl("https://127.0.0.1:10000", "String", "Custom error message")
+
+                .IsNotUrl("127.0.0.1:10000", "String")
+                .IsNotUrl("127.0.0.1:10000", "String", "Custom error message")
+
+                .IsNotUrl("https://127.0.256.1:10000", "String")
+                .IsNotUrl("https://127.0.256.1:10000", "String", "Custom error message")
+
+                .IsNotUrl("127.0.256.1:10000", "String")
+                .IsNotUrl("127.0.256.1:10000", "String", "Custom error message")
+
+                .IsNotUrl("http://127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String")
+                .IsNotUrl("http://127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String", "Custom error message")
+
+                .IsNotUrl("127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String")
+                .IsNotUrl("127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String", "Custom error message");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 4);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
 
         [TestCategory("URL Validation")]
@@ -129,10 +201,34 @@ namespace Flunt.Tests
                 .IsNotUrlOrEmpty(string.Empty, "String", "Custom error message")
 
                 .IsNotUrlOrEmpty(" ", "String")
-                .IsNotUrlOrEmpty(" ", "String", "Custom error message");
+                .IsNotUrlOrEmpty(" ", "String", "Custom error message")
+
+                .IsNotUrlOrEmpty("http://localhost:1000", "String")
+                .IsNotUrlOrEmpty("http://localhost:1000", "String", "Custom error message")
+
+                .IsNotUrlOrEmpty("localhost:1000", "String")
+                .IsNotUrlOrEmpty("localhost:1000", "String", "Custom error message")
+
+                .IsNotUrlOrEmpty("https://127.0.0.1:10000", "String")
+                .IsNotUrlOrEmpty("https://127.0.0.1:10000", "String", "Custom error message")
+
+                .IsNotUrlOrEmpty("127.0.0.1:10000", "String")
+                .IsNotUrlOrEmpty("127.0.0.1:10000", "String", "Custom error message")
+
+                .IsNotUrlOrEmpty("https://127.0.256.1:10000", "String")
+                .IsNotUrlOrEmpty("https://127.0.256.1:10000", "String", "Custom error message")
+
+                .IsNotUrlOrEmpty("127.0.256.1:10000", "String")
+                .IsNotUrlOrEmpty("127.0.256.1:10000", "String", "Custom error message")
+
+                .IsNotUrlOrEmpty("http://127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String")
+                .IsNotUrlOrEmpty("http://127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String", "Custom error message")
+
+                .IsNotUrlOrEmpty("127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String")
+                .IsNotUrlOrEmpty("127.0.0.1:10000/devstoreaccount1/publicacao-storage/7d9cd2c9-4b0d-4b29-b0a5-c6e6c5c2562b.png", "String", "Custom error message");
 
             Assert.AreEqual(false, contract.IsValid);
-            Assert.AreEqual(contract.Notifications.Count, 4);
+            Assert.AreEqual(contract.Notifications.Count, 10);
         }
     }
 }
