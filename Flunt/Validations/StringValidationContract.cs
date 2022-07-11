@@ -434,5 +434,29 @@ namespace Flunt.Validations
 
             return this;
         }
+        
+        
+        /// <summary>
+        /// Requires a string len is between
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Contract<T> IsBetween(string val, int min, int max, string key, string message)
+        {
+            if (val == null)
+                return this;
+
+            if (string.IsNullOrEmpty(val) || string.IsNullOrWhiteSpace(val))
+                return this;
+
+            if (val.Length < min || val.Length > max)
+                AddNotification(key, message);
+
+            return this;
+        }
     }
 }
