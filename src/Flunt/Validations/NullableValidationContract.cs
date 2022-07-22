@@ -2,18 +2,18 @@
 
 public partial class Contract
 {
-    #region IsFalse
+    #region IsNull
 
     /// <summary>
-    /// Requires that a bool is false
+    /// Requires a value is null
     /// </summary>
-    /// <param name="val">bool</param>
+    /// <param name="val">val</param>
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsFalse(bool val, string key, string message = "This should be false")
+    public Contract IsNull(object? val, string key, string message = "Value should be null")
     {
-        if (val)
+        if (val is not null)
             AddNotification(key, message);
 
         return this;
@@ -21,18 +21,18 @@ public partial class Contract
 
     #endregion
 
-    #region IsTrue
+    #region IsNotNull
 
     /// <summary>
-    /// Requires that a bool is true
+    /// Requires a value is not null
     /// </summary>
-    /// <param name="val">bool</param>
+    /// <param name="val">val</param>
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsTrue(bool val, string key, string message = "This should be true")
+    public Contract IsNotNull(object? val, string key, string message = "Value should be null")
     {
-        if (val == false)
+        if (val is null)
             AddNotification(key, message);
 
         return this;
