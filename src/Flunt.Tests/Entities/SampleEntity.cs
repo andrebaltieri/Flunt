@@ -78,18 +78,18 @@ public class SampleEntity : Notifiable
     public Guid GuidEmpty = Guid.Empty;
     public Guid GuidNotEmpty = new Guid("f4ac2eab-8de5-430a-85b1-f0daa71df176");
 
-    public IList<string> ListNull = null;
+    public IList<string>? ListNull = null;
     public IList<string> ListNotNull = new List<string> { "Some item" };
     public IList<string> ListEmpty = new List<string>();
     public IList<string> ListNotEmpty = new List<string> { "Some item", "other item", "last item" };
 
     public SampleEnum Enum = SampleEnum.Value;
 
-    public SampleObject ObjectNull = null;
+    public SampleObject? ObjectNull = null!;
     public SampleObject ObjectToCompare = new SampleObject(1);
     public SampleObject ObjectAnotherToCompare = new SampleObject(1);
 
-    public string StringNull = null;
+    public string? StringNull = null;
     public string StringEmpty = string.Empty;
     public string StringNotEmpty = "some string";
     public string StringWhiteSpace = " ";
@@ -106,5 +106,5 @@ public class SampleObject : IEquatable<SampleObject>
     }
 
     public int Id { get; set; }
-    public bool Equals(SampleObject other) => Id == other?.Id;
+    public bool Equals(SampleObject? other) => Id == other?.Id;
 }

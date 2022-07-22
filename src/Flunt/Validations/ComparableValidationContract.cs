@@ -2,15 +2,6 @@
 
 public partial class Contract
 {
-    // IsGreaterThan
-    // IsGreaterOrEqualsThan
-    // IsLowerThan
-    // IsLowerOrEqualsThan
-
-    // Lower = -1
-    // Equals = 0
-    // Greater = 1
-
     #region AreEquals
 
     /// <summary>
