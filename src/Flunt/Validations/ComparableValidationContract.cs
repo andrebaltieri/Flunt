@@ -57,7 +57,7 @@ public partial class Contract
     public Contract IsGreaterThan<T>(T val, T comparer, string key,
         string message = "Value should be greater than actual") where T : IEquatable<T>
     {
-        if (Comparer<T>.Default.Compare(val, comparer) == 1)
+        if (Comparer<T>.Default.Compare(val, comparer) != 1)
             AddNotification(key, message);
 
         return this;
@@ -78,7 +78,7 @@ public partial class Contract
     public Contract IsGreaterOrEqualsThan<T>(T val, T comparer, string key,
         string message = "Value should be greater or equals than actual") where T : IEquatable<T>
     {
-        if (Comparer<T>.Default.Compare(val, comparer) >= 0)
+        if (Comparer<T>.Default.Compare(val, comparer) < 0)
             AddNotification(key, message);
 
         return this;
@@ -99,7 +99,7 @@ public partial class Contract
     public Contract IsLowerThan<T>(T val, T comparer, string key, string message = "Value should be lower than actual")
         where T : IEquatable<T>
     {
-        if (Comparer<T>.Default.Compare(val, comparer) == -1)
+        if (Comparer<T>.Default.Compare(val, comparer) != -1)
             AddNotification(key, message);
 
         return this;
@@ -107,7 +107,7 @@ public partial class Contract
 
     #endregion
 
-    #region IsGreaterOrEqualsThan
+    #region IsLowerOrEqualsThan
 
     /// <summary>
     /// Requires a value is lower or equals than
@@ -120,7 +120,7 @@ public partial class Contract
     public Contract IsLowerOrEqualsThan<T>(T val, T comparer, string key,
         string message = "Value should be lower or equals than actual") where T : IEquatable<T>
     {
-        if (Comparer<T>.Default.Compare(val, comparer) <= 0)
+        if (Comparer<T>.Default.Compare(val, comparer) > 0)
             AddNotification(key, message);
 
         return this;

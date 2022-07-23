@@ -6,16 +6,38 @@ namespace Flunt.Tests;
 public class NullableValidationContractTests
 {
     [TestCategory("Nullable Validation")]
-    [TestMethod("Requires that a bool is true")]
-    public void RequireObjectNotToBeNull()
+    [TestMethod("Requires that an object is null")]
+    public void RequireObjectIsNull()
     {
+        int? objA = null;
+        int? objB = 1;
+        
         var contract = new Contract()
             .Requires()
-            .IsNull(null, "IsNull", "Some text")
-            .IsNotNull(null, "IsNotNull", "Some text");
+            // Do not Add Notification
+            .IsNull(objA,  "IsNull")
+            // Add Notification
+            .IsNull(objB,  "IsNull");
 
+        Assert.AreEqual(false, contract.IsValid);
+        Assert.AreEqual(1, contract.Notifications.Count);
+    }
 
-        Assert.AreEqual(true, contract.IsValid);
-        Assert.AreEqual(contract.Notifications.Count, 0);
+    [TestCategory("Nullable Validation")]
+    [TestMethod("Requires an object is not null")]
+    public void RequireObjectIsNotNull()
+    {
+        int? objA = null;
+        int? objB = 1;
+        
+        var contract = new Contract()
+            .Requires()
+            // Add Notification
+            .IsNotNull(objA,  "IsNotNull")
+            // Do not Add Notification
+            .IsNotNull(objB,  "IsNotNull");
+
+        Assert.AreEqual(false, contract.IsValid);
+        Assert.AreEqual(1, contract.Notifications.Count);
     }
 }
