@@ -11,9 +11,7 @@ public class DecimalValidationContractTests
     {
         var contract = new Contract()
             .Requires()
-            // Do not Add Notification
             .IsMinValue(decimal.MinValue, "IsMinValue")
-            // Add Notification
             .IsMinValue(23.5M, "IsMinValue");
 
         Assert.AreEqual(false, contract.IsValid);
@@ -26,9 +24,7 @@ public class DecimalValidationContractTests
     {
         var contract = new Contract()
             .Requires()
-            // Add Notification
             .IsNotMinValue(decimal.MinValue, "IsMinValue")
-            // Dot not Add Notification
             .IsNotMinValue(23.5M, "IsMinValue");
 
         Assert.AreEqual(false, contract.IsValid);
@@ -41,9 +37,7 @@ public class DecimalValidationContractTests
     {
         var contract = new Contract()
             .Requires()
-            // Do not Add Notification
             .IsMaxValue(decimal.MaxValue, "IsMaxValue")
-            // Add Notification
             .IsMaxValue(23.5M, "IsMaxValue");
 
         Assert.AreEqual(false, contract.IsValid);
@@ -56,9 +50,7 @@ public class DecimalValidationContractTests
     {
         var contract = new Contract()
             .Requires()
-            // Add Notification
             .IsNotMaxValue(decimal.MaxValue, "IsNotMaxValue")
-            // Dot not Add Notification
             .IsNotMaxValue(23.5M, "IsNotMaxValue");
 
         Assert.AreEqual(false, contract.IsValid);
