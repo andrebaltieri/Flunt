@@ -1,40 +1,35 @@
-﻿using Flunt.Tests.Entities;
-using Flunt.Validations;
+﻿using Flunt.Validations;
 
 namespace Flunt.Tests;
 
 [TestClass]
 public class BoolValidationTests
 {
-    private readonly SampleEntity _entity = new();
-
+    [DataRow(null, false)]
+    [DataRow(true, true)]
+    [DataRow(false, false)]
     [TestCategory("Bool Validation")]
     [TestMethod("Requires that a bool is true")]
-    public void RequiresBoolIsTrue()
+    public void RequiresBoolIsTrue(bool isTrue, bool isValid)
     {
         var contract = new Contract()
             .Requires()
-            .IsTrue(_entity.BoolTrueProperty, "Bool")
-            .IsTrue(_entity.BoolTrueProperty, "Bool", "Custom message here")
-            .IsTrue(_entity.BoolFalseProperty, "Bool")
-            .IsTrue(_entity.BoolFalseProperty, "Bool", "Custom message here");
+            .IsTrue(isTrue, "IsTrue");
 
-        Assert.AreEqual(false, contract.IsValid);
-        Assert.AreEqual(contract.Notifications.Count, 2);
+        Assert.AreEqual(contract.IsValid, isValid);
     }
 
+    [DataRow(null, true)]
+    [DataRow(true, false)]
+    [DataRow(false, true)]
     [TestCategory("Bool Validation")]
     [TestMethod("Requires that a bool is false")]
-    public void RequiresBoolIsFalse()
+    public void RequiresBoolIsFalse(bool isTrue, bool isValid)
     {
         var contract = new Contract()
             .Requires()
-            .IsFalse(_entity.BoolTrueProperty, "Bool")
-            .IsFalse(_entity.BoolTrueProperty, "Bool", "Custom message here")
-            .IsFalse(_entity.BoolFalseProperty, "Bool")
-            .IsFalse(_entity.BoolFalseProperty, "Bool", "Custom message here");
+            .IsFalse(isTrue, "IsFalse");
 
-        Assert.AreEqual(false, contract.IsValid);
-        Assert.AreEqual(contract.Notifications.Count, 2);
+        Assert.AreEqual(contract.IsValid, isValid);
     }
 }
