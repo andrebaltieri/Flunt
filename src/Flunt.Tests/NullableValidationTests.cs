@@ -3,7 +3,7 @@ using Flunt.Validations;
 namespace Flunt.Tests;
 
 [TestClass]
-public class NullableValidationContractTests
+public class NullableValidationTests
 {
     [TestCategory("Nullable Validation")]
     [TestMethod("Requires that an object is null")]

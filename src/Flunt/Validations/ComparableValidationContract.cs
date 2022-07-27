@@ -12,11 +12,11 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract AreEquals<T>(T val, T comparer, string key, string message = "Values should be equals")
+    public Contract AreEquals<T>(T val, T comparer, string key, string message = "{0}({1}) should be equals to {2}")
         where T : IEquatable<T>
     {
         if (Comparer<T>.Default.Compare(val, comparer) != 0)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, val, comparer));
 
         return this;
     }
@@ -33,11 +33,12 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract AreNotEquals<T>(T val, T comparer, string key, string message = "Values should not be equals")
+    public Contract AreNotEquals<T>(T val, T comparer, string key,
+        string message = "{0}({1}) should not be equals to {2}")
         where T : IEquatable<T>
     {
         if (Comparer<T>.Default.Compare(val, comparer) == 0)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, val, comparer));
 
         return this;
     }
@@ -55,10 +56,10 @@ public partial class Contract
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
     public Contract IsGreaterThan<T>(T val, T comparer, string key,
-        string message = "Value should be greater than actual") where T : IEquatable<T>
+        string message = "{0}({1}) should be greater than {2}") where T : IEquatable<T>
     {
         if (Comparer<T>.Default.Compare(val, comparer) != 1)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, val, comparer));
 
         return this;
     }
@@ -76,10 +77,10 @@ public partial class Contract
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
     public Contract IsGreaterOrEqualsThan<T>(T val, T comparer, string key,
-        string message = "Value should be greater or equals than actual") where T : IEquatable<T>
+        string message = "{0}({1}) should be greater or equals than {2}") where T : IEquatable<T>
     {
         if (Comparer<T>.Default.Compare(val, comparer) < 0)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, val, comparer));
 
         return this;
     }
@@ -96,11 +97,11 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsLowerThan<T>(T val, T comparer, string key, string message = "Value should be lower than actual")
+    public Contract IsLowerThan<T>(T val, T comparer, string key, string message = "{0}({1}) should be lower than {2}")
         where T : IEquatable<T>
     {
         if (Comparer<T>.Default.Compare(val, comparer) != -1)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, val, comparer));
 
         return this;
     }
@@ -118,10 +119,10 @@ public partial class Contract
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
     public Contract IsLowerOrEqualsThan<T>(T val, T comparer, string key,
-        string message = "Value should be lower or equals than actual") where T : IEquatable<T>
+        string message = "{0}({1}) should be lower or equals than {2}") where T : IEquatable<T>
     {
         if (Comparer<T>.Default.Compare(val, comparer) > 0)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, val, comparer));
 
         return this;
     }

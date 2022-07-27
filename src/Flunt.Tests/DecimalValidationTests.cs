@@ -3,7 +3,7 @@ using Flunt.Validations;
 namespace Flunt.Tests;
 
 [TestClass]
-public class DecimalValidationContractTests
+public class DecimalValidationTests
 {
     [TestCategory("Decimal Validation")]
     [TestMethod("Requires a decimal is its min value")]

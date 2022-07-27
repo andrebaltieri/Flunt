@@ -3,7 +3,7 @@ using Flunt.Validations;
 namespace Flunt.Tests;
 
 [TestClass]
-public class IntValidationContractTests
+public class IntValidationTests
 {
     [TestCategory("Int Validation")]
     [TestMethod("Requires a int is its min value")]

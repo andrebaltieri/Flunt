@@ -3,7 +3,7 @@ using Flunt.Validations;
 namespace Flunt.Tests;
 
 [TestClass]
-public class StringValidationContractTests
+public class StringValidationTests
 {
     private readonly IEnumerable<string> _list = new List<string> { "Orange", "Apple", "Tomato" };
 

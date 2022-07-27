@@ -3,7 +3,7 @@ using Flunt.Validations;
 namespace Flunt.Tests;
 
 [TestClass]
-public class LongValidationContractTests
+public class LongValidationTests
 {
     [TestCategory("Long Validation")]
     [TestMethod("Requires a long is its min value")]

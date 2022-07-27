@@ -3,7 +3,7 @@ using Flunt.Validations;
 namespace Flunt.Tests;
 
 [TestClass]
-public class FloatValidationContractTests
+public class FloatValidationTests
 {
     [TestCategory("Float Validation")]
     [TestMethod("Requires a float is its min value")]

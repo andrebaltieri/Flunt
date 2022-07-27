@@ -3,7 +3,7 @@ using Flunt.Validations;
 namespace Flunt.Tests;
 
 [TestClass]
-public class ShortValidationContractTests
+public class ShortValidationTests
 {
     [TestCategory("Short Validation")]
     [TestMethod("Requires a short is its min value")]

@@ -3,7 +3,7 @@ using Flunt.Validations;
 namespace Flunt.Tests;
 
 [TestClass]
-public class ComparableValidationContractTests
+public class ComparableValidationTests
 {
     [TestCategory("Comparable Validation")]
     [TestMethod("Requires that two objects are equals")]
@@ -12,7 +12,7 @@ public class ComparableValidationContractTests
         var contract = new Contract()
             .Requires()
             // Add Notification
-            .AreEquals(1, 2, "AreEquals")
+            .AreEquals(1, 2, "AreEquals", "Custom message")
             // Do not Add Notification
             .AreEquals(2, 2, "AreEquals")
             // Add Notification

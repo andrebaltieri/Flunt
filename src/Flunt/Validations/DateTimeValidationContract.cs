@@ -14,10 +14,10 @@ public partial class Contract
     /// <param name="message">Customer error message</param>
     /// <returns></returns>
     public Contract IsBetween(DateTime val, DateTime start, DateTime end, string key,
-        string message = "Date should be between range")
+        string message = "{0} should be between {1} and {2}")
     {
         if ((val >= start && val <= end) == false)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, val, start, end));
 
         return this;
     }
@@ -36,10 +36,10 @@ public partial class Contract
     /// <param name="message">Customer error message</param>
     /// <returns></returns>
     public Contract IsNotBetween(DateTime val, DateTime start, DateTime end, string key,
-        string message = "Date should not be between range")
+        string message = "{0} should not be between {1} and {2}")
     {
         if ((val >= start && val <= end) == true)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, val, start, end));
 
         return this;
     }
@@ -55,10 +55,10 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsMinValue(DateTime val, string key, string message = "Date should be the default min value")
+    public Contract IsMinValue(DateTime val, string key, string message = "{0} should be min value")
     {
         if (val != DateTime.MinValue)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, val));
 
         return this;
     }
@@ -74,10 +74,10 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsNotMinValue(DateTime val, string key, string message = "Date should not be the default min value")
+    public Contract IsNotMinValue(DateTime val, string key, string message = "{0} should not be min value")
     {
         if (val == DateTime.MinValue)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, val));
 
         return this;
     }
@@ -93,10 +93,10 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsMaxValue(DateTime val, string key, string message = "Date should be the default max value")
+    public Contract IsMaxValue(DateTime val, string key, string message = "{0} should be max value")
     {
         if (val != DateTime.MaxValue)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, val));
 
         return this;
     }
@@ -112,10 +112,10 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsNotMaxValue(DateTime val, string key, string message = "Date should not be the default max value")
+    public Contract IsNotMaxValue(DateTime val, string key, string message = "{0} should not be max value")
     {
         if (val == DateTime.MaxValue)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, val));
 
         return this;
     }
@@ -133,10 +133,10 @@ public partial class Contract
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
     public Contract Contains(DateTime val, IEnumerable<DateTime> list, string key,
-        string message = "Date should contain value")
+        string message = "{0} should contain {1}")
     {
         if (list.Any(x => x == val) == false)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, val));
 
         return this;
     }
@@ -154,10 +154,10 @@ public partial class Contract
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
     public Contract NotContains(DateTime val, IEnumerable<DateTime> list, string key,
-        string message = "Date should not contain value")
+        string message = "{0} should not contain {1}")
     {
         if (list.Any(x => x == val) == true)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, val));
 
         return this;
     }

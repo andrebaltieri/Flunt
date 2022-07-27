@@ -3,7 +3,7 @@ using Flunt.Validations;
 namespace Flunt.Tests;
 
 [TestClass]
-public class DoubleValidationContractTests
+public class DoubleValidationTests
 {
     [TestCategory("Double Validation")]
     [TestMethod("Requires a double is its min value")]

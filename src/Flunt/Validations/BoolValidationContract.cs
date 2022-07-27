@@ -11,10 +11,10 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsFalse(bool val, string key, string message = "This should be false")
+    public Contract IsFalse(bool val, string key, string message = "{0} should be false")
     {
         if (val)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key));
 
         return this;
     }
@@ -30,10 +30,10 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsTrue(bool val, string key, string message = "This should be true")
+    public Contract IsTrue(bool val, string key, string message = "{0} should be true")
     {
         if (val == false)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key));
 
         return this;
     }

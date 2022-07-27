@@ -3,7 +3,7 @@ using Flunt.Validations;
 namespace Flunt.Tests;
 
 [TestClass]
-public class DocumentValidationContractTests
+public class DocumentValidationTests
 {
     [DataRow(null, false)]
     [DataRow("", false)]
