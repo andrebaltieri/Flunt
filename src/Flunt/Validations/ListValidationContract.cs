@@ -10,7 +10,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsEmpty<TList>(IEnumerable<TList> val, string key, string message = "{0} should be an empty list")
+    public Contract IsEmpty<TList>(IEnumerable<TList> val, string key = "",string message = "{0} should be an empty list")
     {
         if (val.Any())
             AddNotification(key, string.Format(message, key));

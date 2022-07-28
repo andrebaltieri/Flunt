@@ -11,7 +11,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsEmail(string val, string key, string message = "Invalid E-mail")
+    public Contract IsEmail(string val, string key = "", string message = "Invalid E-mail")
         => Matches(val, EmailRegexPattern, key, message);
 
     /// <summary>
@@ -21,7 +21,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsEmailOrEmpty(string val, string key, string message = "Invalid E-mail")
+    public Contract IsEmailOrEmpty(string val, string key = "", string message = "Invalid E-mail")
         => string.IsNullOrEmpty(val) ? this : IsEmail(val, key, message);
 
     /// <summary>
@@ -31,6 +31,6 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNotEmail(string val, string key, string message = "String should not be an email")
+    public Contract IsNotEmail(string val, string key = "", string message = "String should not be an email")
         => NotMatches(val, EmailRegexPattern, key, message);
 }

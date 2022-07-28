@@ -11,7 +11,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNullOrEmpty(string val, string key, string message = "{0} should be null or empty")
+    public Contract IsNullOrEmpty(string val, string key = "",string message = "{0} should be null or empty")
     {
         if (string.IsNullOrEmpty(val) == false)
             AddNotification(key, string.Format(message, key));
@@ -26,7 +26,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNotNullOrEmpty(string val, string key, string message = "{0} should not be null or empty")
+    public Contract IsNotNullOrEmpty(string val, string key = "",string message = "{0} should not be null or empty")
     {
         if (string.IsNullOrEmpty(val))
             AddNotification(key, string.Format(message, key));
@@ -41,7 +41,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNullOrWhiteSpace(string val, string key, string message = "{0} should be null or white space")
+    public Contract IsNullOrWhiteSpace(string val, string key = "",string message = "{0} should be null or white space")
     {
         if (string.IsNullOrWhiteSpace(val) == false)
             AddNotification(key, string.Format(message, key));

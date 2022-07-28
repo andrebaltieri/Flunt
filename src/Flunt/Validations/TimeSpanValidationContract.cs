@@ -45,7 +45,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsMinValue(TimeSpan val, string key, string message = "{0} should be {1}")
+    public Contract IsMinValue(TimeSpan val, string key = "",string message = "{0} should be {1}")
     {
         if (val != TimeSpan.MinValue)
             AddNotification(key, string.Format(message, key, TimeSpan.MinValue));
@@ -60,7 +60,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsNotMinValue(TimeSpan val, string key, string message = "{0} should not be {1}")
+    public Contract IsNotMinValue(TimeSpan val, string key = "",string message = "{0} should not be {1}")
     {
         if (val == TimeSpan.MinValue)
             AddNotification(key, string.Format(message, key, TimeSpan.MinValue));
@@ -75,7 +75,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsMaxValue(TimeSpan val, string key, string message = "{0} should be {1}")
+    public Contract IsMaxValue(TimeSpan val, string key = "",string message = "{0} should be {1}")
     {
         if (val != TimeSpan.MaxValue)
             AddNotification(key, string.Format(message, key, TimeSpan.MaxValue));
@@ -90,7 +90,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsNotMaxValue(TimeSpan val, string key, string message = "{0} should not be {1}")
+    public Contract IsNotMaxValue(TimeSpan val, string key = "",string message = "{0} should not be {1}")
     {
         if (val == TimeSpan.MaxValue)
             AddNotification(key, string.Format(message, key, TimeSpan.MaxValue));

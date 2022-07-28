@@ -12,7 +12,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsUrl(string val, string key, string message = "String should be an URL") =>
+    public Contract IsUrl(string val, string key = "", string message = "String should be an URL") =>
         Matches(val, UrlRegexPattern, key, message);
 
     /// <summary>
@@ -22,7 +22,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsUrlOrEmpty(string val, string key, string message = "String should be empty or an URL")
+    public Contract IsUrlOrEmpty(string val, string key = "", string message = "String should be empty or an URL")
         => string.IsNullOrEmpty(val) ? this : Matches(val, UrlRegexPattern, key, message);
 
     /// <summary>
@@ -32,7 +32,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNotUrl(string val, string key, string message = "String should not be an URL") =>
+    public Contract IsNotUrl(string val, string key = "", string message = "String should not be an URL") =>
         NotMatches(val, UrlRegexPattern, key, message);
 
     /// <summary>
@@ -42,6 +42,6 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNotUrlOrEmpty(string val, string key, string message = "String should be empty or not be an URL")
+    public Contract IsNotUrlOrEmpty(string val, string key = "", string message = "String should be empty or not be an URL")
         => string.IsNullOrEmpty(val) ? this : NotMatches(val, UrlRegexPattern, key, message);
 }

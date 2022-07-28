@@ -12,7 +12,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract Matches(string val, string pattern, string key, string message = "{0} does not matches the pattern")
+    public Contract Matches(string val, string pattern, string key = "",string message = "{0} does not matches the pattern")
     {
         if (!Regex.IsMatch(val ?? "", pattern))
             AddNotification(key, string.Format(message, key));

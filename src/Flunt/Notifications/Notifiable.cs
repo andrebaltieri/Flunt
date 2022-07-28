@@ -23,28 +23,25 @@ public abstract class Notifiable
 
     #region Public Methods
 
-    public void AddNotification(string key, string message) 
+    protected void AddNotification(string key, string message)
         => _notifications.Add(new Notification(key, message));
 
-    public void AddNotification(Notification notification) 
-        => _notifications.Add(notification);
-
-    public void AddNotification(Type property, string message) 
-        => _notifications.Add(new Notification(property.Name ?? string.Empty, message));
-
-    public void AddNotifications(IEnumerable<Notification> notifications) 
+    protected void AddNotifications(IEnumerable<Notification> notifications)
         => _notifications.AddRange(notifications);
 
-    public void AddNotifications(Notifiable item) 
+    private void AddNotifications(Notifiable item)
         => AddNotifications(item.Notifications);
 
-    public void AddNotifications(params Notifiable[] items)
+    protected void Assert(Notifiable item)
+        => AddNotifications(item.Notifications);
+
+    protected void AddNotifications(params Notifiable[] items)
     {
         foreach (var item in items)
             AddNotifications(item);
     }
 
-    public void Clear() 
+    public void Clear()
         => _notifications.Clear();
 
     #endregion

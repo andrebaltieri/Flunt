@@ -11,7 +11,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsCreditCard(string val, string key, string message = "Invalid Credit Card number")
+    public Contract IsCreditCard(string val, string key = "",string message = "Invalid Credit Card number")
     {
         val = Regex.Replace(val, @"[^0-9]+", "");
 

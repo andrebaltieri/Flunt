@@ -11,7 +11,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsMinValue(long val, string key, string message = "{0} should be {1}")
+    public Contract IsMinValue(long val, string key = "",string message = "{0} should be {1}")
     {
         if (val != long.MinValue)
             AddNotification(key, string.Format(message, key, long.MinValue));
@@ -30,7 +30,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNotMinValue(long val, string key, string message = "{0} should not be {1}")
+    public Contract IsNotMinValue(long val, string key = "",string message = "{0} should not be {1}")
     {
         if (val == long.MinValue)
             AddNotification(key, string.Format(message, key, long.MinValue));
@@ -49,7 +49,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsMaxValue(long val, string key, string message = "{0} should be {1}")
+    public Contract IsMaxValue(long val, string key = "",string message = "{0} should be {1}")
     {
         if (val != long.MaxValue)
             AddNotification(key, string.Format(message, key, long.MaxValue));
@@ -68,7 +68,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNotMaxValue(long val, string key, string message = "{0} should not be {1}")
+    public Contract IsNotMaxValue(long val, string key = "",string message = "{0} should not be {1}")
     {
         if (val == long.MaxValue)
             AddNotification(key, string.Format(message, key, long.MinValue));

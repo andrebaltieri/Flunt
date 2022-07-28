@@ -11,7 +11,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsNull(object? val, string key, string message = "{0} should be null")
+    public Contract IsNull(object? val, string key = "",string message = "{0} should be null")
     {
         if (val is not null)
             AddNotification(key, string.Format(message, key));
@@ -30,7 +30,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsNotNull(object? val, string key, string message = "{0} should be null")
+    public Contract IsNotNull(object? val, string key = "",string message = "{0} should be null")
     {
         if (val is null)
             AddNotification(key, string.Format(message, key));

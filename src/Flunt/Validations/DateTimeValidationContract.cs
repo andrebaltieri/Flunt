@@ -13,7 +13,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Customer error message</param>
     /// <returns></returns>
-    public Contract IsBetween(DateTime val, DateTime start, DateTime end, string key,
+    public Contract IsBetween(DateTime val, DateTime start, DateTime end, string key = "",
         string message = "{0} should be between {1} and {2}")
     {
         if ((val >= start && val <= end) == false)
@@ -35,7 +35,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Customer error message</param>
     /// <returns></returns>
-    public Contract IsNotBetween(DateTime val, DateTime start, DateTime end, string key,
+    public Contract IsNotBetween(DateTime val, DateTime start, DateTime end, string key = "",
         string message = "{0} should not be between {1} and {2}")
     {
         if ((val >= start && val <= end) == true)
@@ -55,7 +55,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsMinValue(DateTime val, string key, string message = "{0} should be min value")
+    public Contract IsMinValue(DateTime val, string key = "", string message = "{0} should be min value")
     {
         if (val != DateTime.MinValue)
             AddNotification(key, string.Format(message, val));
@@ -74,7 +74,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsNotMinValue(DateTime val, string key, string message = "{0} should not be min value")
+    public Contract IsNotMinValue(DateTime val, string key = "", string message = "{0} should not be min value")
     {
         if (val == DateTime.MinValue)
             AddNotification(key, string.Format(message, val));
@@ -93,7 +93,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsMaxValue(DateTime val, string key, string message = "{0} should be max value")
+    public Contract IsMaxValue(DateTime val, string key = "", string message = "{0} should be max value")
     {
         if (val != DateTime.MaxValue)
             AddNotification(key, string.Format(message, val));
@@ -112,7 +112,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract IsNotMaxValue(DateTime val, string key, string message = "{0} should not be max value")
+    public Contract IsNotMaxValue(DateTime val, string key = "", string message = "{0} should not be max value")
     {
         if (val == DateTime.MaxValue)
             AddNotification(key, string.Format(message, val));
@@ -132,7 +132,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract Contains(DateTime val, IEnumerable<DateTime> list, string key,
+    public Contract Contains(DateTime val, IEnumerable<DateTime> list, string key = "",
         string message = "{0} should contain {1}")
     {
         if (list.Any(x => x == val) == false)
@@ -153,7 +153,7 @@ public partial class Contract
     /// <param name="key">Key or Property Name</param>
     /// <param name="message">Custom error message</param>
     /// <returns></returns>
-    public Contract NotContains(DateTime val, IEnumerable<DateTime> list, string key,
+    public Contract NotContains(DateTime val, IEnumerable<DateTime> list, string key = "",
         string message = "{0} should not contain {1}")
     {
         if (list.Any(x => x == val) == true)
