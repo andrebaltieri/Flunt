@@ -11,10 +11,10 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsMinValue(short val, string key, string message = "Short should be min value")
+    public Contract IsMinValue(short val, string key, string message = "{0} should be {1}")
     {
         if (val != short.MinValue)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, short.MinValue));
 
         return this;
     }
@@ -30,10 +30,10 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNotMinValue(short val, string key, string message = "Short should not be min value")
+    public Contract IsNotMinValue(short val, string key, string message = "{0} should not be {1}")
     {
         if (val == short.MinValue)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, short.MinValue));
 
         return this;
     }
@@ -49,10 +49,10 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsMaxValue(short val, string key, string message = "Short should be max value")
+    public Contract IsMaxValue(short val, string key, string message = "{0} should be {1}")
     {
         if (val != short.MaxValue)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, short.MaxValue));
 
         return this;
     }
@@ -68,10 +68,10 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNotMaxValue(short val, string key, string message = "Short should not be max value")
+    public Contract IsNotMaxValue(short val, string key, string message = "{0} should not be {1}")
     {
         if (val == short.MaxValue)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, short.MinValue));
 
         return this;
     }
@@ -90,10 +90,10 @@ public partial class Contract
     /// <param name="message"></param>
     /// <returns></returns>
     public Contract IsBetween(short val, short start, short end, string key,
-        string message = "Short should be between range")
+        string message = "{0} should be between {1} and {2}")
     {
         if ((val >= start && val <= end) == false)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, start, end));
 
         return this;
     }
@@ -112,10 +112,10 @@ public partial class Contract
     /// <param name="message"></param>
     /// <returns></returns>
     public Contract IsNotBetween(short val, short start, short end, string key,
-        string message = "Short should not be between range")
+        string message = "{0} should not be between {1} and {2}")
     {
         if ((val >= start && val <= end) == true)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, start, end));
 
         return this;
     }
@@ -133,10 +133,10 @@ public partial class Contract
     /// <param name="message"></param>
     /// <returns></returns>
     public Contract Contains(short val, IEnumerable<short> list, string key,
-        string message = "Short should contains a specific value")
+        string message = "{0} should contains the value {1}")
     {
         if (list.Any(x => x == val) == false)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, val));
 
         return this;
     }
@@ -154,10 +154,10 @@ public partial class Contract
     /// <param name="message"></param>
     /// <returns></returns>
     public Contract NotContains(short val, IEnumerable<short> list, string key,
-        string message = "Short should not contains a specific value")
+        string message = "{0} should not contains the value {1}")
     {
         if (list.Any(x => x == val) == true)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, val));
 
         return this;
     }

@@ -9,10 +9,10 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsEmpty(Guid val, string key, string message = "Guid should be empty")
+    public Contract IsEmpty(Guid val, string key, string message = "{0} should be an empty guid")
     {
         if (val != Guid.Empty)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key));
 
         return this;
     }
@@ -24,10 +24,10 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNotEmpty(Guid val, string key, string message = "Guid should not be empty")
+    public Contract IsNotEmpty(Guid val, string key, string message = "{0} should not be an empty guid")
     {
         if (val == Guid.Empty)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key));
 
         return this;
     }

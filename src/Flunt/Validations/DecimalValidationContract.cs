@@ -71,7 +71,7 @@ public partial class Contract
     public Contract IsNotMaxValue(decimal val, string key, string message = "{0} should not be {1}")
     {
         if (val == decimal.MaxValue)
-            AddNotification(key, string.Format(message, key, decimal.MaxValue));
+            AddNotification(key, string.Format(message, key, decimal.MinValue));
 
         return this;
     }

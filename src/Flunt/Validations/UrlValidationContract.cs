@@ -22,7 +22,7 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsUrlOrEmpty(string val, string key, string message = "string should be empty or an URL")
+    public Contract IsUrlOrEmpty(string val, string key, string message = "String should be empty or an URL")
         => string.IsNullOrEmpty(val) ? this : Matches(val, UrlRegexPattern, key, message);
 
     /// <summary>

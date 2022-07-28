@@ -11,10 +11,10 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNullOrEmpty(string val, string key, string message = "String should be null or empty")
+    public Contract IsNullOrEmpty(string val, string key, string message = "{0} should be null or empty")
     {
         if (string.IsNullOrEmpty(val) == false)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key));
 
         return this;
     }
@@ -26,10 +26,10 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNotNullOrEmpty(string val, string key, string message = "String should not be null or empty")
+    public Contract IsNotNullOrEmpty(string val, string key, string message = "{0} should not be null or empty")
     {
         if (string.IsNullOrEmpty(val))
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key));
 
         return this;
     }
@@ -41,10 +41,10 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract IsNullOrWhiteSpace(string val, string key, string message = "String should be null or white space")
+    public Contract IsNullOrWhiteSpace(string val, string key, string message = "{0} should be null or white space")
     {
         if (string.IsNullOrWhiteSpace(val) == false)
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key));
 
         return this;
     }
@@ -57,10 +57,10 @@ public partial class Contract
     /// <param name="message"></param>
     /// <returns></returns>
     public Contract IsNotNullOrWhiteSpace(string val, string key,
-        string message = "String should not be null or white space")
+        string message = "{0} should not be null or white space")
     {
         if (string.IsNullOrWhiteSpace(val))
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key));
 
         return this;
     }
@@ -75,10 +75,10 @@ public partial class Contract
     /// <param name="message"></param>
     /// <returns></returns>
     public Contract AreEquals(string val, string comparer, StringComparison comparison, string key,
-        string message = "Strings should be equals")
+        string message = "{0} and {1} should be equals")
     {
         if (!val.Equals(comparer, comparison))
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, val, comparer));
 
         return this;
     }
@@ -93,10 +93,10 @@ public partial class Contract
     /// <param name="message"></param>
     /// <returns></returns>
     public Contract AreNotEquals(string val, string comparer, StringComparison comparison, string key,
-        string message = "Strings should not be equals")
+        string message = "{0} and {1} should not be equals")
     {
         if (val.Equals(comparer, comparison))
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, val, comparer));
 
         return this;
     }
@@ -111,10 +111,10 @@ public partial class Contract
     /// <param name="message"></param>
     /// <returns></returns>
     public Contract Contains(IEnumerable<string> list, string val, StringComparison comparison, string key,
-        string message = "List should contains string")
+        string message = "{0} should contains the value {1}")
     {
         if (!list.Contains(val, comparison))
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, val));
 
         return this;
     }
@@ -129,10 +129,10 @@ public partial class Contract
     /// <param name="message"></param>
     /// <returns></returns>
     public Contract NotContains(IEnumerable<string> list, string val, StringComparison comparison, string key,
-        string message = "List should not contains string")
+        string message = "{0} should not contains the value {1}")
     {
         if (list.Contains(val, comparison))
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key, val));
 
         return this;
     }

@@ -12,10 +12,10 @@ public partial class Contract
     /// <param name="key"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public Contract Matches(string val, string pattern, string key, string message = "String does not matches regex")
+    public Contract Matches(string val, string pattern, string key, string message = "{0} does not matches the pattern")
     {
         if (!Regex.IsMatch(val ?? "", pattern))
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key));
 
         return this;
     }
@@ -29,10 +29,10 @@ public partial class Contract
     /// <param name="message"></param>
     /// <returns></returns>
     public Contract NotMatches(string val, string pattern, string key,
-        string message = "String should not matches regex")
+        string message = "{0} should not matches the pattern")
     {
         if (Regex.IsMatch(val ?? "", pattern))
-            AddNotification(key, message);
+            AddNotification(key, string.Format(message, key));
 
         return this;
     }
