@@ -1,82 +1,81 @@
-﻿using Flunt.Notifications;
-using Flunt.Validations;
+﻿using Flunt.Samples.Entities;
+using Flunt.Samples.Handlers;
+using Flunt.Samples.ValueObjects;
 
-var name = new Name("John", "Petrucci", "john@dreamtheater.net", "https://dreamtheater.net");
-if (name.IsValid == false)
+// HappyWay();
+// InvalidValueObjects();
+
+// InvalidHandler();
+ValidHandler();
+
+static void HappyWay()
 {
-    foreach (var notification in name.Notifications)
+    var name = new Name("John", "Sullivan");
+    var email = new Email("jsullivan@email.com");
+    var customer = new Customer(name, email);
+
+    Console.WriteLine($"Customer Notifications");
+    foreach (var notification in customer.Notifications)
         Console.WriteLine($"{notification.Key} - {notification.Message}");
+    Console.WriteLine($"---");
 }
 
-Console.WriteLine();
-Console.WriteLine("-----------");
-Console.WriteLine();
-
-name.UpdateEmail("invalid");
-if (name.IsValid == false)
+static void InvalidValueObjects()
 {
+    var name = new Name("", "");
+    var email = new Email("invalidemail.com");
+    var customer = new Customer(name, email);
+
+    Console.WriteLine($"Name Notifications");
     foreach (var notification in name.Notifications)
         Console.WriteLine($"{notification.Key} - {notification.Message}");
-}
+    Console.WriteLine($"---");
 
-Console.WriteLine();
-Console.WriteLine("-----------");
-Console.WriteLine();
-
-name = new Name("In", "Va", "lid", "name");
-if (name.IsValid == false)
-{
-    foreach (var notification in name.Notifications)
+    Console.WriteLine($"Email Notifications");
+    foreach (var notification in email.Notifications)
         Console.WriteLine($"{notification.Key} - {notification.Message}");
+    Console.WriteLine($"---");
+
+    Console.WriteLine($"Customer Notifications");
+    foreach (var notification in customer.Notifications)
+        Console.WriteLine($"{notification.Key} - {notification.Message}");
+    Console.WriteLine($"---");
 }
 
-name.Clear();
-
-Console.WriteLine();
-Console.WriteLine("End!");
-
-public class Name : Notifiable
+static void InvalidHandler()
 {
-    public Name(
-        string firstName,
-        string lastName,
-        string email,
-        string webSite)
+    var handler = new Handler();
+    var request = new Request("", "", "invalidemail.com");
+    try
     {
-        FirstName = firstName;
-        LastName = lastName;
-        Email = email.Trim().ToLower();
-        WebSite = webSite;
-
-        Assert(this.CanCreateName());
+        var response = handler.Handle(request);
+        Console.WriteLine(response.Message);
     }
-
-    public string FirstName { get; }
-    public string LastName { get; }
-    public string Email { get; private set; }
-    public string WebSite { get; }
-    
-    public void UpdateEmail(string email)
+    catch (Exception e)
     {
-        Email = email.Trim().ToLower();
-        Assert(this.CanUpdateEmail());
+        Console.WriteLine(e);
+        Console.WriteLine($"Handler Notifications");
+        foreach (var notification in handler.Notifications)
+            Console.WriteLine($"{notification.Key} - {notification.Message}");
+        Console.WriteLine($"---");
     }
 }
 
-public static class NameAssertions
+static void ValidHandler()
 {
-    public static Contract CanCreateName(this Name name)
-        => new Contract()
-            .IsNotNull(name.FirstName, "SomeKey", "Custom message")
-            .IsGreaterOrEqualsThan(name.FirstName.Length, 3, "Name", "Name should have more than 3 chars")
-            .IsLowerOrEqualsThan(name.FirstName.Length, 20)
-            .IsNotNull(name.LastName, "LastName")
-            .IsGreaterOrEqualsThan(name.LastName.Length, 3)
-            .IsLowerOrEqualsThan(name.LastName.Length, 20)
-            .IsEmail(name.Email, "Email")
-            .IsUrl(name.WebSite);
-    
-    public static Contract CanUpdateEmail(this Name name)
-        => new Contract()
-            .IsEmail(name.Email, "UpdatedEmail", "Updated email is not valid");
+    var handler = new Handler();
+    var request = new Request("John", "Sullivan", "jsullivan@email.com");
+    try
+    {
+        var response = handler.Handle(request);
+        Console.WriteLine(response.Message);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e);
+        Console.WriteLine($"Handler Notifications");
+        foreach (var notification in handler.Notifications)
+            Console.WriteLine($"{notification.Key} - {notification.Message}");
+        Console.WriteLine($"---");
+    }
 }

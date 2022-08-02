@@ -21,26 +21,47 @@ public abstract class Notifiable
 
     #endregion
 
-    #region Public Methods
-
-    protected void AddNotification(string key, string message)
-        => _notifications.Add(new Notification(key, message));
-
-    protected void AddNotifications(IEnumerable<Notification> notifications)
-        => _notifications.AddRange(notifications);
+    #region Methods
 
     private void AddNotifications(Notifiable item)
         => AddNotifications(item.Notifications);
 
+    /// <summary>
+    /// Add a new notification
+    /// </summary>
+    /// <param name="key">Key</param>
+    /// <param name="message">Message</param>
+    protected void AddNotification(string key, string message)
+        => _notifications.Add(new Notification(key, message));
+
+    /// <summary>
+    /// Add a list of notifications
+    /// </summary>
+    /// <param name="notifications">Notifications</param>
+    protected void AddNotifications(IEnumerable<Notification> notifications)
+        => _notifications.AddRange(notifications);
+
+    /// <summary>
+    /// Add notifications from another Notifiable item
+    /// This is a syntax sugar for AddNotifications(Notifiable item)
+    /// </summary>
+    /// <param name="item">Notifible</param>
     protected void Assert(Notifiable item)
         => AddNotifications(item.Notifications);
 
-    protected void AddNotifications(params Notifiable[] items)
+    /// <summary>
+    /// Append notifications from other notifiable items
+    /// </summary>
+    /// <param name="items">Notifiable</param>
+    protected void AppendNotifications(params Notifiable[] items)
     {
         foreach (var item in items)
             AddNotifications(item);
     }
 
+    /// <summary>
+    /// Clear all notifications
+    /// </summary>
     public void Clear()
         => _notifications.Clear();
 
