@@ -1,19 +1,21 @@
 ﻿namespace Flunt.Notifications
 {
-    public class Notification
+    public class Notification : INotification
     {
         public Notification()
         {
 
         }
 
-        public Notification(string key, string message)
+        public Notification(string key, string message, string localization)
         {
-            Key = key;
+            Action = key;
             Message = message;
+            Localization = localization;
         }
 
-        public string Key { get; set; }
+        public string Action { get; set; }
         public string Message { get; set; }
+        public string Localization { get; set; }
     }
 }

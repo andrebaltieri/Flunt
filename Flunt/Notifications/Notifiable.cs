@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Flunt.Notifications
 {
-    public abstract class Notifiable<T> where T : Notification
+    public abstract class Notifiable<T> where T : INotification
     {
         private readonly List<T> _notifications;
 
