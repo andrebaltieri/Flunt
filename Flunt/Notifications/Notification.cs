@@ -7,15 +7,13 @@
 
         }
 
-        public Notification(string key, string message, string localization)
+        public Notification(string key, string message)
         {
-            Action = key;
+            Key = key;
             Message = message;
-            Localization = localization;
         }
 
-        public string Action { get; set; }
+        public string Key { get; set; }
         public string Message { get; set; }
-        public string Localization { get; set; }
     }
 }
