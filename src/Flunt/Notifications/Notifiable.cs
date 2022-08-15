@@ -4,19 +4,19 @@ public abstract class Notifiable
 {
     #region Private Variables
 
-    private readonly List<Notification> _notifications;
+    private readonly List<INotification> _notifications;
 
     #endregion
 
     #region Constructors
 
-    protected Notifiable() => _notifications = new List<Notification>();
+    protected Notifiable() => _notifications = new List<INotification>();
 
     #endregion
 
     #region Properties
 
-    public IReadOnlyCollection<Notification> Notifications => _notifications;
+    public IReadOnlyCollection<INotification> Notifications => _notifications;
     public bool IsValid => _notifications.Any() == false;
 
     #endregion
@@ -38,7 +38,7 @@ public abstract class Notifiable
     /// Add a list of notifications
     /// </summary>
     /// <param name="notifications">Notifications</param>
-    protected void AddNotifications(IEnumerable<Notification> notifications)
+    protected void AddNotifications(IEnumerable<INotification> notifications)
         => _notifications.AddRange(notifications);
 
     /// <summary>

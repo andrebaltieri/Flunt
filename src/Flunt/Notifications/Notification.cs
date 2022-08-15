@@ -1,6 +1,6 @@
 ﻿namespace Flunt.Notifications;
 
-public sealed class Notification
+public sealed class Notification : INotification
 {
     public Notification(string key, string message)
     {
