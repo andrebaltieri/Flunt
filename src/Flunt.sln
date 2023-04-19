@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flunt", "Flunt\Flunt.csproj", "{EEE79AF9-8577-42D4-88C6-BD8DF93FD92C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flunt", "Flunt\Flunt.csproj", "{D0DAA0A2-53C8-4376-A396-EC109C89BA04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flunt.Tests", "Flunt.Tests\Flunt.Tests.csproj", "{02A8AEB2-0F71-4BDE-916A-6284577DDE67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flunt.Test", "Flunt.Test\Flunt.Test.csproj", "{B631709B-DD4E-4093-B815-BD9556E6B8F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flunt.Samples", "Flunt.Samples\Flunt.Samples.csproj", "{7F2C93AF-ACD9-41C3-BB61-90270BD5D7CE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{728BD333-BCC5-499F-9020-410E9DEDF783}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flunt.Samples.ConsoleApp", "Flunt.Samples.ConsoleApp\Flunt.Samples.ConsoleApp.csproj", "{F7CDCE25-38D0-471F-AD56-3E1B95948AC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,17 +20,20 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EEE79AF9-8577-42D4-88C6-BD8DF93FD92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EEE79AF9-8577-42D4-88C6-BD8DF93FD92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EEE79AF9-8577-42D4-88C6-BD8DF93FD92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EEE79AF9-8577-42D4-88C6-BD8DF93FD92C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02A8AEB2-0F71-4BDE-916A-6284577DDE67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02A8AEB2-0F71-4BDE-916A-6284577DDE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02A8AEB2-0F71-4BDE-916A-6284577DDE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02A8AEB2-0F71-4BDE-916A-6284577DDE67}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F2C93AF-ACD9-41C3-BB61-90270BD5D7CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F2C93AF-ACD9-41C3-BB61-90270BD5D7CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F2C93AF-ACD9-41C3-BB61-90270BD5D7CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F2C93AF-ACD9-41C3-BB61-90270BD5D7CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0DAA0A2-53C8-4376-A396-EC109C89BA04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0DAA0A2-53C8-4376-A396-EC109C89BA04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0DAA0A2-53C8-4376-A396-EC109C89BA04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0DAA0A2-53C8-4376-A396-EC109C89BA04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B631709B-DD4E-4093-B815-BD9556E6B8F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B631709B-DD4E-4093-B815-BD9556E6B8F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B631709B-DD4E-4093-B815-BD9556E6B8F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B631709B-DD4E-4093-B815-BD9556E6B8F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7CDCE25-38D0-471F-AD56-3E1B95948AC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7CDCE25-38D0-471F-AD56-3E1B95948AC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7CDCE25-38D0-471F-AD56-3E1B95948AC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7CDCE25-38D0-471F-AD56-3E1B95948AC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F7CDCE25-38D0-471F-AD56-3E1B95948AC8} = {728BD333-BCC5-499F-9020-410E9DEDF783}
 	EndGlobalSection
 EndGlobal

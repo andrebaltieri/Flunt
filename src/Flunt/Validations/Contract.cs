@@ -1,18 +1,16 @@
-﻿using Flunt.Notifications;
+using Flunt.Notifications;
+using Flunt.Notifications.Contracts;
 
 namespace Flunt.Validations;
 
-public partial class Contract : Notifiable
+public partial class Contract<TNotification> : Notifiable<TNotification> where TNotification : INotification
 {
-    public Contract Requires()
-        => this;
-
-    public Contract Join(params Notifiable[] items)
+    public Contract<TNotification> Requires()
     {
-        foreach (var notifiable in items)
-            if (notifiable.IsValid == false)
-                AddNotifications(notifiable.Notifications);
-
         return this;
     }
+}
+
+public partial class Contract : Contract<Notification>
+{
 }
