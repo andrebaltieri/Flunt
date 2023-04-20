@@ -3,7 +3,7 @@ using Flunt.Validations;
 namespace Flunt.Test.Validations;
 
 [TestClass]
-public class AreEqualsTest
+public class AreEqualTest
 {
     private object objA = 0;
     private object objB = 1;
@@ -51,7 +51,6 @@ public class AreEqualsTest
             .AreEqual<string>("a", "b")
             // dynamic
             .AreEqual(dynA, dynB);
-        ;
 
         Assert.IsFalse(contract.IsValid);
         Assert.AreEqual(18, contract.Notifications.Count);
