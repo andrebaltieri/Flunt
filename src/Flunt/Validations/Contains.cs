@@ -2,19 +2,25 @@ namespace Flunt.Validations;
 
 public partial class Contract<TNotification>
 {
-    public Contract<TNotification> Contains<TValue>(IEnumerable<TValue> value, TValue item, string key = "",
-        string message = "{0} should contains {1}")
+    public Contract<TNotification> Contains<TValue>(
+        IEnumerable<TValue> list, 
+        TValue item, 
+        string key = "",
+        string value = "List should contains {1}")
     {
-        if (!value.Contains(item))
-            AddNotification(key, message);
+        if (!list.Contains(item))
+            AddNotification(key, string.Format(value, item));
 
         return this;
     }
     
-    public Contract<TNotification> Contains(string value, string item, string key = "",
-        string message = "{0} should contains {1}")
+    public Contract<TNotification> Contains(
+        string text, 
+        string value, 
+        string key = "",
+        string message = "Text should contains value {1}")
     {
-        if (!value.Contains(item))
+        if (!text.Contains(value))
             AddNotification(key, message);
 
         return this;
