@@ -41,10 +41,12 @@ public class IsGreaterOrEqualsThanTest
             // ushort;
             .IsGreaterOrEqualsThan<ushort>(0, 1)
             // string
-            .IsGreaterOrEqualsThan<string>("a", "b");
+            .IsGreaterOrEqualsThan<string>("a", "b")
+            // DateTime
+            .IsGreaterOrEqualsThan<DateTime>(DateTime.Now, DateTime.Now.AddDays(1));
 
         Assert.IsFalse(contract.IsValid);
-        Assert.AreEqual(16, contract.Notifications.Count);
+        Assert.AreEqual(17, contract.Notifications.Count);
     }
 
     [TestMethod]
@@ -99,7 +101,10 @@ public class IsGreaterOrEqualsThanTest
             .IsGreaterOrEqualsThan<ushort>(1, 1)
             // string
             .IsGreaterOrEqualsThan<string>("b", "a")
-            .IsGreaterOrEqualsThan<string>("a", "a");
+            .IsGreaterOrEqualsThan<string>("a", "a")
+            // DateTime
+            .IsGreaterOrEqualsThan<DateTime>(DateTime.Now.AddDays(2), DateTime.Now)
+            .IsGreaterOrEqualsThan<DateTime>(DateTime.Now.Date, DateTime.Now.Date);
 
         Assert.IsTrue(contract.IsValid);
         Assert.AreEqual(0, contract.Notifications.Count);
