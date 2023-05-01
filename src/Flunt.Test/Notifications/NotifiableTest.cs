@@ -6,9 +6,6 @@ namespace Flunt.Test.Notifications;
 public class NotifiableTest
 {
     [TestMethod]
-    public void ShouldBeAbleToGetAllNotifications() => Assert.Fail();
-
-    [TestMethod]
     public void ShouldBeAbleToAddNotificationUsingKeyAndMessage()
     {
         var student = new Student();
