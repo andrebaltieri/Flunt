@@ -7,18 +7,18 @@ Console.WriteLine("Hello, World!");
 //
 // #region Self Validated Entity
 //
-// public class Student : Notifiable, IValidatable
-// {
-//     public bool IsActive { get; set; }
-//
-//     public void Validate()
-//     {
-//         AddNotifications(new Contract()
-//             .Requires()
-//             .IsTrue(IsActive, "Student", "Student is not active")
-//         );
-//     }
-// }
+public class Student : Notifiable, IValidatable
+{
+    public bool IsActive { get; set; }
+
+    public void Validate()
+    {
+        AddNotifications(new Contract()
+            .Requires()
+            .IsGreaterThan(3, 5, "", "")
+        );
+    }
+}
 //
 // #endregion
 //

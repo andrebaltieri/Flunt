@@ -3,14 +3,14 @@ namespace Flunt.Validations;
 public partial class Contract<TNotification>
 {
     /// <summary>
-    /// Requires a value is not null
+    /// Requires a bool is false
     /// </summary>
-    public Contract<TNotification> IsNotNull<TValue>(
-        TValue? val, 
+    public Contract<TNotification> IsFalse(
+        bool val, 
         string key = "",
-        string value = "Value should not be null")
+        string value = "Value should be false")
     {
-        if (val is null)
+        if (val == true)
             AddNotification(key, value);
 
         return this;
