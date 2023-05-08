@@ -6,7 +6,7 @@ namespace Flunt.Test.Validations;
 public class IsLowerOrEqualsThanTest
 {
     [TestMethod]
-    public void ShouldAddNotificationWhenValueIsGreaterThan()
+    public void ShouldAddNotificationWhenValueIsLowerOrEqualsThan()
     {
         var contract = new Contract()
             .Requires()
